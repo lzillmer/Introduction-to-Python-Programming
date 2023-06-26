@@ -1,16 +1,43 @@
-# print(message) - takes as input a message as string and prints it in console
+## print(message) - takes as input a message as string and prints it in console
 print("Hello, world")
 
-# print(type(myVariable)) - shows data type
+## print(type(myVariable)) - shows data type
 myVariable = 5
 print(type(myVariable))
 
-# converting between data types
+## converting between data types, use:
+# str(variable)
+# int(variable)
+# bool(variable) - Python lets you convert anything to a boolean
+# float(variable)
+
 myNumber = 5
 print(type(myNumber))
 myNumberAsString = str(myNumber)
 print(type(myNumberAsString)
 
 print("Today's date: " + str(date.today()))
-print("Today's date:", date.today())           # prints the same thing
+print("Today's date:", date.today()) ## prints the same thing
+
+myIntAsString = "5"
+myIntAsInt = int(myIntAsString)
+print(myIntAsInt)
+
+## user input
+myUserInput = input("Enger an integer: ") ## input will be interpreted as a string
+myUserInputAsInt = int(myUserInput)
+print(myUserInputAsInt * myUserInputAsInt)
+
+## Python's reserved words
+import keyword
+print(keyword.kwlist) ## shows Python's list of reserved words
+
+# you get a SyntaxError if you try to use a reserved word
+
+## dot notation
+import datetime
+currentTime = datetime.datetime.now()
+print(currentTime.hour)
+print(currentTime.minute)
+print(currentTime.second)
 
