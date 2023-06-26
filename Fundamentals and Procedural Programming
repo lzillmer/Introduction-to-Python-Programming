@@ -1,1 +1,4 @@
+# print(message) - takes as input a message as string and prints it in console
+print("Hello, world")
+
 
