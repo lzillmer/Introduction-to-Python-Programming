@@ -1,4 +1,16 @@
 # print(message) - takes as input a message as string and prints it in console
 print("Hello, world")
 
+# print(type(myVariable)) - shows data type
+myVariable = 5
+print(type(myVariable))
+
+# converting between data types
+myNumber = 5
+print(type(myNumber))
+myNumberAsString = str(myNumber)
+print(type(myNumberAsString)
+
+print("Today's date: " + str(date.today()))
+print("Today's date:", date.today())           # prints the same thing
 
