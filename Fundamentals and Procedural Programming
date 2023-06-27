@@ -1,3 +1,5 @@
+## NOTES
+
 ## print(message) - takes as input a message as string and prints it in console
 print("Hello, world")
 
@@ -34,14 +36,14 @@ print(keyword.kwlist) ## shows Python's list of reserved words
 
 # you get a SyntaxError if you try to use a reserved word
 
-## dot notation
+## Dot notation
 import datetime
 currentTime = datetime.datetime.now()
 print(currentTime.hour)
 print(currentTime.minute)
 print(currentTime.second)
 
-## exercise: print date as year/month/day and time as hour:minute:second
+## Exercise: print date as year/month/day and time as hour:minute:second
 from datetime import date
 import datetime
 todays_date = date.today()
@@ -242,5 +244,472 @@ end_time = datetime.time(4, 30, 17)
 
 #Add your code here!
 print(end_date >= start_date and end_time > start_time)
+
+
+## Practice problem 5
+
+goal = 50000
+rate = 0.05
+years = 5
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Earlier, we created a program that would calculate the
+#value of an investment account after a certain period of
+#time using the formula Amount = Principal * e^(Rate * Time).
+#
+#Let's revisit that, but let's flip the question around.
+#Instead of asking, "What will the value of this account
+#be?", let's instead ask, "How much do I need to invest to
+#have a certain amount by a certain year?" For example,
+#"How much do I need to invest to have $50,000 in 5 years
+#at 5% (0.05) interest?"
+#
+#Mathematically, the formula for this is:
+#
+#  goal / e ^ (rate * number of years) = principal
+#
+#Add some code below that will print the amount of principal
+#needed to reach the given savings goal within the number of
+#years and interest rate specified.
+#
+#In printing your response, you should round the answer to
+#two decimal places. Remember, you can do this with this
+#code (assuming that your principal is stored in a variable
+#called 'principal'): rounded_principal = round(principal, 2)
+#
+#Remember, you can access e using math.e as long as you don't
+#change the next line.
+import math
+
+#Add your code here!
+principal = goal / math.e ** (rate * years)
+rounded_principal = round(principal, 2)
+print(rounded_principal)
+
+
+## Practice problem 6
+
+principal = 40000
+rate = 0.05
+years = 5
+goal = 50000
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Last problem, we calculated how much money a person would
+#have to invest to reach a certain savings goal. Now, let's
+#modify that to instead take a principal, interest rate,
+#number of years, and savings goal, and report whether or not
+#the person will meet their savings goal.
+#
+#Add some code below that will calculate whether the
+#investment described by the values above will meet the given
+#goal. If it will, print True. If it will not, print False.
+#
+#As a reminder, the formula for the value of an account after
+#a given time (in number of years) is:
+#
+#  Current Value = principal * e ^ (rate * number of years)
+#
+#Remember, you can access e using math.e as long as you don't
+#change the next line. You don't need to worry about rounding
+#on this problem.
+import math
+
+#Add your code here!
+print(principal * math.e ** (rate * years) >= goal)
+
+## Practice problem 7
+
+spouse_1 = "Caitlin"
+spouse_2 = "David"
+month = "November"
+day = 3
+year = 2012
+time = "5:00PM"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#The variables above give some information about a wedding:
+#the names of the spouses and the month, day, year, and time
+#of the wedding.
+#
+#Add some code that will write the text to appear on a wedding
+#invitation based on these values. For the values shown above,
+#this would read:
+#
+#You are cordially invited to attend the wedding of Caitlin and David, to take place on November 3, 2012 at 5:00PM.
+#
+#Note that all components of this statement are required: start
+#"You are cordially invited to attend the wedding of ", followed
+#by spouse_1's name, followed by " and ", followed by spouse_2's
+#name, then a comma and space, followed by "to take place on ",
+#followed by the month, a space, the day, a comma and space, the
+#year, a space, the word "at", a space, the time, and then a
+#period.
+#
+#HINT: Copy the sentence below and replace the current values
+#(Caitlin, David, November, etc.) with variables to reduce the
+#risk of typoes throwing off your answers.
+
+#Add your code here!
+day_str = str(day)
+year_str = str(year)
+print("You are cordially invited to attend the wedding of " + spouse_1 + " and " + spouse_2 + ", to take place on " + month + " " + day_str + ", " + year_str + " " + "at " + time + ".")
+
+
+## Practice problem 8
+
+amount = 17
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#The variable above describes an amount of money measured in
+#dollars. Imagine you want to select the bills (1-dollar bills,
+#5-dollar bills, 10-dollar bills, etc.) that make up that
+#amount of money. For example, 17 dollars is one $10, one $5,
+#and two $1s.
+#
+#Write a program that will print out the bills needed to
+#arrive at the amount shown above. Assume that we always want
+#the maximum number of large bills: for example, for 17 dollars,
+#we want one $10, one $5, and two $1s, not three $5s and two $1s.
+#You may assume that the largest bill you have on hand is a
+#$50-dollar bill.
+#
+#Your code should print the following (with the correct numbers
+#based on the value of amount):
+#
+#Fifties: 0
+#Twenties: 0
+#Tens: 1
+#Fives: 1
+#Ones: 2
+
+#Add your code here!
+
+#amount =// 50
+#amount =// 20
+#amount =// 10
+#amount =//5
+#amount =//1
+
+print("Fifties:", amount//50)
+remainder = amount - 50*(amount//50)
+
+print("Twenties:", remainder//20)
+remainder = remainder - 20*(remainder//20)
+
+print("Tens:", remainder//10)
+remainder = remainder - 10*(remainder//10)
+
+print("Fives:", remainder//5)
+remainder = remainder - 5*(remainder//5)
+
+print("Ones:", remainder//1)
+
+
+## Practice problem 9
+message = "lol"
+punct = "!"
+num = 3
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Using the values of message, punct, and num, print
+#a string that looks like the one below if message = "lol",
+#punct = "!", and num = 3:
+#
+# !!!lollollol!!!lollollol!!!lollollol!!!
+#
+#Specifically, it should start by printing punct num
+#times, then print message num times, repeat that entire
+#process num times, and then print punct num times
+#again.
+#
+#Here are a couple other examples:
+#
+# message = "bbl", punct = ":", num = 1 -> :bbl:
+# message = "bbq", punct = "?", num = 2 -> "??bbqbbq??bbqbbq??
+# message = "brb", punct = ".", num = 4 -> ....brbbrbbrbbrb....brbbrbbrbbrb....brbbrbbrbbrb....brbbrbbrbbrb....
+
+#Add your code below!
+print((punct * num + message * num) * num + num * punct)
+
+
+## Practice problem 10
+
+num = 3
+
+#-----------------------------------------------------------
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Write some code that calculates the cube of the number
+#given by num. Then, print that number num^2 (num squared)
+#times in a row, with no spaces or line breaks in between.
+#
+#For example, if num is 3, then your code would print:
+#
+# 272727272727272727
+#
+#That 27 9 times. 3 squared is 9, 3 cubed is 27, and so
+#it prints 27 9 times.
+#
+#Note: these directions are slightly different from the
+#preview we posted! You should be printing num^3 num^2
+#times, not printing num^2 num^3 times.
+
+#Add your code here!
+cubed_num = str(num ** 3)
+print(cubed_num * num ** 2)
+
+
+## Practice problem 11
+
+current_day = 31
+current_month = 5
+current_year = 2018
+birth_day = 19
+birth_month = 12
+birth_year = 1990
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Given the current date and birth date held by the variables
+#above, calculate and print this person's current age. Note
+#that if their birth date has not yet passed this year, your
+#result would be one less than if it has.
+#
+#For example, with the variables given above, the person
+#would turn 28 on December 12th, 2018. So, as of May 31st,
+#2018, they are 27.
+
+#Add your code here!
+current_age = current_year - birth_year - ((current_month, current_day) < (birth_month, birth_day))
+print(current_age)
+
+
+## PRACTICE TEST 1
+
+## Problem 1
+mystery_string_1 = "17"
+mystery_string_2 = "9"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#mystery_string_1 and mystery_string_2 are each strings
+#representing numbers. Write some code below that will find
+#the numeric sum of the numbers represented by these strings.
+#For example, if the strings were "17" and "9", your answer
+#would be 26.
+#
+#Then, print out the result as part of a sentence of this
+#form: "The sum of the two strings is 26". (Do not include
+#quotes in your output, only print the message inside the
+#quotes.)
+#
+#You may assume that both strings will hold integers.
+
+#Add your code here!
+print("The sum of the two strings is", int(mystery_string_1) + int(mystery_string_2))
+
+## Problem 2
+
+hot = True
+cold = False
+morning = True
+evening = False
+night = False
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Write a program that will recommend a meal based on the
+#current weather and time of day. Specifically, the program
+#should recommend:
+#
+# - soup if it's cold and either evening or night
+# - a biscuit if it's morning and cold
+# - cereal if it's morning and hot, or whenever the time is
+#   night
+# - pizza whenever it's either evening or night
+#
+#Write some code below that will print four lines, one for
+#each of the four meals. The lines should look like this:
+#
+#Soup: False
+#Biscuit: False
+#Cereal: True
+#Pizza: False
+#
+#The values (True and False) will differ based on the
+#values assigned to hot, cold, morning, evening, and night
+#at the start of the program.
+
+#Add your code here!
+print("Soup:", cold and (night or evening))
+print("Biscuit:", morning and cold)
+print("Cereal:", (morning and hot) or night)
+print("Pizza:", evening or night)
+
+
+## Problem 3
+current_hour = 5
+time_of_day = "PM"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#Write some code that will print the following message based
+#on the values of current_hour and time_of_day:
+#
+#The current time is 5PM: Cuckoo!Cuckoo!Cuckoo!Cuckoo!Cuckoo!
+#
+#The values of current_hour and time_of_day should replace
+#"5PM", and "Cuckoo!" should be printed current_hour times.
+#
+#For example, if current_hour was 2 and time_of_day was "AM",
+#this would print:
+#
+#The current time is 2AM: Cuckoo!Cuckoo!
+
+#Add your code here!
+print("The current time is", str(current_hour) + time_of_day + ":", "Cuckoo!" * current_hour)
+
+
+## Problem 4
+
+cost = 150000
+rate = 0.0415
+years = 15
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#When taking out a mortgage (a type of loan) for a house, the
+#mortgage is defined by three variables: the total cost of the
+#house, the interest rate at which you will pay back the
+#mortgage, and how many months you have to pay back the
+#mortgage.
+#
+#The formula to find the total amount of money that will be
+#paid over that time is:
+#
+#  Cost * Number of Months * Monthly Rate /
+#  (1 - ((1 + Monthly Rate) ^ -Number of Months))
+#
+#Note that both time and rate are based on months: to find the
+#monhtly rate, divide the annual rate by 12. To find the number
+#of months, multiply the number of years by 12.
+#
+#Write some code that prints out a sentence like the following
+#based on the original cost, interest rate, and number of years
+#given above:
+#
+# The total cost of the house will be $201751.36
+#
+#You should round the total cost to two decimal places. You can
+#do this with this line, assuming the actual value of the
+#mortgage is stored in final_cost: final_cost = round(final_cost, 2)
+
+
+#Add your code here!
+monthly_rate = rate/12
+months = years * 12
+
+final_cost = (cost * months * monthly_rate) / (1 - ((1 + monthly_rate) ** -months))
+rounded_final_cost = round(final_cost, 2)
+print("The total cost of the house will be $" + str(rounded_final_cost))
+
+
+## Problem 5
+
+number = 215
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#The number above is given in base 10. Let's convert it to
+#base 2 and print it in binary. For example, 215 can be written
+#in binary as 11010111.
+#
+#Each digit of that string corresponds to a power of 2. The far
+#left digit represents 128, then 64, then 32, then 16, then 8,
+#then 4, then 2, and then finally 1 at the far right.
+#
+#To convert the number to binary, first check to see if it is
+#greater than or equal to 128. If it is, your first digit is 1.
+#If not, your first digit is 0. If the number was greater than
+#128, subtract 128 (because the 128 is captured by the first
+#digit of the string).
+#
+#Then, repeat that process for 64, 32, 16, 8, 4, 2, and 1.
+#
+#For example:
+#
+#215 is >= 128: 1
+#87 is >= 64: 11
+#23 is not >= 32: 110
+#23 is >= 16: 1101
+#7 is not >= 8: 11010
+#7 is >= 4: 110101
+#3 is >= 2: 1101011
+#1 is >= 1: 11010111
+#
+#Note that although we use 'if' a lot to describe this problem,
+#this can be done entirely with floor division and modulus.
+#Remember, if you convert a boolean to an integer, True becomes
+#1 and False becomes 0.
+#
+#Note that we always work with binary in 8-bit chunks: the
+#number 7 would be 00000111, not just 111. That's because inside
+#the computer, 8 1s and 0s make a byte, which is the smallest
+#practical unit of storage (rarely are bits used outside 8-bit
+#bytes).
+#
+#Print the string that results from this conversion.
+
+#Add your code here!
+
+digit_1 = int(number >= 128)
+number %= 128
+digit_2 = int(number >= 64)
+number %= 64
+digit_3 = int(number >= 32)
+number %= 32
+digit_4 = int(number >= 16)
+number %= 16
+digit_5 = int(number >= 8)
+number %= 8
+digit_6 = int(number >= 4)
+number %= 4
+digit_7 = int(number >= 2)
+number %= 2
+digit_8 = int(number >= 1)
+print(str(digit_1) + str(digit_2) + str(digit_3) + str(digit_4) + str(digit_5) + str(digit_6) + str(digit_7) + str(digit_8))
+
+
+# Problem 6
 
 
