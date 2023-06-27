@@ -76,3 +76,171 @@ side2 = int(input("Enter the next shortest side: "))
 side3 = int(input("Enter the longest side: "))
 result = (side1 + side2) > side3
 print("'these sides can form a triangle' is, result)
+
+
+## PRACTICE PROBLEMS
+
+## Practice problem 1
+old_balance = "500.45"
+deposit = "10"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you're writing code for an ATM that accepts cash
+#deposits. You need to update the customer's balance based
+#on a deposit amount. However, both the old balance and the
+#deposit are given as strings.
+#
+#Write code below that will print the new balance after the
+#deposit is processed. This should be printed along with
+#the following text labeling the amount:
+#
+#The new balance is: 510.45
+#
+#Note that the old balance will always include change, but
+#the deposit will never include change because the ATM has
+#no coin slot, only a slot for paper money.
+#
+#With the initial values of the variables shown above, your
+#code should print the text shown on line 17.
+
+#Add your code here!
+new_balance = float(old_balance) + float(deposit)
+new_balance = str(new_balance)
+print("The new balance is:", new_balance)
+
+
+## Practice problem 2
+
+balance = 500
+income = 200
+price = 1000
+months = 6
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#You're thinking of buying a new computer. The variables
+#above represent the balance of your bank account, your
+#monthly disposable income, the total price of the computer,
+#and the number of months that the retailer will give you to
+#pay off the computer.
+#
+#You can buy the computer if either (a) you can afford to
+#buy the computer in cash right now (balance is greater than
+#price), or (b) you can afford the monthly payments (income
+#is greater than price divided by months).
+#
+#In other words, if a computer cost $1200 and you spread it
+#out over 12 months, you would need your monthly available
+#income to be at least $100 to buy the computer, or you
+#would need your current bank balance to be at least $1200.
+#
+#Add some code below that will print True if you're able to
+#afford the computer given the values above, and False if you
+#are not.
+
+#Add your code below!
+print(balance > price or income > price/months)
+
+
+## Pracitce problem 3
+
+hot = True
+cold = False
+rainy = True
+windy = False
+snowy = False
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Earlier, you wrote a program that made clothing
+#recommendations based on the weather. Your program could
+#specifically recommend a jacket, boots, flip-flips, or a
+#tshirt based on whether it was hot, cold, rainy, windy, or
+#snowy.
+#
+#Let's add some accessories to that program: a hat, gloves,
+#umbrella, and a scarf.
+#
+#Specifically, the program should recommend:
+#
+# - a hat if it's cold, or if it's hot but not rainy (cold
+#   and rainy still means a hat, though).
+# - gloves if it's cold and either snowy or rainy.
+# - an umbrella if it's hot, snowy, or rainy.
+# - a scarf if it's cold and windy or cold and snowy
+#   unless it's rainy. Rain means no scarf regardless of
+#   whether it's cold, windy, or snowy.
+#
+#Write some code below that will print four lines, one for
+#each of the four types of clothing. The lines should look
+#like this:
+#
+#Hat: True
+#Gloves: True
+#Umbrella: False
+#Scarf: False
+#
+#The values (True and False) will differ based on the
+#values assigned to hot, cold, windy, snowy, and rainy
+#at the start of the program.
+
+#Add your code here!
+print("Hat: " + str(cold or (hot and not rainy)))
+print("Gloves: " + str(cold and (snowy or rainy)))
+print("Umbrella: " + str(hot or snowy or rainy))
+print("Scarf: " + str(((cold and windy) or (cold and snowy)) and not rainy))
+
+
+## Practice problem 4
+
+import datetime
+start_date = datetime.date(2017, 2, 16)
+end_date = datetime.date(2017, 2, 16)
+start_time = datetime.time(4, 30, 0)
+end_time = datetime.time(4, 30, 17)
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Above, there are four variables: start_date, end_date,
+#start_time, and end_time. start_date and start_time together
+#represent a certain time on a certain date, and end_date and
+#end_time represent a different time on a different date.
+#
+#Add some code below that will print True if the end time
+#occurs after the start time. Print False if the end time
+#occurs before the start time. For example, 11:15:00 on
+#01/01/2017 would be before 09:00:00 on 01/05/2017, which
+#would be before 11:25:00 on 01/05/2017.
+#
+#Note that you may use dot notation to access the individual
+#parts of the dates and times. You can access the hour,
+#minute, and seconds from start_time with start_time.hour,
+#start_time.minute, and start_time.second. You can access
+#the year, month, and day of start_date with
+#start_date.year, start_date.month, and start_date.day. You
+#can use the same syntax to access the parts of end_date.
+#Note that Python uses 24-hour time.
+#
+#Hint: You may use conditionals to solve this if you want,
+#but you don't need to.
+#
+#Hint 2: You can use relational operators with both dates
+#and times. start_time < end_time is True if start_time is
+#before end_time. start_date >= end_date is True if
+#start_date is later than end_date, or the same date. With
+#this, you can avoid using dot notation altogether if
+#you'd like.
+
+#Add your code here!
+print(end_date >= start_date and end_time > start_time)
+
+
