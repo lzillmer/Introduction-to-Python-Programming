@@ -41,3 +41,38 @@ print(currentTime.hour)
 print(currentTime.minute)
 print(currentTime.second)
 
+## exercise: print date as year/month/day and time as hour:minute:second
+from datetime import date
+import datetime
+todays_date = date.today()
+current_time = datetime.datetime.now()
+
+todays_year_string = str(todays_date.year)
+todays_month_string = str(todays_date.month)
+todays_day_string = str(todays_date.day)
+
+print(todays_year_string + "/" + todays_month_string + "/" + todays_day_string)
+
+time_hour_string = str(current_time.hour)
+time_minute_string = str(current_time.minute)
+time_second_string = str(current_time.second)
+
+print(time_hour_string + ":" + time_minute_string + ":" + time_second_string)
+
+## set operators
+myString = "hello, world"
+print("h" in myString) ## output will be True
+print("lo, w" in myString) ## output will be True
+
+## Incrementing and loops
+letterCount = 0
+for character in "Hello, world":
+  letterCount += 1
+print(letterCount)    ## counts letters in Hello, world
+
+## Checking if a triangle exists
+side1 = int(input("Enter the shortest side: "))
+side2 = int(input("Enter the next shortest side: "))
+side3 = int(input("Enter the longest side: "))
+result = (side1 + side2) > side3
+print("'these sides can form a triangle' is, result)
