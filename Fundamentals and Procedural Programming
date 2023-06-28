@@ -397,12 +397,6 @@ amount = 17
 
 #Add your code here!
 
-#amount =// 50
-#amount =// 20
-#amount =// 10
-#amount =//5
-#amount =//1
-
 print("Fifties:", amount//50)
 remainder = amount - 50*(amount//50)
 
@@ -919,12 +913,50 @@ print(goal <= principal * e ** (rate * years))
 
 
 # Problem 5
-X
-X
-X
-X
-X
-X
+number = 1101
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#The number above represents a binary number. It will always
+#be up to eight digits, and all eight digits will always be
+#either 1 or 0.
+#
+#The string gives the binary representation of a number. In
+#binary, each digit of that string corresponds to a power of
+#2. The far left digit represents 128, then 64, then 32, then
+#16, then 8, then 4, then 2, and then finally 1 at the far right.
+#
+#So, to convert the number to a decimal number, you want to (for
+#example) add 128 to the total if the first digit is 1, 64 if the
+#second digit is 1, 32 if the third digit is 1, etc.
+#
+#For example, 00001101 is the number 13: there is a 0 in the 128s
+#place, 64s place, 32s place, 16s place, and 2s place. There are
+#1s in the 8s, 4s, and 1s place. 8 + 4 + 1 = 13.
+#
+#Note that although we use 'if' a lot to describe this problem,
+#this can be done entirely boolean logic and numerical comparisons.
+#
+#Print the number that results from this conversion.
+
+#Add your code here!
+
+# Convert the number to a string and calculate the length
+binary_str = str(number)
+length = len(binary_str)
+
+# Calculate the decimal number
+decimal_number = 0
+power = length - 1
+
+for digit in binary_str:
+    decimal_number += int(digit) * (2 ** power)
+    power -= 1
+
+# Print the decimal number
+print(decimal_number)
 
 
 ## Problem 6
@@ -989,3 +1021,355 @@ sq = num ** 2
 sqrt = num ** 0.5
 sqrt_round = int(sqrt)
 print((str(sq)) * sqrt_round)
+
+
+## PROBLEM SET 3
+
+## Problem 1
+
+original_total = "5.45"
+donation = "0.55"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you're writing code for the cash register of a
+#fast casual restaurant. For this restaurant, customers have
+#the option to round up their total and donate the extra to
+#charity. For example, if a customer's total was $5.45, they
+#could round up to $6.00, and donate the extra $0.55 to
+#charity.
+#
+#The variables original_total and donation represent these
+#values; you may assume they will always add to a whole integer.
+#Due to an error by another programmer, though, they are initially
+#given to you as strings rather than floats.
+#
+#Write some code that will print the customer's total and
+#how much they donated. This sentence should read as follows:
+#
+# Your total is $6 and you donated $0.55
+#
+#Note that because we always round up to a full dollar,
+#the total should be printed as an integer. Make sure the
+#dollar signs are in the right place, with no spaces following
+#the dollar signs.
+
+#Add your code here!
+original_total_float = float(original_total)
+donation_float = float(donation)
+total_int = int(original_total_float + donation_float)
+
+print("Your total is $" + str(total_int) + " and you donated $" + donation)
+
+
+## Problem 2
+
+is_weekend = True
+is_holiday = False
+is_rainy = False
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Write a program that will determine what kind of plans you
+#could make based on what kind of day it is and what the
+#weather is like.
+#
+#You have three variables to use in these decisions:
+#
+# - is_weekend, whether it's a weekend day
+# - is_holiday, whether it's a holiday
+# - is_rainy, whether it's going to be raining
+#
+#Your four options are:
+#
+# - Beach, if it's both a holiday and a weekend as long as
+#   it's _not_ raining. If it's raining, the beach is not
+#   an option.
+# - Lake, if it's a weekend and not raining. It doesn't
+#   matter if it's a holiday or not.
+# - Park, if it's not raining. It doesn't matter whether
+#   it's a weekend or holiday.
+# - Home, if it's raining, or if it's neither a weekend
+#   nor a holiday.
+#
+#In other words: the Beach is an option on holiday weekends
+#when the weather is good. The Lake is an option on regular
+#weekends when the weather is good. The Park is an option
+#any time the weather is good. Home is an option if it's
+#raining, or if it's not a weekday that isn't a holiday.
+
+#
+#Print your results like this, based on whether each is
+#an option according to the logic above:
+#
+# - Beach: False
+# - Lake: True
+# - Park: True
+# - Home: False
+
+#Add your code here!
+print("Beach:", is_holiday and is_weekend and not is_rainy) 
+print("Lake:", is_weekend and not is_rainy)
+print("Park:", not is_rainy)
+print("Home:", is_rainy or not (is_weekend or is_holiday))
+
+
+## Problem 3
+
+assignment_num = 1
+day = "Friday"
+month = "September"
+date = 13
+time = "5PM"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#At the beginning of each week, we try to post an announcement
+#outlining everything you need to do during the week. Let's
+#see if we could parameterize that.
+#
+#The variables above -- assignment_num, day, month, date, and
+#time -- give various values about when an assignment is due.
+#Using these values you should print a sentence like this:
+#
+# You should submit Assignment 1 by Friday, September 13 at 5PM.
+#
+#The general form would be:
+# You should submit Assignment [assignment_num] by [day], [month] [date] at [time].
+#
+#Make sure the punctuation and spaces are all exactly as written.
+#There should be spaces before and after the assignment number,
+#a comma and space after the day of the week, and a period
+#after the time.
+
+#Add your code here!
+print("You should submit Assignment " + str(assignment_num) + " by " + day + ", " + month + " " + str(date) + " at " + time + ".")
+
+
+## Problem 4
+
+value = 100
+quantity = 5
+interest = 0.02
+dividend = 1.05
+dividend_frequency = 4
+years = 10
+goal = 250
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Typically when you purchase a stock on the stock market, you
+#do so with the hope that it will increase in value, and you
+#can then sell it for a profit.
+#
+#Some stocks also pay dividends. A dividend is a small amount
+#of money that a stock pays its owners on a regular interval.
+#For example, if a stock pays a $1.05 dividend 4 times a year,
+#then for each share of the stock you own, you would receive
+#$4.20 per year.
+#
+#The variables above give a number of parameters for a
+#particular stock purchase you are considering:
+#
+# - value, the current value of the stock
+# - quantity, the number of shares you may buy
+# - interest, the estimated yearly interest rate it will earn
+# - dividend, the predicted value of the dividend it will pay
+# - dividend_frequency, the predicted frequency with which it
+#   will pay that dividend
+# - years, the number of years you plan to hold the stock
+# - goal, the amount of money you want to earn from the
+#   investment
+#
+#Your goal is to print True if this investment will meet your
+#savings goal, and False if it will not. In other words, if
+#the total amount of money you will earn from the stock --
+#including its initial value, interest, and dividends -- is
+#greater than goal, you print True. Otherwise, you print False.
+#
+#You can find the total amount of money generated by dividends
+#by multiplying the dividend by its yearly frequency by the
+#number of years.
+#
+#The formula for the current value of an investment based on
+#its initial value, its interest rate, and its years of investment
+#is:
+#
+# new value = initial value * e ^ (interest rate * number of years)
+#
+#The variable interest can be put directly into this formula (you
+#do not need to add 1). The following line of code will let you use
+#the variable e in your code for e:
+from math import e
+
+#Remember, your only goal is to print True if you should buy the
+#stock, False if you should not. Using the initial values of the
+#variables above, this would initially print False: the total
+#value would be around $164, well short of the goal of $250.
+
+#Add your code here!
+dividend = dividend * dividend_frequency * years
+print(goal <= value * e ** (interest * years) + dividend)
+
+
+## Problem 5
+donuts = 119
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#A donut shop sells donuts in four sizes: packs of 60 donuts,
+#packs of 12 donuts, packs of 3 donuts, and individual donuts.
+#
+#To divide donuts into packs, they start by making as many of
+#the largest pack as they can. Then, they make as many of the
+#next largest pack, then the next pack, then finally they sell
+#the remaining donuts individually. For example, if they baked
+#119 donuts, then they would divide those donuts into one
+#pack of 60, four packs of 12, three packs of 3, and 2
+#individual donuts.
+#
+#Based on the variable donuts above, calculate how many of
+#each size they will make. Print the results according to
+#this template:
+#
+#Packs of 60: 1
+#Packs of 12: 4
+#Packs of 3: 3
+#Packs of 1: 2
+
+#Add your code here!
+print("Packs of 60:", donuts//60)
+remainder = donuts - 60*(donuts//60)
+
+print("Packs of 12:", remainder//12)
+remainder = remainder - 12*(remainder//12)
+
+print("Packs of 3:", remainder//3)
+remainder = remainder - 3*(remainder//3)
+
+print("Packs of 1:", remainder//1)
+remainder = remainder - 1*(remainder//1)
+
+
+## Problem 6
+
+num_a = 1
+num_b = 2
+num_c = 3
+num_d = 4
+num_e = 5
+num_z = 3
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#It's been said that the most confusing WiFi password you can
+#have is: 2444666668888888, because you can read it as: one 2,
+#three 4s, five 6s, seven 8s. Whisper the 's' and the listener
+#will think it's just 12345678.
+#
+#Write a program that will generate a bad password according to
+#a similar formula. Specifically, the variables above -- num_a,
+#num_b, num_c, num_d, and num_e -- give you 5 integers. Your
+#password should be: num_a num_b times, num_b num_c times,
+#num_c num_d times, num_d num_e times, and num_e num_a times, in
+#that order. Then, the entire password should repeat num_z times.
+#
+#So, for the initial values of num_a through num_e, this would
+#be:
+#
+# 112223333444445112223333444445112223333444445
+#
+#That is, 1 two times, 2 three times, 3 four times, 4 five times,
+#and 5 one time, all then repeated 3 times.
+#
+#You may assume all numbers will be between 0 and 9. Note, though,
+#that if a number is 0, that means the preceding number will
+#not actually appear. Moreover, if num_z is 0, the result string
+#should be empty.
+
+#Add your code below!
+
+str_num_a = str(num_a)
+str_num_b = str(num_b)
+str_num_c = str(num_c)
+str_num_d = str(num_d)
+str_num_e = str(num_e)
+str_num_z = str(num_z)
+
+print(((str_num_a * num_b) + (str_num_b * num_c) + (str_num_c * num_d) + (str_num_d * num_e) + (str_num_e * num_a)) * num_z)
+
+
+## Problem 7
+
+previous_color = "Red"
+previous_value = "9"
+current_color = "Red"
+current_value = "7"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#In the card game Uno, players take turns playing cards on
+#top a growing pile of cards facing up. On your turn, the
+#card you put down must meet one of two conditions:
+#
+# - It must either have the same color _or_ the same value
+#   as the previous card, or
+# - It must be black. Black cards (Wild and Wild Draw 4) may
+#   be played at any time, no matter the value of the previous
+#   card.
+#
+#Write some code that prints True if the card represented by
+#current_color and current_value may be played on top of the
+#card represented by previous_color and previous_value. Print
+#False if it may not be played.
+#
+#You may assume that previous_color will never be Black.
+
+#Add your code here!
+print(previous_color == current_color or previous_value == current_value or current_color == "Black")
+
+
+## Problem 8
+
+current_day = 12
+current_month = 9
+current_year = 2019
+exp_day = 13
+exp_month = 9
+exp_year = 2019
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Given the current date and expiration date held by the
+#variables above, determine whether a food with the listed
+#expiration date has expired. Print True if it has expired,
+#False is it has not. A food is defined as expired if the
+#current date is _after_ the expiration date, not equal to
+#it.
+
+
+#Add your code here!
+# Compare the current date with the expiration date
+expired = (current_year > exp_year) or \
+          (current_year == exp_year and current_month > exp_month) or \
+          (current_year == exp_year and current_month == exp_month and current_day > exp_day)
+
+# Print whether the food has expired or not
+print(expired)
+
