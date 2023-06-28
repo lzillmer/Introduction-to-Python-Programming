@@ -710,6 +710,282 @@ digit_8 = int(number >= 1)
 print(str(digit_1) + str(digit_2) + str(digit_3) + str(digit_4) + str(digit_5) + str(digit_6) + str(digit_7) + str(digit_8))
 
 
-# Problem 6
+## Problem 7
+
+num = 4
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Write some code that calculates the square and the square root
+#of the number given above. Then, it should print the root the
+#square number of times. If the square root is a decimal,
+#round it down (you can do this by converting the decimal to
+#an integer: Python will automatically round it down).
+#
+#For example, if num is 4, then your code would print:
+#
+# 2222222222222222
+#
+#That's 2 16 times. 4 squared is 16, the square root of 4 is 2,
+#and so it prints 2 16 times.
+#
+#For another example: if num is 13, then 13 squared is 169, and
+#the square root of 13 is ~3.6. 3.6 rounds down to 3. So, it would
+#print 3 169 times.
+
+#Add your code here!
+num_squared = num * num
+num_sqrt = num ** 0.5
+print(num_squared * str((int(num_sqrt))))
 
 
+## Problem 8
+
+current_hour = 12
+current_minute = 37
+current_section = "PM"
+due_hour = 9
+due_minute = 0
+due_section = "AM"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Given the current time and deadline time represented by the
+#variables above, determine if an assignment is still eligible
+#for submission. An assignment is eligible if the time
+#represented by current_hour, current_minute, and
+#current_section is before the time represented by due_hour,
+#due_minute, and due_section.
+
+
+#Add your code here!
+current_hour %= 12
+due_hour %= 12
+
+print((current_section < due_section) or
+    #First, simply checks for opposing AM/PM'
+    ((current_section == due_section) and (current_hour < due_hour)) or
+    #If AM/PM for both are same, second checks if the current hour is lower than due hour
+    ((current_section == due_section) and (current_hour == due_hour) and (current_minute < due_minute)))
+    #If AM/PM and hours same, third checks if the current minute is lower than due minute
+
+
+## PRACTICE TEST 2
+
+## Problem 1
+
+total = "5.45"
+cash = "10.0"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you're writing the code for a cash register. As part
+#of this, it will have a total price for a purchase, and an
+#amount of cash the buyer is paying. However, both of these
+#are represent as strings.
+#
+#Write some code that will find and print the change that the
+#customer is due. For example, if cash is 10.0 and total is
+#5.45, then the change would be 4.55.
+#
+#Then, print the result with a message like this: "Your
+#change is: 4.55". Do not include the quotes in your output.
+#You may assume total and cash will both be floats.
+
+#Add your code here!
+print("Your change is:", float(cash) - float(total))
+
+
+# Problem 2
+
+hot = True
+cold = False
+morning = True
+evening = False
+night = False
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Write a program that will recommend a beverage based on the
+#current weather and time of day. Specifically, the program
+#should recommend:
+#
+# - coffee if it's morning, or if it's cold and evening
+# - hot tea if it's cold and either evening or night
+# - smoothie if it's hot, no matter what time of day it is
+# - milkshake if it's hot and evening, or if it's night
+#   no matter the temperature
+#
+#Write some code below that will print four lines, one for
+#each of the four beverages. The lines should look like this:
+#
+#Coffee: True
+#Hot Tea: False
+#Smoothie: True
+#Milkshake: True
+#
+#The values (True and False) will differ based on the
+#values assigned to hot, cold, morning, evening, and night
+#at the start of the program.
+
+#Add your code here!
+print("Coffee:", morning or (cold and evening))
+print("Hot Tea:", cold and (evening or night))
+print("Smoothie:", hot)
+print("Milkshake:", (hot and evening) or night)
+
+
+## Problem 3
+
+parent_1 = "Caitlin"
+parent_2 = "David"
+baby = "Lucy"
+month = "January"
+day = 2
+year = 2015
+time = "11:12PM"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#The variables above give some information about a baby's birth:
+#the names of the parents, the name of the baby, and the month,
+#day, year, and time of the wedding.
+#
+#Add some code that will write the text to appear on a birth
+#announcement based on these values. For the values shown above,
+#this would read:
+#
+#Lucy was born to Caitlin and David at January 2, 2015 at 11:12PM.
+#
+#Note that all components of this statement are required: the
+#baby's name, " was born to ", the first parent's name, " and ",
+#the second parent's name," at ", the month, the day, a comma, the
+#year, " at ", the time, and a period.
+#
+#HINT: Copy the sentence from above and replace the current values
+#(Caitlin, David, January, etc.) with variables to reduce the
+#risk of typoes throwing off your answers.
+
+#Add your code here!
+print(baby + " was born to " + parent_1 + " and " + parent_2 + " at " + month + " " + str(day) + ", " + str(year) + " at " + time + ".")
+
+
+## Problem 4
+
+principal = 40000
+rate = 0.05
+years = 5
+goal = 50000
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#The variables above represent the current status of an
+#investment account. The variable principal represents the
+#initial value of the account. The variable rate represents
+#the interest rate. The variable years represents the number
+#of years the account will be allowed to grow.
+#
+#The variable goal represents the amount of money the investor
+#hopes to have saved up by the end of that time period.
+#
+#Add some code below that will calculate whether the
+#investment described by the values above will meet the given
+#goal. If it will, print True. If it will not, print False.
+#
+#The formula for the value of an account after a given time
+#(in number of years) is:
+#
+#  Current Value = principal * e ^ (rate * number of years)
+#
+#Because of the next line, you may use the variable e to
+#represent the value of e. For example, print(e * 2) would
+#print 5.43656365691809, which is double the value of e.
+from math import e
+
+#Add your code here!
+print(goal <= principal * e ** (rate * years)) 
+
+
+# Problem 5
+X
+X
+X
+X
+X
+X
+
+
+## Problem 6
+
+message = "lol"
+punct = "!"
+num = 3
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Using the values of message, punct, and num, print
+#a string that looks like the one below if message = "lol",
+#punct = "!", and num = 3:
+#
+# lollollol!lollollol!lollollol
+#
+#Specifically, it should start by printing message num times,
+#then print punct. It should repeat that process num times,
+#with punct printed between each time (but not at the start or
+#end).
+#
+#Here are a couple other examples:
+#
+# message = "bbq", punct = "?", num = 2 -> bbqbbq?bbqbbq
+# message = "bbl", punct = ":", num = 3 -> bblbblbbl:bblbblbbl:bblbblbbl
+# message = "brb", punct = ".", num = 4 -> brbbrbbrbbrb.brbbrbbrbbrb.brbbrbbrbbrb.brbbrbbrbbrb
+
+#Add your code below!
+result = (message * num + punct) * (num - 1) + message * num
+print(result)
+
+
+# Problem 7
+
+num = 4
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Write some code that calculates the square and the square root
+#of the number given above. Then, it should print the square the
+#square root number of times. If the square root is a decimal,
+#round it down (you can do this by converting the decimal to
+#an integer: Python will automatically round it down).
+#
+#For example, if num is 4, then your code would print:
+#
+# 1616
+#
+#That's 16 2 times. 4 squared is 16, the square root of 4 is 2,
+#and so it prints 16 2 times.
+#
+#For another example: if num is 13, then 13 squared is 169, and
+#the square root of 13 is ~3.6. 3.6 rounds down to 3. So, it would
+#print: 169169169, or 169 3 times.
+
+#Add your code here!
+sq = num ** 2
+sqrt = num ** 0.5
+sqrt_round = int(sqrt)
+print((str(sq)) * sqrt_round)
