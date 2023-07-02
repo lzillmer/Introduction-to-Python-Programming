@@ -1,0 +1,407 @@
+## CONTROL STRUCTURES
+
+mystery_value = 1
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#All of the indentation has been removed from this program. 
+#Fix the program by correcting the indentation levels. Note
+#that you should add indentation by adding FOUR SPACES to the
+#start of the lines you want to indent. If you use Tab, you
+#will receive an IndentationError in your output.
+#
+#Hint: you'll learn more about conditionals in the next
+#chapter, but for now, all you need to know is that if a line
+#is indented under another line, it's controlled by that line.
+
+if mystery_value > 0:
+    print("This line should only run if 'mystery_value' is GREATER than 0.")
+    print("This line should only be printed if the above line is printed.")
+print("This line should always be printed.")
+if 0 > mystery_value:
+    print("This line should only run if 'mystery_value' is LESS than 0.")
+print("This line should always be printed.\n")
+
+
+mystery_value = -1
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Notice that when you run this code, you encounter an error.
+#Instead of this error, we want this code to print "Boo :("
+#(without the quotes) if mystery_value is not greater than 0.
+#
+#Fix this error WITHOUT modifying the existing code. You can
+#fix this error by only adding some code before the existing
+#code below.
+
+#Make any changes or additions here!
+result = "Boo :("
+
+#Don't change any of the code below!
+if mystery_value > 0:
+    print("mystery_value is greater than 0.")
+    result = "Yay!"
+else:
+    print("mystery_value is less than 0.")
+
+print(result)
+
+
+mystery_int_1 = 15
+mystery_int_2 = 5
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#The variables below hold two integers, mystery_int_1 and
+#mystery_int_2. Complete this program below such that it
+#prints "Factors!" if either of the numbers is a factor of
+#the other. If neither number is a factor of the other,
+#do not print anything.
+#
+#Hint: You can do this with just one conditional statement
+#by using the logical expressions we learned earlier (and,
+#or, and not). You'll also use the modulus operator we
+#learned in Chapter 2.4.
+
+#Add your code here!
+if mystery_int_1 % mystery_int_2 == 0 or mystery_int_2 % mystery_int_1 == 0:
+    print("Factors!")
+
+
+mystery_state = "Georgia"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#It's snowing!
+#
+#The variable above holds the name of the state that you're
+#in (hypothetically). Complete the code below so that it
+#prints the following messages depending on what state you're
+#in:
+#
+# - "School isn't cancelled." if we're in New Jersey
+# - "School is postponed." if we're in North Carolina
+# - "School is cancelled!" if we're in Georgia
+# - "idk wear a sweater" if we're in any other state (or if
+#   the value doesn't represent a valid state).
+
+#Add your code here!
+if mystery_state == "New Jersey":
+    print("School isn't cancelled.")
+elif mystery_state == "North Carolina":
+    print("School is postponed.")
+elif mystery_state == "Georgia":
+    print("School is cancelled!")
+else:
+    print("idk wear a sweater")
+
+
+temperature = -3.7
+celsius = True
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Above are given two variables. temperature is a float that
+#holds a temperature. celsius is a boolean that represents
+#whether the temperature is in Celsius; if it's False, then
+#the given temperature is actually in Fahrenheit.
+#
+#Add some code below that prints "Freezing" if the values
+#above represent a freezing temperature, and "Not freezing"
+#if they don't.
+#
+#In Celsius, freezing is less than or equal to 0 degrees.
+#In Fahrenheit, freezing is less than or equal to 32 degrees.
+
+#Add your code here!
+if (temperature <= 0 and celsius == True) or (temperature <= 32 and celsius == False):
+    print("Freezing")
+else:
+    print("Not freezing")
+
+
+mystery_string = "zizazzle"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#The variable above creates a string. Add some code below
+#that will print based on the maximum number of consecutive
+#z's in the string:
+#
+# - If z appears three or more times in a row, print "I'm sleepy..."
+# - If z appears two times in a row, print "I love ZZ Top!"
+# - If z appears once, print "One is the loneliest number."
+# - If z does not appear, print "Who needs z anyway?"
+#
+#The message you print should correspond to the most
+#consecutive z's: in the original value of mystery_string,
+#for example, you'd print "I love ZZ Top!" because there are
+#two consecutive z's, even though there are also some
+#individual z's.
+#
+#Ignore upper-case z's -- only look for lower-case z's.
+#
+#Hint: Remember the 'in' operator! It returns true if the
+#first string is found within the second string. For example,
+#"bog" in "boggle" would return True, but "bog" in "artemis"
+#would return False.
+
+#Add your code here!
+if "zzz" in mystery_string:
+    print("I'm sleepy...")
+elif "zz" in mystery_string:
+    print("I love ZZ Top!")
+elif "z" in mystery_string:
+    print("One is the loneliest number.")
+else:
+    print("Who needs z anyway?")
+
+
+team_1 = "Georgia Tech"
+team_1_score = 28
+team_2 = "Georgia"
+team_2_score = 27
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Above we've created four variables: two team names and two
+#scores. A team wins if their score is greater than the other
+#team's score.
+#
+#Add to the code below. To print a messages like these
+#depending on the values:
+#
+# - If one team beat the other, print:
+#     "[winner] beat [loser] by [margin]"
+# - If neither team won, print:
+#     "[team_1] played [team_2] and it was a tie"
+#
+#For example, with the original values in this code, you
+#should print "Georgia Tech beat Georgia by 1"
+#
+#Hint: to make this easier, create three variables: winner,
+#loser, and margin. Then, find their values before worrying
+#about printing the final message.
+
+#Add your code here!
+difference_1 = str(team_1_score - team_2_score)
+difference_2 = str(team_2_score - team_1_score)
+if team_1_score > team_2_score:
+    print(team_1 + " beat " + team_2 + " by " + difference_1)
+elif team_2_score > team_1_score:
+    print(team_2 + " beat " + team_1 + " by " + difference_2)
+else:
+    print(team_1 + " played " + team_2 + " and it was a tie ")
+
+
+item = "quesadilla"
+meat = "steak"
+queso = True
+guacamole = True
+double_meat = False
+
+
+#-----------------------------------------------------------
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#Let's further expand our previous program to cover a broader
+#menu variety. Instead of just burritoes, now the program
+#should cover three menu items: quesadillas, burritoes, and
+#nachos. Instead of separate booleans for steak and pork,
+#we instead have a string that could be "steak", "pork",
+#"chicken", "tofu", and "beef". We still have booleans for
+#queso and guacamole, but we also have a boolean for double
+#meat.
+#
+#Your code should calculate the price as follows:
+#
+# - The base price for a quesadilla is 4.00, for nachos is
+#   4.50, and for burritoes is 5.00.
+# - If meat is steak or pork, add 0.50. Any other meat adds
+#   no money to the price.
+# - guacamole always adds 1.00 to the price.
+# - queso adds 1.00 to the price UNLESS the item is nachos,
+#   in which case it adds nothing.
+# - double_meat adds 1.50 if the meat is steak or pork, or
+#   1.00 otherwise.
+
+
+if item == "quesadilla":
+    base_price = 4.0
+if item == "nachos":
+    base_price = 4.5
+if item == "burrito":
+    base_price = 5.0
+    
+if (meat == "steak" or meat == "pork") and not double_meat:
+    base_price += 0.5
+if (meat == "steak" or meat == "pork") and double_meat:
+    base_price += 1.5
+if (meat == "chicken" or meat == "tofu" or meat == "beef") and double_meat:
+    base_price += 1.0
+    
+if guacamole:
+    base_price += 1.0
+
+if queso and not item == "nachos":
+    base_price += 1.0
+    
+print(base_price)
+
+
+sunny = True
+windy = True
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Below, we've gone ahead and written some code that uses a
+#conditional to print a message based on the variables above.
+#Revise this code so that it uses nested conditionals instead
+#of the 'and' operator. There should be _no_ instances of the
+#'and' reserved word in your code, but it should behave the
+#same as it did originally.
+
+if sunny:
+    if not windy:
+        print("Wear a hat!")
+    else:
+        print("Enjoy the breeze!")
+
+#if sunny and not windy:
+#    print("Wear a hat!")
+
+
+entered = "abc123"
+password = "abc123"
+tries = 3
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Above we've created three variables representing an attempt
+#to enter a password. Add some code below that will print the
+#result of this check:
+#
+# - "Login successful." if entered is the same as password
+#   and tries is less than or equal to 3.
+# - "Incorrect password." if entered is not the same as 
+#   password, but tries is less than or equal to 3.
+# - "Tries exceeded." if tries is greater than 3.
+#
+#You don't need to worry about incrementing tries if the
+#password is incorrect.
+
+#Add your code here!
+if tries <= 3:
+    if entered == password:
+        print("Login successful.")
+    else:
+        print("Incorrect password.")
+else:
+    print("Tries exceeded.")
+
+
+balance = 20.0  
+salesTax = 1.08 
+cardholderName = "David Joyner"
+trustedVendors = ["Maria's", "Bob's", "Vrushali's", "Ling's", "Tia's"]
+
+purchasePrice = 19.0
+customerName = "David Joyner"
+vendor = "Freddy's"
+overdraftProtection = True
+
+#This nested conditional checks whether the balance is less than or
+#equal to the total price and overdraft protection is not available;
+#otherwise, whether the cardholder is not also the customer; and
+#otherwise, whether the vendor is not trusted.
+if balance <= purchasePrice * salesTax and not overdraftProtection:
+    print("Purchase not approved; no funds or overdraft protection.")
+else:
+    if not cardholderName == customerName:
+        print("Purchase not approved; invalid customer.")
+    else:
+        if not vendor in trustedVendors:
+            print("Purchase not approved; untrusted vendor.")
+        else:
+            print("Purchase approved!")
+print("Done!")
+
+
+#In the designated areas below, write the three for loops
+#that are described. Do not change the print statements that
+#are currently there.
+
+print("First loop:")
+
+#Write a loop here that prints the numbers from 1 to 10,
+#inclusive (meaning that it prints both 1 and 10, and all
+#the numbers in between). Print each number on a separate
+#line.
+
+for i in range (1,11):
+    print(i)
+print("Second loop:")
+
+#Write a loop here that prints the numbers from -5 to 5,
+#inclusive. Print each number on a separate line.
+
+for i in range (-5, 6):
+    print(i)
+print("Third loop:")
+
+#Write a loop here that prints the even numbers only from 1
+#to 20, inclusive. Print each number on a separate line.
+for i in range (2, 21, 2):
+    print(i)
+
+#Hint: There are two ways to do this. You can use the syntax
+#for the range() function shown in the multiple-choice
+#problem above, or you can use a conditional with a modulus
+#operator to determine whether or not to print.
+
+
+mystery_int = 5
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#In math, factorial is a mathematical operation where an
+#integer is multipled by every number between itself and 1.
+#For example, 5 factorial is 5 * 4 * 3 * 2 * 1, or 120.
+#Factorial is represented by an exclamation point: 5!
+#
+#Use a for loop to calculate the factorial of the number
+#given by mystery_int above. Then, print the result.
+#
+#Hint: Running a loop from 1 to mystery_int will give you
+#all the integers you need to multiply together. You'll need
+#to track the total product using a variable declared before
+#starting the loop, though!
+
+#Add your code here!
+factorial = 1
+for i in range (1, mystery_int + 1):
+    factorial *= i
+print(factorial)
