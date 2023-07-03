@@ -24,6 +24,7 @@ if 0 > mystery_value:
     print("This line should only run if 'mystery_value' is LESS than 0.")
 print("This line should always be printed.\n")
 
+###
 
 mystery_value = -1
 
@@ -51,6 +52,7 @@ else:
 
 print(result)
 
+###
 
 mystery_int_1 = 15
 mystery_int_2 = 5
@@ -74,6 +76,7 @@ mystery_int_2 = 5
 if mystery_int_1 % mystery_int_2 == 0 or mystery_int_2 % mystery_int_1 == 0:
     print("Factors!")
 
+###
 
 mystery_state = "Georgia"
 
@@ -104,6 +107,7 @@ elif mystery_state == "Georgia":
 else:
     print("idk wear a sweater")
 
+###
 
 temperature = -3.7
 celsius = True
@@ -130,6 +134,7 @@ if (temperature <= 0 and celsius == True) or (temperature <= 32 and celsius == F
 else:
     print("Not freezing")
 
+###
 
 mystery_string = "zizazzle"
 
@@ -169,6 +174,7 @@ elif "z" in mystery_string:
 else:
     print("Who needs z anyway?")
 
+###
 
 team_1 = "Georgia Tech"
 team_1_score = 28
@@ -208,13 +214,13 @@ elif team_2_score > team_1_score:
 else:
     print(team_1 + " played " + team_2 + " and it was a tie ")
 
+###
 
 item = "quesadilla"
 meat = "steak"
 queso = True
 guacamole = True
 double_meat = False
-
 
 #-----------------------------------------------------------
 #You may modify the lines of code above, but don't move them!
@@ -242,7 +248,6 @@ double_meat = False
 # - double_meat adds 1.50 if the meat is steak or pork, or
 #   1.00 otherwise.
 
-
 if item == "quesadilla":
     base_price = 4.0
 if item == "nachos":
@@ -265,6 +270,7 @@ if queso and not item == "nachos":
     
 print(base_price)
 
+###
 
 sunny = True
 windy = True
@@ -289,6 +295,7 @@ if sunny:
 #if sunny and not windy:
 #    print("Wear a hat!")
 
+###
 
 entered = "abc123"
 password = "abc123"
@@ -320,6 +327,7 @@ if tries <= 3:
 else:
     print("Tries exceeded.")
 
+###
 
 balance = 20.0  
 salesTax = 1.08 
@@ -347,6 +355,7 @@ else:
             print("Purchase approved!")
 print("Done!")
 
+###
 
 #In the designated areas below, write the three for loops
 #that are described. Do not change the print statements that
@@ -380,6 +389,7 @@ for i in range (2, 21, 2):
 #problem above, or you can use a conditional with a modulus
 #operator to determine whether or not to print.
 
+###
 
 mystery_int = 5
 
@@ -406,6 +416,7 @@ for i in range (1, mystery_int + 1):
     factorial *= i
 print(factorial)
 
+###
 
 mystery_string = "CS1301"
 
@@ -431,6 +442,7 @@ for letter in mystery_string:
     print(num_letter, letter)
     num_letter += 1
 
+###
 
 mystery_value = 87
 
@@ -448,6 +460,7 @@ while mystery_value <= 100:
     mystery_value += 9
     print(mystery_value)
 
+###
 
 mystery_int_1 = 3
 mystery_int_2 = 4
@@ -477,6 +490,7 @@ while mystery_int_1 > 0 or mystery_int_2 > 0 or mystery_int_3 > 0:
     mystery_int_3 -= 1
     print(mystery_int_1, mystery_int_2, mystery_int_3)
 
+###
 
 beats_per_measure = 4
 measures = 5
@@ -520,6 +534,7 @@ for measure in range(measures):
     for beat in range(1, beats_per_measure + 1):
         print(beat)
 
+###
 
 lyrics = ["I wanna be your endgame", "I wanna be your first string",
           "I wanna be your A-Team", "I wanna be your endgame, endgame"]
@@ -564,6 +579,7 @@ while counter < lines_of_sanity:
 
 print("MAKE IT STOP")
 
+###
 
 #When writing out mathematical equations for younger
 #audiences, we usually want to use the traditional division
@@ -603,6 +619,7 @@ def print_multiplication_symbol():
 print_division_symbol()
 print_multiplication_symbol()
 
+###
 
 #Take a look at the three functions completely written
 #below. It's your job to correctly call each function with
@@ -635,6 +652,7 @@ cherry_pie("Black Horse and a Cherry Tree")
 should_I_go_to_Waffle_House()
 average_grades(80, 80, 95, 86, 79)
 
+###
 
 #Write a function called get_todays_date that returns
 #today's date as a string, in the form year/month/day.
@@ -658,6 +676,7 @@ def get_todays_date():
 #for grading.
 print(get_todays_date())
 
+###
 
 #Write a function that takes in one integer parameter, the
 #side length of a square, and returns the area. The function
@@ -679,6 +698,7 @@ def find_area(side_length):
 test_side_length = 4
 print("A square with side length", test_side_length, "has an area of", find_area(test_side_length))
 
+###
 
 #Helping us develop this class are a team of teaching
 #assistants, often called TAs for short.
@@ -711,4 +731,463 @@ test_first_TA = "Joshua"
 test_second_TA = "Jackie"
 test_third_TA = "Marguerite"
 print(my_TAs(test_first_TA, test_second_TA, test_third_TA))
+
+###
+
+#Write a function called greeting. greeting should have one
+#parameter, a string representing a name. It should return
+#a string with the message "Hi [name]!", where the value of
+#the parameter is used in place of [name].
+#
+#For example:
+#
+# greeting("David") -> "Hi David!"
+
+def greeting(input_name):
+    return "Hi " + input_name + "!"
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: "Hi David!"
+
+a_name = "David"
+message = greeting(a_name)
+print(message)
+
+###
+
+#Below we've written a function that is supposed to take in
+#four parameters and produce a string representing the cost
+#of a person's weekly soda consumption. Below the function
+#definition, we're calling the function.
+#
+#However, right now, the code is erroring out. Fix this code
+#without changing the code inside the function. You may
+#change either the function declaration (on line 11) or the
+#function call on line 27.
+
+def soda_habit(sodas_per_week, price_per_soda, calories_per_soda, preferred_soda):
+    
+    #Above, we've moved preferred_soda to the beginning and
+    #sodas_per_week to the end, so our original function
+    #call will work.
+    
+    #Don't change the body of this function!
+    
+    money_spent = price_per_soda * sodas_per_week
+    calories_consumed = calories_per_soda * sodas_per_week
+    
+    summary_string = "You're spending $" + str(money_spent) + " on " + preferred_soda + " per week! "
+    summary_string += " That's " + str(calories_consumed) + " calories!"
+    
+    return summary_string
+
+result = soda_habit(9, 1.75, 140, "Coca-Cola")
+print(result)
+
+###
+
+#We've written the function, reverse, below. This function
+#takes a string and returns the reverse of it. There are two
+#scope errors somewhere in the code. Read through all the
+#code below to find and fix the errors, so that the function
+#produces the correct output and the result of the function
+#is correctly printed. Note that you should not change the
+#three lines that are already present in the function, but
+#you may add lines before them, or you may change or add to
+#the lines outside the function.
+#
+#Note that your goal here is to fix both the function itself
+#and the program as a whole. So, your function should be
+#able to be called on a new string, and the program when
+#run should print the reverse of the string originally on
+#line 29.
+
+def reverse(a_string):
+    #You may add code before the following three lines.
+    rev = ""
+    
+    #Don't change these three lines.
+    for i in range(len(a_string)-1, -1, -1):
+        rev = rev + a_string[i]
+    return rev
+
+#You may change or add to the following lines.
+rev = reverse("This string should be reversed!")
+print(rev)
+
+###
+
+#Write a function called snowed_in that will determine
+#whether school is closed based on the weather and
+#temperature. We'll pretend the school is in Georgia, where
+#a little snow or sub-freezing temperatures are enough to
+#close down schools!
+#
+#The function should take three parameters:
+#
+# - temperature, a float
+# - weather, a string
+# - is_celsius, a boolean
+#
+#The function should return True if temperature is below
+#freezing (32 if is_celsius is False, 0 if is_celsius is
+#True) or if weather is "snowy". Otherwise, it should
+#return False.
+#
+#Note, however, that is_celsius should be an optional
+#argument. If the function call does not supply a value for
+#is_celsius, assume it is True.
+#
+#For example:
+#
+# snowed_in(15, "sunny") -> False
+# is_celsius is assumed to be True, so 15 is not below
+# freezing.
+#
+# snowed_in(15, "sunny", is_celsius = False) -> True
+# is_celsius is False, so 15 is below freezing.
+#
+# snowed_in(15, "snowy", is_celsius = True) -> True
+# The weather is "snowy", so the temperature doesn't matter.
+
+
+#Write your function here!
+def snowed_in(temperature, weather, is_celsius = True):
+    if is_celsius == True:
+        if temperature < 0 or weather == "snowy":
+            return True
+        else:
+            return False
+    elif is_celsius == False:
+        if temperature < 32 or weather == "snowy":
+            return True
+        else:
+            return False
+    else:
+        return False
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print False, True, and True, each on their own line.
+
+print(snowed_in(15, "sunny")) #Should print False
+print(snowed_in(15, "sunny", is_celsius = False)) #Should print True
+print(snowed_in(15, "snowy", is_celsius = True)) #Should print True
+
+### ERROR HANDLING ###
+
+mystery_value = "9"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Create a program that divides 10 by mystery_value and prints
+#the result. In the case that an error occurs, print "Not
+#possible".
+#
+#Use error handling to determine if an error will occur; do
+#not use the type() function. You might be surprised how many
+#types Python can divide by 10!
+
+#Add your code here!
+try:
+    print(10 / mystery_value)
+except:
+    print("Not possible")
+
+###
+
+mystery_value = 9
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Create a program that divides 10 by mystery_value and prints
+#the result. In the case that mystery_value is equal to 0,
+#print "Not possible". Do not catch any other errors. This
+#means there will be an uncaught error in the correct answer!
+#
+#You may not use any conditionals or the type() function.
+
+#Add your code here!
+try:
+    print(10 / mystery_value)
+except ZeroDivisionError:
+    print("Not possible")
+
+###
+
+mystery_value = 9
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Create a program that divides 10 by mystery_value and 
+#prints the result. In the case that mystery_value is 
+#equal to 0, print "Can't divide by zero". If for any other
+#reason the operation fails, print "Not possible".
+#
+#You may not use any conditionals or the type() function.
+
+#Add your code here!
+try:
+    print(10 / mystery_value)def has_a_vowel(a_str):
+     for letter in a_str:
+         if letter in "aeiou":
+             return True
+         else:
+             return False
+except ZeroDivisionError:
+    print("Can't divide by zero")
+except Exception:
+    print("Not possible")
+
+###
+
+my_string = "This string is not a number!"
+#Run the code below until an error occurs
+try:    
+    print("Converting my_string to int...")
+    my_int = int(my_string)
+    print(my_int)
+#If an error occurs, jump to here
+except: 
+    print("Can't convert; my_string not a number.")
+print("Done!")
+
+###
+
+try:
+    #Open InputFile.txt in read-only mode
+    input_file = open("InputFile.txt", mode = "r")
+    #For each line in the file
+    for line in input_file:
+        #Print the line
+        print(line)
+    #Close the file
+    input_file.close()
+#Catch an IOError
+except IOError as error:
+    print("An input error occurred!")
+
+###
+
+#Write a function called has_a_vowel. has_a_vowel should have
+#one parameter, a string. It should return True if the string
+#has any vowels in it, False if it does not.
+
+
+def has_a_vowel(a_str):
+    for letter in a_str:
+        if letter in "aeiou":
+            return True
+    else:
+        return False
+    
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: True, then True, then False, then False, each on
+#its own line.
+print(has_a_vowel("abba"))
+print(has_a_vowel("beeswax"))
+print(has_a_vowel("syzygy"))
+print(has_a_vowel(""))
+
+###
+
+#Right now, the code below will encounter an error when num
+#is 0, but it will not print anything when it does, and then
+#it will keep running for num = 1, num = 2, and num = 3
+#afterwards. Modify this code so that once it hits an error,
+#the loop stops altogether.
+#
+#You still should not print anything when the error is
+#encountered, and the loop definition on line 10 should not
+#be changed.
+
+try:
+    for num in range(-3, 3):
+	    print(5 / num)
+except ZeroDivisionError:
+    pass
+
+###
+
+#Write a function called get_integer that takes as input one
+#variable, my_var. If my_var can be converted to an integer,
+#do so and return that integer. If my_var cannot be converted
+#to an integer, return a message that says, "Cannot convert!"
+#
+#For example, for "5" as the value of my_var, get_integer would
+#return the integer 5. If the value of my_var is the string
+#"Boggle.", then get_integer would return a string with the
+#value "Cannot convert!"
+#
+#Do not use any conditionals or the type() function.
+
+
+#Write your function here!
+def get_integer(my_var):
+    try:
+        return int(my_var)
+    except:
+        return "Cannot convert!"
+    
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 5, Cannot convert!, and 5.
+
+print(get_integer("5"))
+print(get_integer("Boggle."))
+print(get_integer(5.1))
+
+###
+
+#This exercise is identical to the previous exercise,
+#except that instead of printing "Cannot convert!" when my_var
+#cannot be converted to an integer, you should instead return
+#the error message that results. For a reminder of how to
+#access the error message in the except block, check out
+#3.5.3, specifically CatchingASpecificError-4.py from 3.5.3.3
+#and CatchingMultipleSpecificErrors-5.py from 3.5.3.4.
+#
+#Write a function called get_integer that takes as input one
+#variable, my_var. If my_var can be converted to an integer,
+#do so and return that integer. If my_var cannot be converted
+#to an integer, return the error message that results from
+#attempting to do so.
+#
+#Do not use any conditionals or the type() function.
+
+
+#Write your function here!
+def get_integer(my_var):
+    try:
+        return int(my_var)
+    except Exception as error:
+        return error
+
+
+#You can use the lines below to test out your function. When
+#the function is written correctly, the output of these three
+#lines should be:
+#5
+#invalid literal for int() with base 10: 'Boggle.'
+#5
+print(get_integer("5"))
+print(get_integer("Boggle."))
+print(get_integer(5.1))
+
+### PRACTICE PROBLEMS ###
+
+## Practice Problem 1
+
+#Imagine you're writing the software that controls the speed
+#of a ceiling fan. The user changes the fan's speed by
+#pulling a string. Pulling the string increases the fan's =
+#speed by 1, unless it's already at the maximum speed. If
+#it's already at the maximum speed, it changes the speed
+#back to 0.
+#
+#Write a function called pullString. pullString should take
+#two parameters: a current speed, and a maximum speed, both
+#integers. pullString should return the new fan speed
+#according to the reasoning above.
+
+#You may assume that the input will be integers. You should
+#also assume that the fan's speed *can* equal the maximum
+#speed, but it *cannot* exceed the maximum speed. You may
+#thus assume that you will never be given a currentSpeed
+#higher than maxSpeed.
+
+#Write your function here!
+
+def pullString(current_speed, max_speed):
+    while current_speed < max_speed:
+        current_speed += 1
+        return current_speed
+    while current_speed == max_speed:
+        current_speed = 0
+        return current_speed
+
+#The code below will test your function. It isn't used for
+#grading, so you can change or remove it if you'd like. As
+#written, these three lines should print 3, 5, and 0.
+print(pullString(2, 5))
+print(pullString(4, 5))
+print(pullString(7, 7))
+
+## Practice problem 2
+
+#A common formula in probability and statistics is the
+#formula for the number of possible combinations of r
+#objects from a set of n objects. For example, the question,
+#"How many possible 2-card hands can you deal from a deck of
+#52 unique cards?" is saying, "How many combinations of 2
+#can you make from a set of 52?"
+#
+#The formula for the number of combinations of length r from
+#a set of n objects is:
+#
+#  numCombinations = n! / r!(n-r)!
+#
+#The ! mark is the symbol for factorial. Factorial means the
+#product of the number times every number between itself and
+#1. For example, 5! is 120: 5 * 4 * 3 * 2 * 1 = 120.
+#
+#Write a function called numCombinations with two parameters:
+#n, the number of objects from which to choose, and r, the
+#number of objects to choose. numCombinations should return
+#the number of combinations according to the formula above.
+#Don't worry if you don't fully understand what combinations
+#are -- just focus on implementing a function that solves
+#that formula given n and r.
+#
+#You may *not* use Python's built-in factorial method to
+#complete this; you should implement that yourself.
+#
+#Hint: We'd suggest writing two functions: factorial() and
+#numCombinations(). Then, call factorial() in your code for 
+#numCombinations(). You don't have to do this, but it will
+#make your answer a little easier!
+#
+#Hint 2: Remember to put parentheses around the denominator.
+
+#Write your numCombinations function (and any other functions) 
+#here!
+
+def factorial(num1):
+    factorial = 1
+    for i in range (1, num1 + 1):
+        factorial *= i
+    return factorial
+
+def numCombinations(n, r):
+    return factorial(n) / (factorial(r) * factorial(n - r))
+
+#The lines below will test your code. They are not used for
+#grading, so feel free to modify them. As written, they should
+#print: 1326.0, 252.0, and 4.0, each on their own line.
+print(numCombinations(52, 2))
+print(numCombinations(10, 5))
+print(numCombinations(4, 1))
+
+## Practice problem 3
+
 
