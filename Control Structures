@@ -1651,3 +1651,1009 @@ print(valid_product_code("BDD5664S"))
 print(valid_product_code("66aBSaA1fdsv"))
 
 
+### PRACTICE TEST 2 ###
+
+## Practice problem 1
+
+days_late = 5
+in_demand = True
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Write a conditional that decides the amount of a library fine
+#based on an overdue book. The fine is 1 dollar per day late
+#for the first 10 days, and 2 dollars per day for every day
+#after that. If the book is considered an "in demand" book,
+#the fine is doubled.
+#
+#Print the cost of the library fine, including a dollar sign.
+#If the book is not late, print $0.
+#
+#Under the original values above, this should print $40:
+#$10 for the first 10 days late, $10 for the next 5 days late,
+#and doubled because the book is in demand.
+
+#Add your code here! Make sure to print the dollar sign, too.
+
+fine = 0
+remaining_days_late = 0
+
+if days_late <= 10 and days_late > 0:
+    fine = days_late * 1
+    if in_demand == True:
+        fine *= 2
+        print("$" + str(fine))
+    else:
+        print("$" + str(fine))
+elif days_late >= 10:
+    remaining_days_late = days_late - 10
+    fine = 10 + remaining_days_late * 2
+    if in_demand == True:
+        fine *= 2
+        print("$" + str(fine))
+    else:
+        print("$" + str(fine))
+else:
+    print("$" + str(fine))
+
+
+## Practice problem 2
+
+minimum = 5
+maximum = 14
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#Write a loop (we suggest a for loop) that prints all the
+#even numbers from minimum to maximum. Each number should be
+#printed on its own line, and you should print both minimum
+#and maxmimum themselves if they are even. You may assume
+#minimum will always be less than maximum.
+#
+#With the initial values for minimum and maximum above, this
+#should print 6, 8, 10, 12, 14 -- each number would be on its
+#own line, no commas.
+
+#Add your code here!
+for num in range(minimum, maximum + 1):
+    if num % 2 == 0:
+        print(num)
+
+
+## Practice problem 3
+
+#Write a function called is_prime. is_primse should take
+#as input one integer. It should return True if the integer
+#is prime, False if the integer is not prime. You may
+#assume the integer will be greater than 2 and less than
+#1000.
+#
+#Remember, a prime number is one into which no number is
+#divisible besides 1 and itself. For example, 6 is not
+#prime because it is divisible by 2 and 3. 7 is prime
+#because it is only divisible by 1 and itself.
+#
+#HINT: Remember, once you find a _single_ factor of the
+#number, you can return False: it only takes one factor
+#to make the number not prime.
+
+#Add your code here!
+def is_prime(integer):
+    count = 0
+    for num in range(2, integer):
+        if integer % num == 0:
+            count += 1
+    if count >= 1:
+        return False
+    else:
+        return True
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: True, False, True, False, True, False
+print(is_prime(5))
+print(is_prime(6))
+print(is_prime(97))
+print(is_prime(105))
+print(is_prime(997))
+print(is_prime(999))
+
+
+## Practice problem 4
+
+#Write a function called find_final_price. find_final_price
+#should have two positional parameters: a price and a sales
+#tax rate. It should also have a keyword parameter called
+#coupon_code, with a default value of 0.
+#
+#find_final_price should return the final price of the item,
+#which is the initial price plus the sales tax (price times
+#tax rate) minus the coupon code.
+#
+#Round the final answer to two decimal places. You can do
+#that with final_price = round(previous_price, 2).
+
+#Add your code here!
+def find_final_price(price, tax_rate, coupon_code = 0):
+    sales_tax = price * tax_rate
+    final_price = price + sales_tax - coupon_code
+    return round(final_price, 2)
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#10.70
+#5.70
+print(find_final_price(10.0, 0.07))
+print(find_final_price(10.0, 0.07, coupon_code = 5.0))
+
+
+## Practice problem 5
+
+the_string = "Ramblin"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#The string class has a method called islower which returns
+#True if a string is all lower case, false if it is not.
+#For example, if the_string = "Ramblin", then calling the
+#method the_string.islower() would return False. If instead
+#the_string was "wreck", the_string.islower() would return
+#True.
+#
+#Write some code that uses islower to print True if
+#the_string is all lower case, False if it is not. However,
+#if the_string isn't actually a string, this would instead
+#cause an AttributeError. Catch that error and instead
+#print the message "Only strings can be lowercase!".
+#
+#Note that you may not use any conditionals in your answer.
+#Note also that you should not assume that every error that
+#occurs is an attribute error: any other errors should not
+#be caught.
+
+#Add your code here!
+try:
+    print(the_string.islower())
+except AttributeError:
+    print("Only strings can be lowercase!")
+
+
+## Practice problem 6
+
+#Write a function called get_numerals. get_numerals should
+#accept one parameter, a string. It should return a string
+#containing only the numerals from the original string:
+#no letters, punctuation marks, or spaces.
+#
+#Remember, numerals have ordinal numbers between 48 ("0")
+#and 57 ("9"). You may use the ord() function to get
+#a letter's ordinal number.
+#
+#Your function should be able to handle strings with no
+#numerals (return an empty string) and strings with all
+#numerals (return the original string). You may assume
+#we'll only use regular characters (no emojis, formatting
+#characters, etc.).
+
+#Write your function here!
+def get_numerals(string):
+    new_string = ""
+    for char in string:
+        if ord(char) >= 48 and ord(char) <= 57:
+            new_string += char
+    return(new_string)
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#1301
+#
+#8675309
+print(get_numerals("CS1301"))
+print(get_numerals("Georgia Institute of Technology"))
+print(get_numerals("8675309"))
+
+
+## Practice problem 7
+
+#Write a function called check_date. check_date should
+#require two positional parameters: a string representing
+#the name of a month, and an integer representing a date.
+#check_date should also have a keyword parameter called
+#is_leap_year, assumed to be False, representing whether or
+#not it's a leap year.
+#
+#Return True if the date is a valid calendar date. Return
+#False if it is not. A date may not be a valid calendar
+#date if the month isn't a real month, or if that date does
+#not exist for that month. You can see some examples at the
+#end of this file.
+#
+#Remember: 30 days has September, April, June, and November.
+#All the rest have 31, except February, which has 28, until
+#Leap Year gives it 29.
+#
+#You may assume that day will be greater than 0 (you don't
+#need to check negative or zero values for day).
+
+
+#Write your function here!
+def check_date(month, date, is_leap_year = False):
+    list_of_months = ["January", "February", "March", "April", "May", "June", \
+                      "July", "August", "September", "October", "November", \
+                      "December"]
+    if month in list_of_months:
+        if month == "January" and date > 0 and date <= 31:
+            return True
+        elif month == "February" and date > 0 and date <= 28 and is_leap_year == False:
+            return True
+        elif month == "February" and date > 0 and date <= 29 and is_leap_year == True:
+            return True
+        elif month == "March" and date > 0 and date <= 31:
+            return True
+        elif month == "April" and date > 0 and date <= 30:
+            return True
+        elif month == "May" and date > 0 and date <= 31:
+            return True
+        elif month == "June" and date> 0 and date <= 30:
+            return True
+        elif month == "July" and date > 0 and date <= 31:
+            return True
+        elif month == "August" and date > 0 and date <= 31:
+            return True
+        elif month == "September" and date > 0 and date <= 30:
+            return True
+        elif month == "October" and date > 0 and date <= 31:
+            return True
+        elif month == "November" and date > 0 and date <= 30:
+            return True
+        elif month == "December" and date > 0 and date <= 31:
+            return True
+        else:
+            return False
+    else:
+        return False
+    
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: True, True, False, False, each on their own line.
+print(check_date("January", 31))
+print(check_date("February", 29, is_leap_year = True))
+print(check_date("Techtember", 15, is_leap_year = True))
+print(check_date("June", 31))
+
+
+## Practice problem 8
+
+#The Collatz Conjecture is a famous sequence in mathematics
+#proposed by Lothar Collatz. It proceeds as follows:
+#
+#Start with any number. If the number is even, divide it by
+#2. If the number is odd, triple it and add one. Repeat.
+#Eventually, no matter what number you begin with, this
+#sequence will converge on 1 (and if you continue repeating
+#it, you'll repeat 1-4-2 infinitely).
+#
+#For example, imagine we started with the number 21:
+#5 is odd, so 5 * 3 + 1 = 16
+#16 is even, so 16 / 2 = 8
+#8 is even, so 8 / 2 = 4
+#4 is even, so 4 / 2 = 2
+#2 is even, so 2 / 1 = 1
+#
+#Starting with 5, this sequence converges on 1 in 5
+#iterations: 5 to 16, 16 to 8, 8 to 4, 4 to 2, and 2 to 1.
+#
+#Implement a function called collatz. collatz should take
+#as input an integer, and return the number of iterations
+#it takes for the Collatz sequence to reach 1 from that
+#number. For example, collatz(5) would return 5 because
+#it took 5 iterations to converge on 1.
+
+#Add your code here!
+def collatz(number):
+    count = 0
+    while number > 1:
+        if number % 2 == 1:
+            number *= 3
+            number += 1
+            count += 1
+        if number % 2 == 0:
+            number /= 2
+            count += 1
+    return count
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 5, 17, and 23, each on their own lines.
+print(collatz(5))
+print(collatz(15))
+print(collatz(25))
+
+
+## Practice problem 9
+
+#Write a function called product_code_check. product_code_check
+#should take as input a single string. It should return a boolean:
+#True if the product code is a valid code according to the rules
+#below, False if it is not.
+#
+#A string is a valid product code if it meets ALL the following
+#conditions:
+#
+# - It must be at least 8 characters long.
+# - It must contain at least one character from each of the
+#   following categories: capital letters, lower-case letters,
+#   and numbers.
+# - It may not contain any punctuation marks, spaces, or other
+#   characters.
+
+
+#Add your code here!
+def product_code_check(string):
+    has_uppercase = False
+    has_lowercase = False
+    has_number = False
+    if not len(string) >= 8:
+        return False
+    for character in string:
+        if character.isupper():
+            has_uppercase = True
+        elif character.islower():
+            has_lowercase = True
+        elif character.isdigit():
+            has_number = True
+    if not (has_uppercase and has_lowercase and has_number):
+        return False
+    for character in string:
+        if not ((ord(character) >= 48 and ord(character) <= 57) or (ord(character) >= 65 and ord(character) <= 90) or (ord(character) >= 97 and ord(character) <= 122)):
+            return False
+    else:
+        return True
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: True, True, False, False, False
+print(product_code_check("g00dlONGproductCODE"))
+print(product_code_check("fRV53FwSXX663cCd"))
+print(product_code_check("2shOrt"))
+print(product_code_check("alll0wercase"))
+print(product_code_check("inv4l1d CH4R4CTERS~"))
+
+
+### PRACTICE PROBLEMS 3 ###
+
+## Practice probelm 1
+
+original_total = 15.55
+sales_tax_rate = 0.07
+is_member = False
+has_coupon = False
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you're writing the software for a cash register at a
+#retail vendor. The cash register is given a total by the
+#cashier (original_total), and must print the total cost for
+#the customer, under the following rules:
+#
+# - There is currently a "$5 off $15" coupon available. If their
+#   original total is more than $15 and they have the coupon
+#   (has_coupon), they can use this coupon. If their total is
+#   below $15, the value of has_coupon doesn't matter.
+# - If the customer is a member of the store's discount
+#   program (is_member), they receive a 10% discount.
+# - Sales tax should be added. Sales tax is the sales_tax_rate
+#   multiplied by the original total.
+#
+#Note that these changes should be applied in this order: first
+#the coupon (if available and eligible), then the customer
+#discount, then the sales tax.
+#
+#For example, if original_total is 20, sales tax is 0.10,
+#they have a coupon, and they are members, then their total
+#would be:
+#
+#  $20 - $5 = $15 (coupon)
+#  $15 - (0.1 * $15) = $13.50 (customer discount)
+#  $13.5 + (0.1 * 13.5) = $14.85 (sales tax)
+#
+#Write some code that prints the total the customer is expected
+#to pay, including the dollar sign, rounded to two decimal places
+#(don't worry about the trailing 0 for totals like $15.50).
+#
+#Hint: To round a number, use the round function. For example,
+#round(the_num, 2) will round the_num to two decimal places and
+#return the result. Round only on the last step; if you round
+#after each calculation, your final result may be off by a cent
+#or two.
+
+#Add your code here! Make sure to print the dollar sign, too.
+
+new_total = 0
+
+if original_total >= 15 and has_coupon == True:
+    new_total = original_total - 5
+    if is_member == True:
+        new_total *= 0.9
+        new_total += new_total * sales_tax_rate
+        print("$" + str(round(new_total, 2)))
+    else:
+        new_total += new_total * sales_tax_rate
+        print("$" + str(round(new_total, 2)))
+elif original_total >= 15 and has_coupon == False:
+    if is_member == True:
+        new_total = original_total * 0.9
+        new_total += new_total * sales_tax_rate
+        print("$" + str(round(new_total, 2)))
+    else:
+        new_total = original_total + (original_total * sales_tax_rate)
+        print("$" + str(round(new_total, 2)))
+elif original_total < 15:
+    if is_member == True:
+        new_total = original_total * 0.9
+        new_total += new_total * sales_tax_rate
+        print("$" + str(round(new_total, 2)))
+    else:
+        new_total = original_total + (original_total * sales_tax_rate)
+        print("$" + str(round(new_total, 2)))
+
+
+## Practice problem 2
+
+minimum = 5
+maximum = 10
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Write a loop (we suggest a for loop) that sums all the numbers
+#from minimum to maximum, including both minimum and maximum
+#themselves. You may assume minimum will always be less than
+#maximum.
+#
+#Your code should not only add the numbers; it should also
+#print the current sum after each number is added. So, for
+#minimum = 5 and maximum = 10, your code would print the results
+#of adding 5 + 6 + 7 + 8 + 9 + 10:
+#5
+#11
+#18
+#26
+#35
+#45
+
+#Add your code here!
+sum = 0
+for number in range(minimum, maximum + 1):
+    sum += number
+    print(sum)
+    
+
+## Practice problem 3
+
+#Write a function called is_composite. is_composite should
+#take as input one integer. It should return True if the
+#integer is composite, False if the integer is not not
+#composite. You may assume the integer will be greater than
+#2 and less than 1000.
+#
+#Remember, a composite number is one into which at least
+#one number is divisible besides 1 and the number itself.
+#For example, 6 is composite because it is divisible by 2
+#and 3. 7 is not composite because it is only divisible by 1
+#and itself.
+#
+#HINT: Remember, once you find a _single_ factor of the
+#number, you can return True: it only takes one factor
+#to make the number composite.
+
+#Add your code here!
+def is_composite(number):
+    for int in range(2, number - 1):
+        if number % int == 0:
+            return True
+            break
+    else:
+        return False
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: False, True, False, True, False, True
+print(is_composite(5))
+print(is_composite(6))
+print(is_composite(97))
+print(is_composite(105))
+print(is_composite(997))
+print(is_composite(999))
+
+
+## Practice problem 3
+
+#Imagine you're writing the software for a credit card
+#processor. This credit card offers 1% cashback to the
+#cardholder, which it calculates by deducting 1%
+#directly from the original purchase price. The software
+#also needs to account for charges made in different
+#currencies; these first need to be converted to the
+#account's local currency.
+#
+#Write a function called calculate_charge.
+#calculate_charge will have one positional parameter and
+#one keyword parameter. The positional parameter will
+#represent the original amount of the charge, in whatever
+#currency the charge was performed in. The keyword
+#parameter will represent the exchange rate between the
+#charge's currency and the account's currency; by default,
+#it should be 1.0, meaning that the charge took place in
+#the account's own currency.
+#
+#calculate_charge should return the actual charge that
+#should appear on the spender's credit card. This would
+#be the charge converted to the account's local currency
+#(by dividing the charge amount by the exchange rate) and
+#deducting 1%. The result should be rounded to two decimal
+#places, but not until after all other calculations are
+#made.
+#
+#For example, right now, 1 US Dollar is worth 0.91 Euros.
+#A 20 Euro purchase costs $21.98 because 20 / 0.91 = 21.98.
+#1% of 21.98 is 0.2198. So, if the function is called with
+#an original price of 20.0 and an exchange rate of 0.91,
+#it would return 21.76.
+#
+#Hint: Remember, you can round a number to two decimal
+#places by using the round function. round(the_num, 2) will
+#return the_num rounded to two decimal places.
+
+#Add your code here!
+def calculate_charge(original_amount, exchange_rate = 1.0):
+    new_amount = 0
+    new_amount = original_amount / exchange_rate
+    new_amount -= new_amount * .01
+    return round(new_amount, 2)
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#19.8
+#21.76
+print(calculate_charge(20.0))
+print(calculate_charge(20.0, exchange_rate = 0.91))
+
+
+## Practice problem 4
+
+x = 10
+y = 5
+z = 2
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#Implement and print out the results of the formula below,
+#rounded to two decimal places:
+#
+# z / (x * y)
+#
+#When x, y, and z are all numbers, this should work just
+#fine: for example, for x = 10, y = 5, and z = 2, this would
+#print out 0.04: 2 / (10 * 5) = 0.04.
+#
+#However, some things might go wrong. The product of x and y
+#could be 0, or one of the values could be a string instead of
+#a number.
+#
+#If a divide-by-zero error occurs instead, print the message:
+#"Can't divide by zero!" (without the quotation marks).
+#
+#If one of the values ends up being a string, print the message:
+#"Can't divide by a string!" (without the quotation marks).
+#
+#No matter what happens, your code should print "Done!" (without
+#quotation marks) at the end.
+#
+#Note that you may not use any conditionals in your answer.
+#Note also that you should not assume that every error that
+#occurs is a divide-by-zero error: any other errors should
+#not be caught.
+
+#Add your code here!
+try:
+    ans = z / (x * y)
+    print(round((ans), 2))
+except ZeroDivisionError:
+    print("Can't divide by zero!")
+except TypeError:
+    print("Can't divide by a string!")
+finally:
+    print("Done!")
+
+
+## Practice problem 6
+
+#Write a function called sort_characters. sort_characters
+#should take as input one parameter, a string.
+#
+#sort_characters should return a string such that all the
+#characters in the original string are still present, but
+#in a different order. All the capital letters should appear
+#first, then all the lower-case letters, then all the
+#numerals, then all the punctuation marks. Within each
+#category, the letters should appear in the same order as
+#in the original string.
+#
+#For example, for the string "DavidJoyner", the function
+#would return "DJavidoyner": the capital letters (DJ) first,
+#then the lower case, all in the same order in which they
+#originally appeared.
+#
+#Some more examples:
+#
+# sort_characters("GeorgiaTech") -> "GTeorgiaech"
+# sort_characters("ThisIsCS1301!") -> "TICShiss1301!"
+# sort_characters("One1.Two2?Three3!") -> "OTTnewohree123.?!"
+# sort_characters("CS1301") -> "CS1301"
+#
+#You may use the ord() function to get a letter's ordinal
+#number. The ordinal numbers you might need to use are:
+#
+# - Capital letters: 65 ("A") through 90 ("Z").
+# - Lower-case letters: 97 ("a") through 122 ("z").
+# - Numerals: 48 ("0") through 57 ("9").
+# - Punctuation: Any other ordinals (for this problem).
+#
+#Hint: You don't have to use ordinal numbers; you can use the
+#in operator instead, e.g. "a" in "abcde".
+#
+#Hint 2: If you're stuck, think of this problem in two stages:
+#dividing the characters into their categories, and then
+#recombining them into their results!
+
+#Write your function here!
+def sort_characters(string):
+    
+    new_string_cap = ""
+    for char in string:
+        if ord(char) >= 65 and ord(char) <= 90:
+            new_string_cap += char
+    
+    new_string_lower = ""
+    for char in string:
+        if ord(char) >= 97 and ord(char) <= 122:
+            new_string_lower += char
+
+    new_string_digits = ""
+    for char in string:
+        if ord(char) >= 48 and ord(char) <= 57:
+            new_string_digits += char
+    
+    new_string_punc = ""
+    for char in string:
+        if not ((ord(char) >= 65 and ord(char) <= 90) or (ord(char) >= 97 and ord(char) <= 122) \
+        or (ord(char) >= 48 and ord(char) <= 57)):
+            new_string_punc += char
+
+    new_string_final = new_string_cap + new_string_lower + new_string_digits + new_string_punc
+
+    return new_string_final
+    
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#DJavidoyner
+#GTeorgiaech
+#TICShiss1301
+#OTTnewohree123.?!
+#CS1301
+print(sort_characters("DavidJoyner"))
+print(sort_characters("GeorgiaTech"))
+print(sort_characters("ThisIsCS1301!"))
+print(sort_characters("One1.Two2?Three3!"))
+print(sort_characters("CS1301"))
+
+## Practice problem 7
+
+#Write a function that will calculate the Knox index of a
+#number. The Knox Index is a thing I made up for this
+#problem, and it is defined as follows:
+#
+#Start with the number. If the number is even, divide it by
+#2. If the number is odd, add one. Repeat. Eventually, no
+#matter what number you begin with, this sequence will
+#converge on 1. If you continue repeating it, you'll repeat
+#1-2-1-2 indefinitely.
+#
+#For example, imagine we started with the number 50:
+#50 is even, so 50 / 2 = 25
+#25 is odd, so 25 + 1 = 26
+#26 is even, so 26 / 2 = 13
+#13 is odd, so 13 + 1 = 14
+#14 is even, so 14 / 2 = 7
+#7 is odd, so 7 + 1 = 8
+#8 is even, so 8 / 2 = 4
+#4 is even, so 4 / 2 = 2
+#2 is even, so 2 / 2 = 1
+#
+#Starting with 50, this sequence converges on 1 in 9
+#iterations: 50 to 25, 25 to 26, 26 to 13, 13 to 14, 14 to
+#7, 7 to 8, 8 to 4, 4 to 2, and 2 to 1.
+#
+#Implement a function called knox. knox should take as
+#input an integer, and return the integer's Knox index;
+#that is, the number of iterations it takes for the
+#number to reach 1 following those rules. For example,
+#knox(50) would return 9 because it took 9 iterations to
+#converge on 1.
+
+#Add your code here!
+def knox(number):
+    count = 0
+    while number > 1:
+        if number % 2 == 0:
+            number /= 2
+            count += 1
+        else:
+            number += 1
+            count += 1
+    return count
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 9, 5, and 8, each on their own lines.
+print(knox(50))
+print(knox(15))
+print(knox(25))
+
+
+## Practice problem 8
+
+#10th Street Trade School is a small university. It
+#currently offers 12 majors: Accounting, Architecture,
+#Astronomy, Business, Economics, History, Law, Medicine,
+#Neuroscience, Physics, Psychology, and Zoology.
+#
+#10th Street's class-numbering structure is the same as
+#Georgia Tech's: all classes have 4-digit numbers;
+#undergraduate classes have numbers in the 1000s, 2000s,
+#3000s, or 4000s, while graduate classes have numbers in
+#the 6000s, 7000s, or 8000s.
+#
+#For three majors, 10th Street offers only undergraduate
+#classes: Business, Architecture, and History. For three,
+#it offers only graduate classes: Law, Medicine, and
+#Neuroscience. For the other six, it offers both
+#undergraduate and graduate classes.
+#
+#However, four majors are not offered during the summer:
+#Business, Law, Architecture, and Accounting are only
+#offered in Spring and Fall semesters.
+#
+#Write a function called check_class. check_class should
+#require two positional arguments: a string for major
+#name ("Astronomy", "Physics", etc.) and an integer for
+#class number (1001, 6750, etc.). It should also have
+#one keyword parameter: is_summer. is_summer should be
+#False by default.
+#
+#check_class should return True if the class is valid,
+#or False if it is not. A class is valid if (a) its
+#major is one of the 12 majors listed above, (b) its
+#class number is appropriate for the major (6000
+#through 8999 for graduate-only majors, 1000 through
+#4999 for undergraduate-only majors, or either for
+#other majors, but nothing outside that range), and
+#(c) the class is offered during the given semester
+#(e.g. it's always offered, or it's not a summer
+#semester).
+
+
+#Write your function here!
+def check_class(class_name, class_number, is_summer = False):
+
+    all_majors = ["Accounting", "Architecture", "Astronomy", "Business", "Economics", \
+              "History", "Law", "Medicine", "Neuroscience", "Physics", "Psychology", \
+              "Zoology"]
+    undergrad_classes = ["Business", "Architecture", "History", "Accounting", \
+                        "Astronomy", "Economics", "Physics", "Pscyhology", "Zoology"]
+    grad_classes = ["Law", "Medicine", "Neuroscience", "Accounting", "Astronomy", \
+                    "Economics", "Physics", "Pscyhology", "Zoology"]
+    summer_classes = ["Astronomy", "Economics", "History", "Medicine", \
+                      "Neuroscience", "Physics", "Psychology", "Zoology"]
+    
+    if class_name in all_majors:
+        if is_summer == True and class_name in summer_classes:
+            if class_name in undergrad_classes and (class_number >= 1000 and \
+                                                    class_number <= 4000):
+                return True
+            elif class_name in grad_classes and (class_number >= 6000 and \
+                                                class_number <= 8000):
+                return True
+            else:
+                return False
+        elif is_summer == False:
+            if class_name in undergrad_classes and (class_number >= 1000 and \
+                                                    class_number <= 4000):
+                return True
+            elif class_name in grad_classes and (class_number >= 6000 and \
+                                                class_number <= 8000):
+                return True
+            else:
+                return False
+        else:
+            return False
+    else:
+        return False
+    
+    
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: True, False, False, False, False, False
+print(check_class("Law", 6769, is_summer = True))
+
+
+## Practice problem 9
+#The math we typically do is in base 10: adding 10 to one digit
+#increments the next digit. Thus, the smallest (furthest right)
+#number is the ones digit, the next smallest is the tens digit,
+#the next smallest is the hundreds digit, etc. A 5 in the ones
+#slot adds 5 to the total; a 5 in the tens slot adds 50 (5 * 10)
+#to the total; a 5 in the hundreds slot adds 500 to the total
+#(5 * 100), etc.
+#
+#Hexadecimal is a way of representing a different base, base 16.
+#The digits 0 through 9 represent the normal numbers; A is 10,
+#B is 11, C is 12, D is 13, E is 14, and F is 15. So, the
+#hexadecimal number E is the standard number 14.
+#
+#Like base 10, hexadecimal has digit places: the ones digit, the
+#16s digit, the 256s digit, and the 4096s digit. A 5 in the ones
+#spot adds 5 to the total; in the 16s spot it adds 80 to the
+#total (5 * 16), in the 256s spot it adds 1280 (5 * 256), and in
+#the 4096s spot it adds 20480 (5 * 4096). In 4 digits, base 16
+#can represent base 10 numbers up to 65,535 (16^4 - 1).
+#
+#Write a function called hex_to_decimal. hex_to_decimal will take
+#one parameter, a string. You may assume the string will always
+#have exactly 4 characters, and that all the characters will be
+#a numeral from 0 to 9 or a capital letter from A to F. Return
+#result of converting this hexadecimal number to a standard
+#base-10 number.
+
+
+#Add your code here!
+def hex_to_decimal(string):
+    decimal = 0
+    sum = 0
+    number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    for char in string[0]:
+        if char in number:
+            char = int(char)
+        if char == "A":
+            char = 10
+        if char == "B":
+            char = 11
+        if char == "C":
+            char = 12
+        if char == "D":
+            char = 13
+        if char == "E":
+            char = 14
+        if char == "F":
+            char = 15
+        decimal = char * 4096
+        sum += decimal
+    for char in string[1]:
+        if char in number:
+            char = int(char)
+        if char == "A":
+            char = 10
+        if char == "B":
+            char = 11
+        if char == "C":
+            char = 12
+        if char == "D":
+            char = 13
+        if char == "E":
+            char = 14
+        if char == "F":
+            char = 15
+        decimal = char * 256
+        sum += decimal
+    for char in string[2]:
+        if char in number:
+            char = int(char)
+        if char == "A":
+            char = 10
+        if char == "B":
+            char = 11
+        if char == "C":
+            char = 12
+        if char == "D":
+            char = 13
+        if char == "E":
+            char = 14
+        if char == "F":
+            char = 15
+        decimal = char * 16
+        sum += decimal
+    for char in string[3]:
+        if char in number:
+            char = int(char)
+        if char == "A":
+            char = 10
+        if char == "B":
+            char = 11
+        if char == "C":
+            char = 12
+        if char == "D":
+            char = 13
+        if char == "E":
+            char = 14
+        if char == "F":
+            char = 15
+        decimal = char * 1
+        sum += decimal
+    return sum
+    
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 43690, 65535, 4369, 4660, 17185, 0, 1885.
+print(hex_to_decimal("AAAA"))
+print(hex_to_decimal("FFFF"))
+print(hex_to_decimal("1111"))
+print(hex_to_decimal("1234"))
+print(hex_to_decimal("4321"))
+print(hex_to_decimal("0000"))
+print(hex_to_decimal("075D"))
