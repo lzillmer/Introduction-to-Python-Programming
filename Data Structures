@@ -268,6 +268,354 @@ print(myString.find("CDE", 3, 6))
 
 ###
 
+#Recall in Unit 3 you wrote a function that would count the
+#number of words in a string using loops. Now that you know
+#something about string methods, though, let's do that again
+#using a different approach.
+#
+#Write a function called "num_words" that accepts a string 
+#as an argument and returns the number of words in the 
+#string. You can assume all words are separated by a space,
+#and that the string has at least one word. You do not need
+#to worry about punctuation.
+#
+#For example:
+#
+#  num_words("Veni, Vidi, Vici.") -> 3
+#
+#This time, you may not use any loops. Hint: split() might
+#come in handy.
+
+
+#Write your function here!
+def num_words(string):
+    my_list = string.split(" ")
+    count = len(my_list)
+    return count
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 3, 2, 1, each on their own line.
+print(num_words("Vini, Vidi, Vici."))
+print(num_words("Hello, world!"))
+print(num_words("HeyDavidwhyaren'ttherespacesinthissentence"))
+
+
+### Useful string methods ###
+
+mystring.capitalize()
+mystring.lower()
+mystring.upper()
+mystring.title()                 ## capitalizes any character found after space
+mystring.strip()                 ## strips any empty spaces at end
+mystring.replace("MY", "YOUR")   ## replaces first instances of word with second
+
+mylist = mystring.split()        ## splits string into list of items
+print("-".join(mylist))          ## adds "-" between each word in list
+
+
+### TUPLES ###
+
+#Write a function called unpack_and_reverse that will
+#accept one parameter, a tuple with at least three items.
+#The function should return a new tuple with only the first
+#three items, but listed in reverse order.
+#
+#For example:
+#
+# a_tuple = ("a", "b", "c", "d", "e")
+# unpack_and_reverse(a_tuple) -> ("c", "b", "a")
+#
+#However, to do this, you should not access any value in
+#the tuple directly (e.g. with a_tuple[1]). Instead, you
+#should use tuple unpacking to unpack them into variables.
+#You also should not touch any items past the third item
+#in the tuple: use tuple slicing instead to only access
+#the first three.
+
+#Write your function here!
+def unpack_and_reverse(mytuple):
+    a, b, c = mytuple[0:3]
+    return c, b, a
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#('c', 'b', 'a')
+#('h', 'g', 'f')
+#('k', 'j', 'i')
+print(unpack_and_reverse(("a", "b", "c", "d", "e")))
+print(unpack_and_reverse(("f", "g", "h")))
+print(unpack_and_reverse(("i", "j", "k", "l", "m", "n", "o", "p", "q", "r")))
+
+###
+
+#Remember asciitable.com from an earlier exercise? We're
+#going to use it again. Remember, ordinal values for
+#characters are given in the 'Dec' column of asciitable.com.
+#
+#Write a function called character_info. character_info will
+#take as input a string with only one character. It should
+#return a 3-tuple with three pieces of information:
+#
+# - In the first spot, the character itself.
+# - In the second spot, the ordinal value of the character,
+#   obtained using the ord() function (e.g. ord("a") -> 97).
+# - In the third spot, what type of character it is: either
+#   "letter", "number", or "punctuation".
+#
+#You may assume that anything that is not a letter (either
+#upper or lower case) or a number is punctuation. You may
+#also assume the ordinal will be between 32 (" ") and 126
+#("~").
+
+
+#Write your function here!
+def character_info(char):
+    if char in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz":
+        char_type = "letter"
+    elif char in "1234567890":
+        char_type = "number"
+    else:
+        char_type = "punctuation"
+    return (char, ord(char), char_type)
+    
+        
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#('q', 113, 'letter')
+#('7', 55, 'number')
+#('`', 96, 'punctuation')
+print(character_info("q"))
+print(character_info("7"))
+print(character_info("`"))
+
+### List functions ###
+
+mylist.sort()                     ## sorts low to high
+mylist.append()                   ## adds to list
+mylist.extend()                   ## adds to list
+mylist.insert(location, value)    ## inserts value after location
+mylist.remove()                   ## removes given value from list
+mylist.reverse()                  ## reverses list
+mylist.pop()                      ## removes last item from list (and stores it)
+del mylist[-5:]                   ## removes all values starting at five from the end
+mylist.index(23)                  ## shows where value 23 is indexed
+mylist.count(15)                  ## counts how many times 15 occurs in list
+print(4 in mylist)                ## prints False since 4 isn't in list
+
+###
+
+#Write a function called modify_list. modify_list will
+#take one parameter, a list. It should then modify the
+#list in the following ways, in this order:
+#
+# - Sort the list (using the default sort method).
+# - Reverse the order of the list.
+# - Delete the last three items of the list.
+# - Removes one instance the integer 7 from the list, if
+#   it's present.
+# - Double the values of the first and third items in
+#   the list.
+#
+#It should then return the resulting list. You may assume
+#the list will start with at least six items.
+#
+#Hint: Remember Python is 0-indexed. The second item
+#does not have an index of 2.
+#
+#Hint 2: Remember, the list.remove() function removes items
+#by value, not by index. Note also that if the item you're
+#trying to remove is not found in the list, remove() will
+#throw an error: so, you'll want to avoid that one way or
+#another!
+
+
+#Write your code here!
+def modify_list(mylist):
+    mylist.sort()
+    mylist.reverse()
+    del mylist[-3:]
+    if 7 in mylist:
+        mylist.remove(7)
+    mylist[0] *= 2
+    mylist[2] *= 2
+    return mylist
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#[178, 81, 75.0, 4, 3.141592653589793, 3]
+import math
+print(modify_list([7, 4, 3, 2.0, 81, 37.5, 89, math.pi, -2, math.e]))
+
+###
+
+#Write a function called multiply_strings. Multiply
+#strings should have one parameter, a list of strings.
+#It should return a modified list according to the
+#following changes:
+#
+# - Every string stored at an even index should be
+#   doubled.
+# - Every string stored at an index that is a multiple
+#   of 3 should be tripled.
+# - Every other string should remain unchanged.
+#
+#These changes should "stack": the string stored at index
+#6 should be duplicated six times (2 * 3).
+#
+#Then, return the new list. You may assume that 0 is a
+#multiple of 2 and 3.
+#
+#Hint: To do this, you need to modify the values of the
+#list using their indices, e.g. a_list[1]. If you're not
+#using their indices, your answer won't work!
+
+
+#Write your function here!
+def multiply_strings(list_of_strings):
+    for string in range(0, len(list_of_strings), 2):
+        list_of_strings[string] *= 2
+    for string in range(0, len(list_of_strings), 3):
+        list_of_strings[string] *= 3
+    return list_of_strings
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 
+#['AAAAAA', 'B', 'CC', 'DDD', 'EE', 'F', 'GGGGGG']
+test_list = ["A", "B", "C", "D", "E", "F", "G"]
+print(multiply_strings(test_list))
+
+###
+
+#Write a function called sum_lists. sum_lists should take
+#one parameter, which will be a list of lists of integers.
+#sum_lists should return the sum of adding every number from
+#every list.
+#
+#For example:
+#
+# list_of_lists = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+# sum_list(list_of_lists) -> 67
+
+
+#Add your code here!
+def sum_lists(list_of_lists):
+    sum = 0
+    for single_list in list_of_lists:
+        for item in single_list:
+            sum += item
+    return sum
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 78
+list_of_lists = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+print(sum_lists(list_of_lists))
+
+###
+
+#We've learned a lot in this chapter. Let's try to use a lot
+#of it for one final exercise.
+#
+#Write a function called sort_artists. sort_artists will
+#take as input a list of tuples. Each tuple will have two
+#items: the first item will be a string holding an artist's
+#name, and the second will be an integer representing their
+#total album sales (in millions).
+#
+#Return a tuple of two lists. The first list in the
+#resulting tuple should be all the artists sorted
+#alphabetically. The second list should be all the revenues
+#sorted in descending numerical order.
+#
+#For example:
+# artists = [("The Beatles", 270.8), ("Elvis Presley", 211.5), ("Michael Jackson", 183.9)]
+# sort_artists(artists) -> (["Elvis Presley", "Michael Jackson", "The Beatles"], [270.8, 211.5, 183.9])
+#
+#Notice that artists is a list of tuples (brackets first,
+#then parentheses), but sort_artists outputs a tuple of
+#lists (parentheses first, then brackets).
+
+
+#Write your function here!
+def sort_artists(artist_list):
+    
+    artists = []
+    sales = []
+    
+    for artist_tuple in artist_list:        
+        artists.append(artist_tuple[0])        
+        sales.append(artist_tuple[1])
+      
+    artists.sort()
+    sales.sort()
+    sales.reverse()
+    
+    return (artists, sales)
+    
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#(['Elvis Presley', 'Michael Jackson', 'The Beatles'], [270.8, 211.5, 183.9])  
+artists = [("The Beatles", 270.8), ("Elvis Presley", 211.5), ("Michael Jackson", 183.9)]
+print(sort_artists(artists))
+
+###
+
+#Averages each list in in2DList
+def TwoDAverageWithPop(in2DList):  
+    result = []
+    #Repeat until in2DList is empty
+    while len(in2DList) > 0:    
+        #Remove and assign the last item of in2DList to numList
+        numList = in2DList.pop()    
+        sum = 0
+        count = 0
+        #Repeat until numList is empty
+        while len(numList) > 0: 
+            #Remove and save the last item of numList to number
+            number = numList.pop()  
+            sum += number
+            count += 1
+        #Insert this average at the beginning of result
+        result.insert(0, sum / count)   
+    return result
+
+my2DList = [[91, 95, 89, 92, 85],[85, 87, 91, 81, 82],
+            [79, 75, 85, 83, 89],[81, 89, 91, 91, 90],
+            [99, 91, 95, 89, 90]]
+
+print("Averages:", TwoDAverageWithPop(my2DList))
+print("my2DList:", my2DList)
 
 
 
