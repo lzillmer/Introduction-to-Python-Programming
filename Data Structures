@@ -1012,7 +1012,7 @@ ta_info = [("Joshua", "Georgia"),
 
 
 #Create your dictionary here!
-dictionary = {"Joshua":"Georgia", "Jackie":"Vermont", "Marguerite":"Tennessee"}
+ta_dict = {"Joshua":"Georgia", "Jackie":"Vermont", "Marguerite":"Tennessee"}
 
 
 #Now, create three variables: josh_val, jack_val, and
@@ -1024,18 +1024,983 @@ dictionary = {"Joshua":"Georgia", "Jackie":"Vermont", "Marguerite":"Tennessee"}
 #Make sure you use dictionary-access syntax to do this.
 #Don't create the variables based on new values.
 
-
 #Create your variables here!
-josh_val = dictionary["Joshua"]
-jack_val = dictionary["Jackie"]
-marg_val = dictionary["Marguerite"]
-
+josh_val = ta_dict["Joshua"]
+jack_val = ta_dict["Jackie"]
+marg_val = ta_dict["Marguerite"]
 
 #If your code works as intended, the following three lines
 #will run and print Georgia, Vermont, and Tennessee:
 print(josh_val)
 print(jack_val)
 print(marg_val)
+
+###
+
+#Creates myDictionary with sprockets=5, widgets=11, cogs=3, and gizmos=15
+myDictionary = {"sprockets" : 5, "widgets" : 11, "cogs" : 3, "gizmos": 15}
+print(myDictionary)
+myDictionary["sprockets"] += 1
+print(myDictionary)
+
+###
+
+#Creates myDictionary with sprockets=5, widgets=11, cogs=3, and gizmos=15
+myDictionary = {"sprockets" : 5, "widgets" : 11, "cogs" : 3, "gizmos": 15}
+print(myDictionary)
+myDictionary["sprockets"] += 1
+print(myDictionary)
+
+###
+
+#Create a function called tup_to_dict. tup_to_dict should take one
+#parameter: a list of tuples. You can assume each tuple in
+#the list has exactly two values.
+#
+#The function should return a dictionary where the first item
+#in each tuple is the key, and the second item in each tuple
+#is the corresponding value.
+#
+#For example:
+# colors = [("turquoise", "#40E0D0"), ("red", "#990000")]
+# tup_to_dict(colors) -> {"turquoise":"#40E0D0", "red":"#990000"}
+#
+#Hint: the previous exercise is very similar; this just turns
+#it into a function! All our tuples will be color name-color
+#value pairs.
+
+
+#Write your function here!
+def tup_to_dict(tuple_list):
+    dictionary = {}
+    for list in tuple_list:
+        dictionary[list[0]] = list[1]
+    return dictionary
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:  {'Turquoise':'#40E0D0', 'Red':'#990000'}
+#
+#Don't worry if it prints those in the reverse order; that's
+#still correct!
+print(tup_to_dict([("Turquoise", "#40E0D0"), ("Red", "#990000")]))
+
+###
+
+#Creates myDictionary with sprockets=5, widgets=11, cogs=3, and gizmos=15
+myDictionary = {"sprockets" : 5, "widgets" : 11,
+                "cogs" : 3, "gizmos": 15}
+print(myDictionary)
+
+#Creates the new key "gadgets" with value 1
+myDictionary["gadgets"] = 1   
+print(myDictionary)
+del myDictionary["gadgets"]
+print(myDictionary)
+
+###
+
+#Creates myDictionary with David=4045551234, Lucy=4045555678, 
+#Vrushali=4045559101
+myDictionary = {"David" : "4045551234", "Lucy" : "4045555678",
+                "Vrushali" : "4045559101"}
+print(myDictionary)
+
+#Checks if "David" is a key in the dictionary
+if "David" in myDictionary: 
+    print("David is already in myDictionary!")
+    myDictionary["David2"] = "4045551121"
+else:  
+    myDictionary["David"] = "4045551121"
+print(myDictionary)
+
+###
+
+#Creates myDictionary with #David=4045551234, Lucy=4045555678, #Vrushali=4045559101
+myDictionary = {"David" : "4045551234", "Lucy" : "4045555678",
+                "Vrushali" : "4045559101"}
+print(myDictionary["Dana"])
+
+###
+
+#Write a function called students_present. students_present
+#should take as input one parameter, a dictionary. The keys
+#of the dictionary will be names, and the values will be one
+#of three strings: "Here", "Present", or an empty string "".
+#
+#Return a list of the keys for whom the corresponding value
+#is either "Here" or "Present".
+
+
+#Add your code here!
+def students_present(dictionary):
+    students_present = []
+    for (student, status) in dictionary.items():
+        if status == "Here" or status == "Present":
+            students_present.append(student)
+    return students_present
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#["David", "Marguerite", "Joshua", "Erica"]
+
+student_list = {"David" : "Here", "Marguerite" : "Here",
+                "Jackie": "", "Joshua": "Present",
+                "Erica": "Here", "Daniel": ""}
+print(students_present(student_list))
+
+###
+
+#Creates myDictionary with sprockets=5, widgets=11, cogs=3, gizmos=15, 
+#gadgets=1
+myDictionary = {"sprockets" : 5, "widgets" : 11, "cogs" : 3, "gizmos" : 15,
+                "gadgets" : 1}
+for value in myDictionary.values():
+    if value < 5:
+        print("A value less than 5 was found:", value)
+
+###
+
+#Creates myDictionary with sprockets=5, widgets=11, cogs=3, gizmos=15, 
+#gadgets=1
+myDictionary = {"sprockets" : 5, "widgets" : 11, "cogs" : 3, "gizmos" : 15, 
+                "gadgets" : 1}
+for key in myDictionary.keys():
+    value = myDictionary[key]
+    if value < 5:
+        print(key, "is less than 5:", value)
+
+###
+
+#Creates myDictionary with sprockets=5,
+#widgets=11, cogs=3, gizmos=15, gadgets=1
+myDictionary = {"sprockets" : 5, "widgets" : 11,
+                "cogs" : 3, "gizmos" : 15, "gadgets" : 1}
+for (key, value) in myDictionary.items():
+    if value < 5:
+        print(key, "is less than 5:", value)
+
+###
+
+#Write a function called name_counts. name_counts will take
+#as input a list of full names. Each name will be two words
+#separated by a space, like "David Joyner".
+#
+#The function should return a dictionary. The keys to the
+#dictionary will be the first names from the list, and the
+#values should be the number of times that first name
+#appeared.
+#
+#HINT: Use split() to split names into first and last.
+
+
+#Add your function here!
+def name_counts(name_list):
+    dictionary = {}
+    for name in name_list:
+        first_name = name.split()[0]
+        if first_name in dictionary:
+            dictionary[first_name] += 1
+        else:
+            dictionary[first_name] = 1
+    return dictionary
+        
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#{'Shelba': 5, 'Maren': 1, 'Nicol': 1, 'David': 2, 'Brenton': 2}
+name_list = ["David Joyner", "David Zuber", "Brenton Joyner",
+             "Brenton Zuber", "Nicol Barthel", "Shelba Barthel",
+             "Shelba Crowley", "Shelba Fernald", "Shelba Odle",
+             "Shelba Fry", "Maren Fry"]
+print(name_counts(name_list))
+
+###
+
+myString = "This is the string whose words we would like to count. This string contains some repeated words, as well as some unique words. It contains punctuation, and it contains words that are capitalized in different ways. If the method we write runs correctly, it will count 4 instances of the word 'it', 3 instances of the word 'this', and 3 instances of the word 'count'."
+
+myString = myString.replace(".","") #Remove periods
+myString = myString.replace(",","") #Remove commas
+myString = myString.replace("'","") #Remove apostrophes
+myString = myString.lower() #Make all lower case
+mySplitString = myString.split() #Split by spaces
+
+wordDictionary = {} #Create empty dictionary
+for word in mySplitString:  #For each word in the split string
+    if word in wordDictionary:  #If it's already been found...
+        wordDictionary[word] += 1   #Add one to its count
+    else:   #Otherwise...
+        wordDictionary[word] = 1 #Create it with value 1
+
+print(wordDictionary)
+
+###
+
+seatingChart = {"David" : 3, "Lucy" : 3, "Dana" : 2,
+                "Addison" : 2, "Vrushali" : 1, "Bilbo" : 3,
+                "Sara" : 1, "Lugos" : 1, "Mireia" : 1,
+                "Partha" : 2, "Venijamin" : 1, "Terra" : 2, 
+                "Tryphon" : 3, "Gevorg" : 1, "Raza" : 3,
+                "Rein" : 3, "Sofia" : 2, "Perle" : 2}
+
+#For each name, table pair in the seating chart
+for (name, table) in seatingChart.items():  
+    #Print the table for the name
+    print(name, " is seated at table #", table, sep="")  
+
+print()
+#For each table number
+for i in range(1, 4):   
+    print("The guests at table #", i, " are: ", sep="", end="")
+    #For each name, table pair
+    for (name, table) in seatingChart.items():  
+        #If the table numer is this number
+        if i == table:  
+            #Print the name
+            print(name, end=" ")    
+    print()
+
+###
+
+#Recall in the previous problem you counted the number of
+#instances of a certain first name in a list of full names.
+#You returned a dictionary with the name as the key, and the
+#number of times it appeared as the value.
+#
+#Modify that code such that instead of having a count as the
+#value, you instead have a list of the full names that had
+#that first name. So, each key in the dictionary would still
+#be a first name, but the values would be lists of names.
+#Make sure to sort the list of names, too.
+#
+#Name this new function name_lists.
+
+
+#Add your function here!
+def name_lists(names):
+    name_dict = {}
+    for name in names:
+        split_name = name.split()
+        first_name = split_name[0]
+        if not first_name in name_dict:
+            name_dict[first_name] = []
+        name_dict[first_name].append(name)
+    for first_name, full_names in name_dict.items():
+        full_names.sort()
+    return name_dict
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#{'Shelba': ['Shelba Barthel', 'Shelba Crowley', 'Shelba Fernald', 'Shelba Fry', 'Shelba Odle'],
+#'David': ['David Joyner', 'David Zuber'], 'Brenton': ['Brenton Joyner', 'Brenton Zuber'],
+#'Maren': ['Maren Fry'], 'Nicol': ['Nicol Barthel']}
+
+name_list = ["David Joyner", "David Zuber", "Brenton Joyner",
+             "Brenton Zuber", "Nicol Barthel", "Shelba Barthel",
+             "Shelba Crowley", "Shelba Fernald", "Shelba Odle",
+             "Shelba Fry", "Maren Fry"]
+print(name_lists(name_list))
+
+###
+
+classes = {"Math" : ["David", "Lucy", "Dana"],
+           "Physics" : ["Addison", "Vrushali", "Bilbo"],
+           "Chemistry" : ["Sara", "Lugos", "Mireia", "Perle"],
+           "Computing" : ["Partha", "Venijamin", "Terra", "Sofia"],
+           "History" : ["Tryphon", "Gevorg", "Raza", "Rein"]}
+
+print("Students in Computing:", classes["Computing"])
+#Add Francis to History
+classes["History"].append("Francis")    
+print("Students in History:", classes["History"])
+
+###
+
+addressBook = {"David": ("555 Home St", "4045551234", "david@david.com"),
+               "Lucy" : ("555 Home St", "4045555678", "lucy@lucy.com"),
+               "Dana" : ("123 There Rd", "4045559101", "dana@dana.net")}
+
+print("David's Information:", addressBook["David"])
+print("Dana's Phone Number:", addressBook["Dana"][1])
+
+###
+
+addressBook = {"David": {"address" : "555 Home St", "phone" : "4045551234", 
+                          "email" : "david@david.com"},
+               "Lucy" : {"address" : "555 Home St", "phone" : "4045555678", 
+                         "email" : "lucy@lucy.com"},
+               "Dana" : {"address" : "123 Here Rd", "phone" : "4045559101", 
+                         "email" : "dana@dana.net"}}
+
+print("David's Information:", addressBook["David"])
+print("Dana's Phone Number:", addressBook["Dana"]["phone"])
+
+###
+
+ANSWER_KEY = {"1" : "A", "2" : "B", "3" : "C", "4" : "D", "5" : "A"}
+
+students={}
+students["David"] = {"1" : "A", "2" : "B", "3" : "A", "4" : "B", "5" : "C"}
+students["Terra"] = {"1" : "A", "2" : "B", "3" : "C", "4" : "D", "5" : "A"}
+students["Lugos"] = {"1" : "A", "2" : "C", "3" : "C", "4" : "D", "5" : "A"}
+
+#For each student and their answers
+for (student, answers) in students.items(): 
+    grade = 0   #Start grade at 0
+    #For each question and answer
+    for (question, answer) in answers.items():  
+        #If the answer matches ANSWER_KEY's answer...
+        if answer == ANSWER_KEY[question]:  
+            grade +=1   #Increment their grade
+    #Create a new key "grade" and assign it their grade
+    students[student]["grade"] = grade  
+#For each student and their answers
+for (student, answers) in students.items(): 
+    #Print the name and grade
+    print(student, ": ", answers["grade"], sep = "", end = "; ")
+
+
+### PRACTICE PROBLEMS ###
+
+#Write a function called count_characters. count_characters
+#should take as input a single string, and return a
+#dictionary. In the dictionary, the keys should be
+#characters, and the values should be the number of times
+#each character appeared in the string.
+#
+#For example:
+#
+#  count_characters("aabbccc") -> {'a': 2, 'b': 2, 'c': 3}
+#  count_characters("AaBbbb") -> {'A': 1, 'B': 1, 'a': 1, 'b': 3}
+#
+#You should not need to make any assumptions about the
+#characters in the string: spaces, punctuation, line breaks,
+#and any other characters should be handled automatically.
+#You may count upper and lower case separately.
+
+
+#Write your function here!
+def count_characters(string):
+    dictionary = {}
+    for letter in string:
+        if letter in dictionary:
+            dictionary[letter] += 1
+        else:
+            dictionary[letter] = 1
+    return dictionary
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#
+#{'a': 2, 'b': 2, 'c': 3}
+print(count_characters("aabbccc"))
+
+
+### PROBLEM SET 1 ###
+
+#Write a function called count_types. count_types
+#should take as input a single string, and return a
+#dictionary. In the dictionary, the keys should be
+#types of characters, and the values should be the
+#number of times each type of character appeared in
+#the string.
+#
+#The types of characters that should be handled (and
+#thus, the keys in the dictionary) are:
+#
+# - upper: the count of upper-case or capital letters
+# - lower: the count of lower-case letters
+# - punctuation: the count of punctuation characters.
+#   You may assume this is limited to these punctuation
+#   characters: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+# - space: the count of spaces
+# - numeral: the count of numerals, 0123456789
+#
+#Note, however, that any type of character that does
+#NOT appear in the string should not be in the dictionary
+#at all.
+#
+#For example:
+#
+#count_characters("aabbccc") -> 
+# {"lower": 7}
+#count_characters("ABC 123 doe ray me!") -> 
+# {"upper": 3, "lower": 8, "punctuation": 1, "space": 4, "numeral": 3}
+#
+#Because the first string has only lower-case letters,
+#"lower" is the only key in the dictionary.
+#
+#HINT: If you're sing the ord() function, capitals of
+#ordinals between 65 and 90; lower-case letters have
+#ordinals between 97 and 122; numerals are between 48
+#and 57; spaces are 32; all other numbers between 33
+#and 126 are punctuations, and no character will have
+#an ordinal outside that range.
+
+
+#Write your function here!
+def count_types(string):
+    dictionary = {}
+    upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    lower = "abcdefghijklmnopqrstuvwxyz"
+    punctuation = '''!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'''
+    space = " "
+    numeral = "0123456789"
+    for char in string:
+        if char in upper:
+            dictionary["upper"] = dictionary.get("upper", 0) + 1
+        elif char in lower:
+            dictionary["lower"] = dictionary.get("lower", 0) + 1
+        elif char in punctuation:
+            dictionary["punctuation"] = dictionary.get("punctuation", 0) + 1
+        elif char in space:
+            dictionary["space"] = dictionary.get("space", 0) + 1
+        elif char in numeral:
+            dictionary["numeral"] = dictionary.get("numeral", 0) + 1
+    return dictionary    
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#
+#{"lower": 7}
+#{"upper": 3, "lower": 8, "punctuation": 1, "space": 4, "numeral": 3}
+print(count_types("aabbccc"))
+print(count_types("ABC 123 doe ray me!"))
+
+###
+
+#Write a function called write_movie_info. write_movie_info
+#will take as input two parameters: a string and a
+#dictionary.
+#
+#The string will represent the filename to which to write.
+#
+#The keys in the dictionary will be strings representing
+#movie titles. The values in the dictionary will be lists
+#of strings representing performers in the corresponding
+#movie.
+#
+#write_movie_info should write the list of movies to the file
+#given by the filename using the following format:
+#
+# Title: Actor 1, Actor 2, Actor 3, etc.
+#
+#The movies and the actor names should be sorted
+#alphabetically.
+#
+#So, for this dictionary:
+#
+# {"Chocolat": ["Juliette Binoche", "Judi Dench", "Johnny Depp", "Alfred Molina"],
+#  "Skyfall": ["Judi Dench", "Daniel Craig", "Javier Bardem", "Naomie Harris"]}
+#
+#The file printed would look like this:
+#
+# Chocolat: Alfred Molina, Johnny Depp, Judi Dench, Juliette Binoche
+# Skyfall: Daniel Craig, Javier Bardem, Judi Dench, Naomie Harris
+#
+#HINT: the keys() method of a Dictionary will return a list
+#of the dictionary's keys. So, to get a sorted list of a_dict's
+#keys, you could call key_list = a_dict.keys(), then call 
+#key_list.sort().
+
+
+#Write your function here!
+def write_movie_info(filename, dictionary):
+    file = open(filename, "w")
+    for movie in sorted (dictionary):
+        file.write(movie + ": ")
+        dictionary[movie].sort()
+        for actor in range(0, len(dictionary[movie]) - 1):
+            file.write(dictionary[movie][actor] + ", ")
+        file.write(dictionary[movie][len(dictionary[movie]) - 1] + "\n")
+    file.close()
+    return        
+        
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print nothing -- however, it should write the same contents
+#as Sample.txt to Test.txt.
+movies = {"Chocolat": ["Juliette Binoche", "Judi Dench", "Johnny Depp", "Alfred Molina"], "Skyfall": ["Judi Dench", "Daniel Craig", "Javier Bardem", "Naomie Harris"]}
+write_movie_info("Test.txt", movies)
+
+###
+
+#Imagine you're writing the code for an onboard vehicle
+#monitoring system. One thing the system does is measure
+#tire pressure. It does this by taking a measurement every
+#10 seconds. However, lots of environmental conditions can
+#lead to intermittent bad readings: if it takes a reading
+#as a car goes over a bump, for example, it will be way
+#higher than it would have been otherwise. So, the system
+#needs to know to ignore these ratings, as well as only
+#process the more recent measurements. Let's tell the system
+#that the only valid tire pressures are between 15 and 55.
+#
+#Write a function called tire_pressure. tire_pressure
+#should have one parameter, a list of integers. The list
+#represents a series of tire pressure measurements over the
+#past several minutes.
+#
+#tire_pressure should return the average of the last 5
+#measurements that are greater than or equal to 15 and less
+#than or equal to 55. Round the result to 1 decimal place
+#(you can use round(some_float, 1) to round to 1 decimal
+#place).
+#
+#For example, if the list of measurements was this:
+#
+# [34, 34, 64, 34, 5, 5, 34, 34, 35, 35, 35, 65, 60, 35, 12, 35]
+#
+#tire_pressure would return 35.0: the last five measurements
+#in range are all 35. You may assume there will be at least
+#5 measurements in the proper range.
+
+
+#Add your code here!
+def tire_pressure(a_list):
+    last_five = []
+    count = 0
+    a_list.reverse()
+    for measurement in a_list:
+        if measurement >= 15 and measurement <= 55:
+            last_five.append(measurement)
+            count += 1
+            if count == 5:
+                break
+    return (sum(last_five) / 5)          
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 35.0
+a_list = [45, 44, 8, 43, 43, 43, 41, 41]
+print(tire_pressure(a_list))
+
+###
+
+
+
+
+
+
+
+
+
+
+
+### PROBLEM SET 2 ###
+
+#Write a function called count_types. count_types
+#should take as input a single string, and return a
+#dictionary. In the dictionary, the keys should be
+#types of characters, and the values should be the
+#number of times each type of character appeared in
+#the string.
+#
+#The types of characters that should be handled (and
+#thus, the keys in the dictionary) are:
+#
+# - upper: the count of upper-case or capital letters
+# - lower: the count of lower-case letters
+# - punctuation: the count of punctuation characters.
+#   You may assume this is limited to these punctuation
+#   characters: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+# - space: the count of spaces
+# - numeral: the count of numerals, 0123456789
+#
+#All five keys should be in your dictionary no matter
+#what; if there are no characters of the corresponding
+#type, the value associated with the key would just be 0.
+#
+#For example:
+#
+#count_characters("aabbccc") -> 
+# {"upper": 0, "lower": 7, "punctuation": 0, "space": 0, "numeral": 0}
+#count_characters("ABC 123 doe ray me!") -> 
+# {"upper": 3, "lower": 8, "punctuation": 1, "space": 4, "numeral": 3}
+#
+#HINT: If you're sing the ord() function, capitals of
+#ordinals between 65 and 90; lower-case letters have
+#ordinals between 97 and 122; numerals are between 48
+#and 57; spaces are 32; all other numbers between 33
+#and 126 are punctuations, and no character will have
+#an ordinal outside that range.
+
+
+#Write your function here!
+def count_types(string):
+    dictionary = {"upper": 0, "lower": 0, "punctuation": 0, "space": 0, "numeral": 0}
+    upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    lower = "abcdefghijklmnopqrstuvwxyz"
+    punctuation = '''!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'''
+    space = " "
+    numeral = "0123456789"
+    for char in string:
+        if char in upper:
+            dictionary["upper"] = dictionary.get("upper", 0) + 1
+        elif char in lower:
+            dictionary["lower"] = dictionary.get("lower", 0) + 1
+        elif char in punctuation:
+            dictionary["punctuation"] = dictionary.get("punctuation", 0) + 1
+        elif char in space:
+            dictionary["space"] = dictionary.get("space", 0) + 1
+        elif char in numeral:
+            dictionary["numeral"] = dictionary.get("numeral", 0) + 1
+    return dictionary   
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#
+#{"upper": 0, "lower": 7, "punctuation": 0, "spaces": 0, "numerals": 0}
+#{"upper": 3, "lower": 8, "punctuation": 1, "spaces": 4, "numerals": 3}
+print(count_types("aabbccc"))
+print(count_types("ABC 123 doe ray me!"))
+
+###
+
+#Write a function called write_streaming_info.
+#write_streaming_info will take as input two parameters: a
+#string and a list.
+#
+#The string will represent the filename to which to write.
+#
+#Each item in the list will be a tuple. The first item of
+#every tuple will be the name of a movie. All remaining items
+#in the tuple will be streaming services on which the movie
+#appears, such as Hulu, Netflix, Peacock, HBO Max, Amazon,
+#Disney+, Peacock, YouTube, Crunchyroll, CBS All Access, etc.
+#
+#write_streaming_info should write the list of movies to the
+#file given by the filename using the following format:
+#
+# [movie]: Available on Service_1, Service_2, and Service_3
+#
+#The movies and the streaming service names should appear in
+#the order of the original list/tuples.
+#
+#So, for this list of tuples:
+#
+# [("Chocolat", "Hulu", "Netflix", "Amazon"),
+#  ("Skyfall", "HBO Max", "Amazon"),
+#  ("Soul", "Disney+")]
+#
+#The file printed would look like this:
+#
+# Chocolat: Available on Hulu, Netflix, and Amazon
+# Skyfall: Available on HBO Max and Amazon
+# Soul: Disney+
+#
+#Note that if only one service is listed, just that service
+#appears after the colon. If two services are listed, they
+#appear separated by 'and' with no commas. If three or more
+#services are listed, then there is a comma after every
+#service except the last one, and the last one is preceded
+#by 'and'.
+
+#
+#HINT: Remember, you can use slicing on tuples just like strings.
+#a_tuple[:2], for example, will give you the first two items in a
+#tuple. a_tuple[3:] will give you all the items from the one at
+#index 3 to the end.
+
+
+#Write your function here!
+def write_streaming_info(filename, movies):
+    file = open(filename, "w")
+    for movie in movies:
+        movie_name = movie[0]
+        services = movie[1:]
+        if len(services) == 1:
+            file.write(movie_name + ": " + services[0] + "\n")
+        elif len(services) == 2:
+            file.write(movie_name + ": " + services[0] + " and " + services[1] + "\n")
+        else:
+            service_list = ", ".join(services[:-1])
+            file.write(movie_name + ": " + service_list + ", and " + services[-1] + "\n")
+    file.close()        
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print nothing -- however, it should write the same contents
+#as Sample.txt to Test.txt.
+movies = [("Chocolat", "Hulu", "Netflix", "Amazon"), ("Skyfall", "HBO Max", "Amazon"), ("Soul", "Disney+")]
+write_streaming_info("Test.txt", movies)
+
+###
+
+#Imagine you're writing the code for an intelligent 
+#temperature device. The device takes a measurement every
+#10 seconds. However, some readings may come up invalid.
+#We can assume based on operating conditions that all
+#valid temperatures will be between 20 and 80.
+#
+#Write a function called average_temp. average_temp
+#should have one parameter, a list of integers. The list
+#represents a series of temperature measurements over the
+#past several minutes.
+#
+#average_temp should return the average of all the last
+#five _valid_ (greater than or equal to 20, less than or
+#equal to 80) measurements.  Round the result to 1
+#decimal place (you can use round(some_float, 1) to round
+#to 1 decimal place).
+#
+#For example, if the list of measurements was this:
+#
+# [5, 62, 72, 102, 68, 75, 73, 3, 7, 79]
+#
+#average_temp would return 73.4: the last 5 valid
+#measurements are (in reverse order) 79, 73, 75, 68, and
+#72. (79 + 73 + 75 + 68 + 72) / 5 = 73.4.
+#
+#If there are fewer than five valid readings, return the
+#averages of however many valid readings there are.
+
+
+#Add your code here!
+def average_temp(measurements):
+    last_five = []
+    count = 0
+    measurements.reverse()
+    for measurement in measurements:
+        if measurement >= 20 and measurement <= 80:
+            last_five.append(measurement)
+            count += 1
+            if count == 5 or count == len(measurements):
+                break
+    average = (sum(last_five) / len(last_five))
+    return round(average, 1)
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 73.4, then 67.0 (on their own lines)
+a_list = [5, 62, 72, 102, 68, 75, 73, 3, 7, 79]
+print(average_temp(a_list))
+
+a_list_2 = [5, 62, 72, 102]
+print(average_temp(a_list_2))
+
+###
+
+
+
+
+
+
+
+
+
+### PROBLEM SET 3 ###
+
+#Write a function called word_count. word_count should take
+#as input a list. You may assume every item in the list will
+#be a string.
+#
+#word_count should return a dictionary, where the keys are the
+#words and the values are the number of times each word appeared
+#in the list. The keys should all be lower-case, and you should
+#ignore case when counting words (for instance, "cat", "CAT",
+#and "Cat" would all count towards the key "cat").
+#
+#For example:
+#
+#  word_count(["cat", "CAT", "dog", "DOG"]) -> {"cat": 2, "dog": 2}
+#  word_count(["Georgian", "Tech", "Georgia", "Tech"]) ->
+#             {"Georgian": 1, "Tech": 2, "Georgia": 1}
+
+
+#Write your function here!
+def word_count(list):
+    dictionary = {}
+    for word in list:
+        word_lower = word.lower()
+        if word_lower in dictionary:
+            dictionary[word_lower] += 1
+        else:
+            dictionary[word_lower] = 1
+    return dictionary
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#
+#{"cat": 2, "dog": 2}
+#{"Georgian": 1, "Tech": 2, "Georgia": 1}
+print(word_count(["cat", "CAT", "dog", "DOG"]))
+print(word_count(["Georgian", "Tech", "Georgia", "Tech"]))
+
+###
+
+#Write a function called write_teams. write_teams will take
+#as input two parameters: a string and a list of 4-tuples.
+#
+#The string will represent the filename to which to write.
+#
+#Each 4-tuple in the list will contain four strings. The
+#strings will represent (in order) a university name, their
+#team mascot, their city, and their state.
+#
+#write_teams should write the list of teams to the file given
+#by the filename using the following format:
+#
+# [university] [mascot], [city], [state]
+#
+#Note there is no comma between university and mascot, but
+#there is a comma between mascot and city, and city and state.
+#
+#So, for this list:
+#
+# [("Georgia Tech", "Yellow Jackets", "Atlanta", "Georgia"),
+#  ("Georgia State", "Panthers", "Atlanta", "Georgia")]
+#
+#The file printed would look like this:
+#
+#Georgia Tech Yellow Jackets, Atlanta, Georgia
+#Georgia State Panthers, Atlanta, Georgia
+#
+#We've included Sample.txt to show you what one of these
+#files should look like.
+
+
+#Write your function here!
+def write_teams(filename, universities):
+    file = open(filename, "w")
+    for university in universities:
+        university_name = university[0]
+        mascot = university[1]
+        city = university[2]
+        state = university[3]
+        file.write(university_name + " " + mascot + ", " + city + ", " + state + "\n")
+    file.close()
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print nothing -- however, it should write the same contents
+#as Sample.txt to Test.txt.
+teams = [("Georgia Tech", "Yellow Jackets", "Atlanta", "Georgia"), ("Georgia State", "Panthers", "Atlanta", "Georgia"),
+        ("Kennesaw State", "Owls", "Kennesaw", "Georgia"), ("Georgia Southern", "Eagles", "Statesboro", "Georgia")]
+write_teams("Test.txt", teams)
+
+###
+
+#Write a function called average_evens_and_odds. The function
+#should take as input one parameter, a list of integers. The
+#function should return a 2-tuple. The first item in the
+#2-tuple should be the average of all even numbers in the list;
+#the second item in the 2-tuple should be the average of all
+#odd numbers in the list. Round your averages to one decimal
+#place.
+#
+#The list may have some strings interspersed in it. These should
+#not affect your calculation.
+#
+#For example, if this was the input list:
+#
+# [1, 2, 3, 4, "cat", "tech", 5, 6]
+#
+#Your function would return the tuple: (4.0, 3.0) because 4.0
+#is the average of the three even numbers (2, 4, 6) and 3.0 is
+#the average of the three odd numbers (1, 3, 5).
+#
+#HINT: round(the_num, 1) will return the result of rounding
+#the_num to one decimal place.
+
+
+#Add your code here!
+def average_evens_and_odds(a_list):
+    odd_integers = []
+    even_integers = [] 
+    for item in a_list:
+        if type(item) == int and item % 2 == 1:
+            odd_integers.append(item)
+        elif type(item) == int and item % 2 == 0:
+            even_integers.append(item)
+    odd_average = round((sum(odd_integers) / len(odd_integers)), 1)
+    even_average = round((sum(even_integers) / len(even_integers)), 1)
+    my_tuple = (even_average, odd_average)
+    return my_tuple
+    
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: (4.0, 3.0)
+a_list = [1, 2, 3, 4, "cat", "tech", 5, 6]
+print(average_evens_and_odds(a_list))
+
+###
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
