@@ -1420,6 +1420,8 @@ print(count_characters("aabbccc"))
 
 ### PROBLEM SET 1 ###
 
+## Practice problem 1
+
 #Write a function called count_types. count_types
 #should take as input a single string, and return a
 #dictionary. In the dictionary, the keys should be
@@ -1493,7 +1495,8 @@ def count_types(string):
 print(count_types("aabbccc"))
 print(count_types("ABC 123 doe ray me!"))
 
-###
+
+## Practice problem 2
 
 #Write a function called write_movie_info. write_movie_info
 #will take as input two parameters: a string and a
@@ -1553,7 +1556,8 @@ def write_movie_info(filename, dictionary):
 movies = {"Chocolat": ["Juliette Binoche", "Judi Dench", "Johnny Depp", "Alfred Molina"], "Skyfall": ["Judi Dench", "Daniel Craig", "Javier Bardem", "Naomie Harris"]}
 write_movie_info("Test.txt", movies)
 
-###
+
+## Practice problem 3
 
 #Imagine you're writing the code for an onboard vehicle
 #monitoring system. One thing the system does is measure
@@ -1609,19 +1613,291 @@ def tire_pressure(a_list):
 a_list = [45, 44, 8, 43, 43, 43, 41, 41]
 print(tire_pressure(a_list))
 
-###
+
+## Practice problem 4
+
+#Write a function called find_median. find_median
+#should take as input a string representing a filename.
+#The file corresponding to that filename will be a list
+#of integers, one integer per line. find_median should
+#return the median of the numbers in the file.
+#
+#If there is an odd number of values in the file, then
+#find_median will return the middle value from the numbers
+#in the file after they're sorted.
+#
+#If there is an even number of values in the file, then
+#find_median should return the average of the two middle
+#values after they're sorted.
+#
+#For example, in the dropdown in the top left you'll find a
+#file named FindMedianInput.txt. There are 19 numbers in
+#this file, so the median is the value at index 10 after
+#sorting them: 16.
+#
+#You may assume that all lines in the file will contain a
+#positive integer (greater than 0). There may be duplicates.
 
 
+#Write your function here!
+def find_median(filename):
+    file = open(filename, "r")
+    numbers = []
+    for line in file:
+        numbers.append(int(line.strip()))
+    numbers.sort()
+    if len(numbers) % 2 == 1:
+        median_index = len(numbers) // 2
+        median = numbers[median_index]
+    else:
+        median_index_1 = len(numbers) // 2 - 1
+        median_index_2 = len(numbers) // 2
+        median = (numbers[median_index_1] + numbers[median_index_2]) / 2
+    return median
 
 
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 16
+print(find_median("FindMedianInput.txt"))
 
 
+## Practice problem 5
+
+#Write a function called next_fib. next_fib should take
+#have two parameters: a list of integers and a single integer.
+#For this description, we'll call the single integer n.
+#
+#next_fib should modify the list to add the next n pseudo-
+#Fibonacci numbers to the end of the sequence. A pseudo-
+#Fibonacci number is the sum of the previous two numbers in
+#the sequence, but in our case, the previous two numbers may
+#not be the original numbers from the Fibonacci sequence.
+#
+#For example, if the original list given was:
+#
+# a_list = [5, 5, 10, 15, 25, 40, 65]
+#
+# Then next_fib(a_list, 3) would return:
+#       [5, 5, 10, 15, 25, 40, 65, 105, 170, 275]
+#
+#All the original numbers in the list are still there, and
+#three new ones have been added.
+#
+#You may assume the list parameter will always have at least
+#two numbers.
+#
+#HINT: Python gets mad if you try to change a list while
+#iterating over it with a for-each loop. You'll have to get
+#clever with a for or while loop to do this!
 
 
+#Add your code here!
+def next_fib(a_list, n):
+    count = 0
+    while count < n:
+        a_list.append(sum(a_list[-2:]))
+        count += 1
+    return a_list
 
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#[5, 5, 10, 15, 25, 40, 65, 105, 170, 275] 
+a_list = [5, 5, 10, 15, 25, 40, 65]
+print(next_fib(a_list, 3))
+
+
+## Practice problem 6
+
+#Write a function called abstract_names. abstract_names
+#should have one parameter: a list of lists. Each list will
+#be a list of strings, each with a first name and a last
+#name, and each with the same first name.
+#
+#For example, this could be one list of lists your function
+#might receive:
+#
+# [["David Joyner", "David Tennant", "David Beckham"],
+#  ["Ananya Birla", "Ananya Agarwal", "Ananya Chatterjee", "Ananya Roy"],
+#  ["Inés Sainz", "Inés Suarez", "Inés Melchor"]]
+#
+#abstract_names should return a dictionary. The keys to the
+#dictionary should be the first names, and the values should
+#be lists of the associated last names. The last names should
+#be sorted alphabetically.
+#
+#For example, with the list above, the dictionary returned by
+#abstract_names would be:
+#
+# {"David": ["Beckham", "Joyner", "Tennant"],
+#  "Ananya": ["Agarwal", "Birla", "Chatterjee", "Roy"],
+#  "Inés": ["Melchor", "Sainz", "Suarez"]}
+
+
+#Write your function here!
+def abstract_names(list_of_lists):
+    dictionary = {}    
+    for list in list_of_lists:
+        first_name = list[0].split()[0]
+        last_names = [name.split()[1] for name in list]
+        dictionary[first_name] = sorted(last_names)
+    return dictionary
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#
+#{"David": ["Beckham", "Joyner", "Tennant"], "Ananya": ["Agarwal", "Birla", "Chatterjee", "Roy"], "Inés": ["Melchor", "Sainz", "Suarez"]}
+names = [["David Joyner", "David Tennant", "David Beckham"], ["Ananya Birla", "Ananya Agarwal", "Ananya Chatterjee", "Ananya Roy"], ["Ines Sainz", "Ines Suarez", "Ines Melchor"]]
+print(abstract_names(names))
+
+
+## Practice problem 7 
+
+#Vancouver citation style cites author names like this:
+#
+#  Last F, Joyner D, Burdell G
+#
+#Note the following:
+#
+# - Each individual name is listed as the last name, then a
+#   space, then the first initial. No periods or commas within
+#   each name.
+# - The names are separated by commas, including the last
+#   two.
+# - There is no space or comma following the last period.
+#
+#Write a function called names_to_vancouver. names_to_vancouver
+#should take as input a list of strings, and return a single
+#string according to the style given above. You can assume
+#that each item of the list will be a first and last name:
+#no middle initials. For example:
+#
+#  names_to_vancouver(["First Last", "David Joyner", "George Burdell"])
+#
+#...would return "Last F, Joyner D, Burdell G".
+
+
+#Write your function below!
+def names_to_vancouver(name_list):
+    new_string = ""
+    for name in name_list:
+        first_name = name.split()[0]
+        first_name_initial = first_name[0]
+        last_name = name.split()[1]
+        new_string += last_name + " " + first_name_initial + ", "
+    return new_string[:-2]
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: Last F, Joyner D, Burdell G
+print(names_to_vancouver(["First Last", "David Joyner", "George Burdell"]))
+
+
+## Practice problem 8
+
+#The game Mancala is one of the oldest games in recorded
+#history. You can read more about it here:
+#https://www.thesprucecrafts.com/how-to-play-mancala-409424
+#
+#For this problem, though, you don't need to know how to
+#play the game. All you need to know is the board layout
+#and the conditions for winning.
+#
+#A Mancala board is made of two rows of 6 cups, with two
+#bigger cups at the ends. Each cup holds some number of
+#stones or chips. For our purposes, though, we'll include
+#the bigger cups at the end of the corresponding rows.
+#
+#So, for us, a Mancala board is represented as a
+#2-dimensional list of integers. Each item in the lists
+#represents a cup, and the number represents how many
+#stones are currently in that cup. For example, this
+#could be one board:
+#
+# [[5, 3, 0, 2, 6, 8, 1],
+#  [1, 6, 8, 0, 4, 1, 4]]
+#
+#With this board representation, the game is over when
+#every cup is empty except the top left and the bottom
+#right. When the game is over, whoever has more stones
+#in their cup wins: if the top left has more stones, the
+#top player wins. If the bottom right has more stones,
+#the bottom player wins.
+#
+#Write a function called check_winner. check_winner takes
+#as a 2-dimensional list representing a game board. You
+#may assume list will always have two lists, each with
+#7 items, corresponding to the board structure shown
+#above.
+#
+#Your function should return one of four strings
+#depending on the values of the list:
+#
+# - If the game is not over (that is, there are stones
+#   in any bucket except for the top-left or bottom-
+#   right), return "Keep playing!"
+# - If the game is over and the top player wins (that is,
+#   there are more stones in top-left than bottom-right),
+#   return "Player 1 wins!"
+# - If the game is over and the bottom player wins (that
+#   is, there are more stones in the bottom-right than
+#   the top-left), return "Player 2 wins!"
+# - If the game is over but the score is tied (that is,
+#   there is an equal number of stones in the top-left
+#   and bottom-right), return "Draw!"
+
+
+#Write your function here!
+def check_winner(board):
+    if board[0][1] > 0 or board[0][2] > 0 or board[0][3] > 0 or board[0][4] > 0 or board[0][5] > 0 or board[0][6] > 0 or board[1][0] > 0 or board[1][1] > 0 or board[1][2] > 0 or board[1][3] > 0 or board[1][4] > 0 or board[1][5] > 0:
+        return "Keep playing!"
+    if board[0][1] == 0 and board[0][2] == 0 and board[0][3] == 0 and board[0][4] == 0 and board[0][5] == 0 and board[0][6] == 0 and board[1][0] == 0 and board[1][1] == 0 and board[1][2] == 0 and board[1][3] == 0 and board[1][4] == 0 and board[1][5] == 0 and board[0][0] > board[1][6]:
+        return "Player 1 wins!"
+    if board[0][1] == 0 and board[0][2] == 0 and board[0][3] == 0 and board[0][4] == 0 and board[0][5] == 0 and board[0][6] == 0 and board[1][0] == 0 and board[1][1] == 0 and board[1][2] == 0 and board[1][3] == 0 and board[1][4] == 0 and board[1][5] == 0 and board[0][0] < board[1][6]:
+        return "Player 2 wins!"
+    if board[0][1] == 0 and board[0][2] == 0 and board[0][3] == 0 and board[0][4] == 0 and board[0][5] == 0 and board[0][6] == 0 and board[1][0] == 0 and board[1][1] == 0 and board[1][2] == 0 and board[1][3] == 0 and board[1][4] == 0 and board[1][5] == 0 and board[0][0] == board[1][6]:
+        return "Draw!"
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#Keep playing!
+#Player 1 wins!
+#Player 2 wins!
+#Draw!
+keep_playing = [[5, 3, 0, 2, 6, 8, 1], [1, 6, 8, 0, 4, 1, 4]]
+player1_wins = [[27, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 21]]
+player2_wins = [[16, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 32]]
+game_is_tied = [[24, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 24]]
+print(check_winner(keep_playing))
+print(check_winner(player1_wins))
+print(check_winner(player2_wins))
+print(check_winner(game_is_tied))
 
 
 ### PROBLEM SET 2 ###
+
+## Practice problem 1
 
 #Write a function called count_types. count_types
 #should take as input a single string, and return a
@@ -1681,7 +1957,6 @@ def count_types(string):
             dictionary["numeral"] = dictionary.get("numeral", 0) + 1
     return dictionary   
 
-
 #Below are some lines of code that will test your function.
 #You can change the value of the variable(s) to test your
 #function with different inputs.
@@ -1694,7 +1969,8 @@ def count_types(string):
 print(count_types("aabbccc"))
 print(count_types("ABC 123 doe ray me!"))
 
-###
+
+## Practice problem 2
 
 #Write a function called write_streaming_info.
 #write_streaming_info will take as input two parameters: a
@@ -1768,7 +2044,8 @@ def write_streaming_info(filename, movies):
 movies = [("Chocolat", "Hulu", "Netflix", "Amazon"), ("Skyfall", "HBO Max", "Amazon"), ("Soul", "Disney+")]
 write_streaming_info("Test.txt", movies)
 
-###
+
+## Practice problem 3
 
 #Imagine you're writing the code for an intelligent 
 #temperature device. The device takes a measurement every
@@ -1826,17 +2103,281 @@ print(average_temp(a_list))
 a_list_2 = [5, 62, 72, 102]
 print(average_temp(a_list_2))
 
-###
+
+## Practice problem 4
+
+#Write a function called find_range. find_range should take
+#as input a string representing a filename. The file
+#corresponding to that filename will be a list of integers,
+#one integer per line. find_range should return a tuple
+#containing the smallest and largest numbers in the file
+#(the smallest first, then the largest).
+#
+#For example, in the dropdown in the top left you'll find a
+#file named FindRangeInput.txt. The smallest number in that
+#file is 2, and the largest is 37. So, if you called
+#find_range("FindRangeInput.txt"), the function would return
+#(2, 37), a tuple with two integers.
+#
+#You may assume that all lines in the file will contain a
+#positive integer (greater than 0). There may be duplicates.
+#
+#Hint: Remember, if you loop through all the lines in a file
+#then you have to close and reopen the file to read it again,
+#or by use file.seek(0) to start from the top. However, you
+#can do this problem without having to read the file twice.
 
 
+#Write your function here!
+def find_range(filename):
+    file = open(filename, "r")
+    min_value = float("inf")
+    max_value = float("-inf")
+    
+    for line in file:
+        number = int(line.strip())
+        if number < min_value:
+            min_value = number
+        if number > max_value:
+            max_value = number
+    return min_value, max_value
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: (2, 37)
+print(find_range("FindRangeInput.txt"))
 
 
+## Practice problem 5
+
+#Write a function called sphere_data. volume_and_area will
+#take in a dictionary. This dictionary is guaranteed to
+#have exactly one key: "radius", whose value is an integer
+#representing the radius of a sphere.
+#
+#Modify this dictionary to add two keys: "volume" and "area".
+#The values associated with these keys should be the volume
+#and surface area of the sphere.
+#
+#The formula for volume is:
+#  (4/3) * pi * radius ^ 3
+#
+#The formula for surface area is:
+#  4 * pi * radius ^ 2
+#
+#Both volume and surface area should be rounded to two
+#decimal places. You can do this with round(val, 2).
+#
+#The line below will let you use pi as a variable in your
+#code, with a value of pi to the 15th decimal place.
+from math import pi
+
+#Add your code here!
+def sphere_data(sphere):
+    radius = sphere["radius"]
+    sphere["volume"] = round(((4/3) * pi * radius ** 3), 2)
+    sphere["area"] = round((4 * pi * radius ** 2), 2)
+    return sphere
 
 
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print 4.19 and 12.57, each on a different line.
+sphere = {"radius": 1}
+sphere = {"radius": 1}
+sphere = sphere_data(sphere)
+print(sphere["volume"])
+print(sphere["area"])
 
+
+## Practice problem 6
+
+#Write a function called pivot_library. pivot_library takes
+#as input one parameter, a list of 3-tuples. Each tuple in
+#the list has three items: the first item is a movie title
+#(a string), the second item is the movie's release year (an
+#integer), and the third item is the movie's total gross (an
+#integer).
+#
+#pivot_library should return a dictionary. In the dictionary
+#that it returns, the keys should be the movie names, and the
+#values should be 2-item tuples. In each tuple, the first
+#item should be the release year, and the second item should
+#be the total gross.
+#
+#Hint: Unpack the tuple to variables first, then create the
+#new dictionary item.
+#
+#For example:
+#
+# movies = [("Avatar", 2009, 760507625),
+#           ("Black Panther", 2018, 699931862)]
+# pivot_library(movies)
+#   -> {"Avatar": (2009, 760507625),
+#       "Black Panther": (2018, 699931862)}
+
+
+#Write your function here!
+def pivot_library(list_of_tuples):
+    dictionary = {}
+    for tuple in list_of_tuples:
+        dictionary[tuple[0]] = (tuple[1], tuple[2])
+    return dictionary
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#
+#{"Avatar": (2009, 760507625), "Black Panther": (2018, 699931862)}
+movies = [("Avatar", 2009, 760507625), ("Black Panther", 2018, 699931862)]
+print(pivot_library(movies))
+
+
+## Practice problem 7]
+
+#APA citation style cites author names like this:
+#
+#  Last, F., Joyner, D., & Burdell, G.
+#
+#Note the following:
+#
+# - Each individual name is listed as the last name, then a
+#   comma, then the first initial, then a period.
+# - The names are separated by commas, including the last
+#   two.
+# - There is also an ampersand and additional space before
+#   the final name.
+# - There is no space or comma following the last period.
+#
+#Write a function called names_to_apa. names_to_apa should
+#take as input one string, and return a reformatted string
+#according to the style given above. You can assume that
+#the input string will be of the following format:
+#
+#  First Last, David Joyner, and George Burdell
+#
+#You may assume the following:
+#
+# - There will be at least three names, with "and" before
+#   the last name.
+# - Each name will have exactly two words.
+# - There will be commas between each pair of names.
+# - The word 'and' will precede the last name.
+# - The names will only be letters (no punctuation, special
+#   characters, etc.), and first and last name will both be
+#   capitalized.
+
+
+#Write your function below!
+def names_to_apa(names_string):
+    names_list = names_string.replace("and ","").split(", ")
+    last_name_initials = []
+    last_name_in_list = []
+    
+    for name in names_list[:-1]:
+        last_name_initials.append(name.split()[1] + ", " + name.split()[0][0] + ".,")
+    for name in names_list[-1:]:
+        last_name_in_list = ["& " + name.split()[1] + ", " + name.split()[0][0] + "."]
+    apa_citation = " ".join(last_name_initials + last_name_in_list)
+    
+    return apa_citation
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: Last, F., Joyner, D., & Burdell, G.
+print(names_to_apa("First Last, David Joyner, and George Burdell"))
+
+
+## Practice problem 8
+
+#In the game tic-tac-toe, two players take turns drawing
+#Xs and Os on a 3x3 grid. If one player can place three of
+#their symbols side-by-side in a row, column, or diagonal,
+#they win the game.
+#
+#For example:
+#
+# X Wins:   X Wins:   X Wins:   No Winner:
+# X|O|X     O|X|X     O|O|      X|O|O
+# -+-+-     -+-+-     -+-+-     -+-+-
+# O|O|X     X|O|      X|X|X     O|X|X
+# -+-+-     -+-+-     -+-+-     -----
+# O|X|X      | |O      | |      X|X|O
+#
+#Write a function called check_winner. check_winner will
+#take one parameter as input, a 2D tuple (that is, a tuple
+#of tuples). The 2D tuple represents the game board: each
+#smaller tuple in the larger tuple is a row of the board,
+#and each item in the smaller tuple is a spot on the
+#board. There will always be three tuples in the larger
+#tuple, and three items in each of the smaller tuples.
+#
+#Each item in the smaller tuple will always be one of three
+#values: the string "X", the string "O", or the value None.
+#
+#check_winner should return one of three values: the string
+#"X" if X has won the game; the string "O" if O has won the
+#game; or the value None if there is no winner. None should
+#NOT be the string "None"; it should be the value None,
+#like the boolean values True and False.
+#
+#You may assume a player has won the game if and only if
+#the board has three of their symbols in a row: you do not
+#need to worry about whether the input is a valid game
+#otherwise (e.g. a board of nine Xs still counts as X
+#winning). You may assume that there will only be one
+#winner per board.
+#
+#Hint: There are only eight possible places to win (three
+#rows, three columns, two diagonals).
+
+
+#Write your function here!
+def check_winner(board):
+    for row in board:
+        if row == ("X", "X", "X"):
+            return "X"
+        elif row == ("O", "O", "O"):
+            return "O"
+    if (board[0][0] == "X" and board[1][0] == "X" and board[2][0] == "X") or (board[0][1] == "X" and board[1][1] == "X" and board[2][1] == "X") or (board[0][2] == "X" and board[1][2] == "X" and board[2][2] == "X") or (board[0][0] == "X" and board[1][1] == "X" and board[2][2] == "X") or (board[0][2] == "X" and board[1][1] == "X" and board[2][0] == "X"):
+            return "X"
+    if (board[0][0] == "O" and board[1][0] == "O" and board[2][0] == "O") or (board[0][1] == "O" and board[1][1] == "O" and board[2][1] == "O") or (board[0][2] == "O" and board[1][2] == "O" and board[2][2] == "O") or (board[0][0] == "O" and board[1][1] == "O" and board[2][2] == "O") or (board[0][2] == "O" and board[1][1] == "O" and board[2][0] == "O"):
+            return "O"
+    
+#The code below shows how the tic-tac-toe tuples are
+#created and tests your code with three games: one where
+#X wins, one where O wins, and one where there is no winner.
+#Remember, the line breaks in xwins and owins are optional:
+#they're just to make the declarations more readable. They
+#could be written the same as nowins.
+xwins = (("X", "O", "X"),
+         ("O", "O", "X"),
+         ("O", "X", "X"))
+owins = (("O", "X", "X"),
+         ("X", "O", None),
+         (None, None, "O"))
+nowins = (("X", "O", "O"),("O", "X", "X"),("X", "X", "O"))
+print(check_winner(xwins))
+print(check_winner(owins))
+print(check_winner(nowins))
 
 
 ### PROBLEM SET 3 ###
+
+## Practice problem 1
 
 #Write a function called word_count. word_count should take
 #as input a list. You may assume every item in the list will
@@ -1879,7 +2420,8 @@ def word_count(list):
 print(word_count(["cat", "CAT", "dog", "DOG"]))
 print(word_count(["Georgian", "Tech", "Georgia", "Tech"]))
 
-###
+
+## Practice problem 2
 
 #Write a function called write_teams. write_teams will take
 #as input two parameters: a string and a list of 4-tuples.
@@ -1935,7 +2477,8 @@ teams = [("Georgia Tech", "Yellow Jackets", "Atlanta", "Georgia"), ("Georgia Sta
         ("Kennesaw State", "Owls", "Kennesaw", "Georgia"), ("Georgia Southern", "Eagles", "Statesboro", "Georgia")]
 write_teams("Test.txt", teams)
 
-###
+
+## Practice problem 3
 
 #Write a function called average_evens_and_odds. The function
 #should take as input one parameter, a list of integers. The
@@ -1984,33 +2527,319 @@ def average_evens_and_odds(a_list):
 a_list = [1, 2, 3, 4, "cat", "tech", 5, 6]
 print(average_evens_and_odds(a_list))
 
-###
+
+## Practice problem 4
+
+#Write a function called pull_records. first_to_last should
+#have two parameters: a string representing a filename, and a
+#list of integers. Inside the file, there will be some text on
+#each line.
+#
+#pull_records should return as a list the text on each line of
+#the file represented in the list of integers. For example, if
+#the list of integers was [0, 4, 8], then pull_records should
+#return the text from lines 0, 4, and 8 as a list. The order of
+#the lines in the list must match the order of the integers.
+#
+#In the dropdown in the top left, you can see the contents of
+#a file called Some_Records.txt. You'll use this file to test
+#your code below. Remember though, we consider the first line
+#of the file to be line 0, not line 1.
+#
+#HINT: Don't forget that if you read the file using methods
+#like readlines() or read(), the linebreaks are included. If
+#you results seem weirdly split between multiple lines, it
+#means you're not removing these line breaks with something
+#like the strip() method!
 
 
+#Write your function here!
+def pull_records(filename, integers):
+    file = open(filename, "r")
+    words = []
+    my_list = []
+    for line in file:
+        words.append(line.strip())
+    for integer in integers:
+        my_list.append(str(words[integer]))
+    return my_list
 
 
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: ["need", "delicious", "pies"]
+print(pull_records("Some_Records.txt", [0, 4, 8]))
 
 
+## Practice problem 5
+
+#Write a function called all_sum. all_sum should have two
+#parameters: a list of integers and a single integer.
+#For this description, we'll call the single integer n.
+#
+#all_sum should modify the list to add the next n all-sum
+#numbers to the end of the sequence. An all-sum number is the
+#sum of all previous numbers in the sequence.
+#
+#For example, if the original list given was:
+#
+# a_list = [1, 2, 3]
+#
+# Then all_sum(a_list, 3) would return:
+#       [1, 2, 3, 6, 12, 24]
+#
+#All three original numbers in the list are still there, and
+#three new ones have been added: the sum of the first three
+#numbers (1+2+3 = 6), of the first four (1+2+3+6 = 12), and
+#of the first five (1+2+3+6+12 = 24).
+#
+#You may assume the list parameter will always have at least
+#one number.
+#
+#HINT: Python gets mad if you try to change a list while
+#iterating over it with a for-each loop. You'll have to get
+#clever with a for or while loop to do this!
 
 
+#Add your code here!
+def all_sum(list_integers, n):
+    count = 0
+    while count < n:
+        list_integers.append(sum(list_integers[:]))
+        count += 1
+    return list_integers
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#[1, 2, 3, 6, 12, 24] 
+print(all_sum([1, 2, 3], 3))
 
 
+## Practice problem 5
+
+#Write a function called all_sum. all_sum should have two
+#parameters: a list of integers and a single integer.
+#For this description, we'll call the single integer n.
+#
+#all_sum should modify the list to add the next n all-sum
+#numbers to the end of the sequence. An all-sum number is the
+#sum of all previous numbers in the sequence.
+#
+#For example, if the original list given was:
+#
+# a_list = [1, 2, 3]
+#
+# Then all_sum(a_list, 3) would return:
+#       [1, 2, 3, 6, 12, 24]
+#
+#All three original numbers in the list are still there, and
+#three new ones have been added: the sum of the first three
+#numbers (1+2+3 = 6), of the first four (1+2+3+6 = 12), and
+#of the first five (1+2+3+6+12 = 24).
+#
+#You may assume the list parameter will always have at least
+#one number.
+#
+#HINT: Python gets mad if you try to change a list while
+#iterating over it with a for-each loop. You'll have to get
+#clever with a for or while loop to do this!
 
 
+#Add your code here!
+def all_sum(list_integers, n):
+    count = 0
+    while count < n:
+        list_integers.append(sum(list_integers[:]))
+        count += 1
+    return list_integers
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#[1, 2, 3, 6, 12, 24] 
+print(all_sum([1, 2, 3], 3))
 
 
+## Practice problem 6
+
+#Write a function called concrete_names. concrete_names takes
+#as input one parameter, a dictionary. Each key in the
+#dictionary will be a string corresponding to a first name.
+#Each value in the dictionary will be a list of last names.
+#
+#concrete_names should return a list of lists. Each list
+#should be an alphabetically-sorted list of names constructed
+#by putting each first name together with each of its last
+#names. The lists themselves should also be in alphabetical
+#order by what first name is shared by all names in the list.
+#
+#For example, this could be one of the dictionaries your
+#function receives:
+#
+# {"David": ["Beckham", "Tennant", "Joyner"],
+#  "Ananya": ["Agarwal", "Chatterjee", "Birla", "Roy"],
+#  "Ines": ["Sainz", "Melchor", "Suarez"]}
+#
+#Your function would then return:
+#
+# [["Ananya Agarwal", "Ananya Birla", "Ananya Chatterjee", "Ananya Roy"],
+#  ["David Beckham", "David Joyner", "David Tennant"],
+#  ["Ines Melchor", "Ines Sainz", "Ines Suarez"]]
+#
+#HINT: To get a list of the keys of a dictionary in alphabetical
+#order, use this code:
+#
+# the_keys = list(a_dict.keys())
+# the_keys.sort()
 
 
+#Write your function here!
+def concrete_names(dictionary):
+    sorted_keys = sorted(dictionary.keys())
+    list_of_lists = []
+    for key in sorted_keys:
+        last_names = sorted(dictionary[key])
+        full_names = [key + " " + last_name for last_name in last_names]
+        list_of_lists.append(full_names)
+    return list_of_lists
 
 
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#
+#[["Ananya Agarwal", "Ananya Birla", "Ananya Chatterjee", "Ananya Roy"], ["David Beckham", "David Joyner", "David Tennant"], ["Inés Melchor", "Inés Sainz", "Inés Suarez"]]
+print(concrete_names({"David": ["Beckham", "Tennant", "Joyner"], "Ananya": ["Agarwal", "Chatterjee", "Birla", "Roy"], "Ines": ["Sainz", "Melchor", "Suarez"]}))
 
 
+## Practice problem 7
+
+#It's a well-known and indisputable fact that if you want
+#to make your name sound fancy, you should list it as only
+#the initials of your first and middle name followed by your
+#last name. For example, my full name is David Andrew Joyner,
+#and therefore my fancy name is D. A. Joyner. But what if you
+#have more than one middle name? You initialize those too!
+#John Ronald Reuel Tolkien becomes J. R. R. Tolkien. Isla
+#Lang Fisher becomes I. L. Fisher; Sasha Baron Cohen becomes
+#S. B. Cohen; and their son Montgomery Moses Brian Baron Cohen
+#becomes M. M. B. B. Cohen.
+#
+#Write a function called my_fancy_name. my_fancy_name should
+#take as input a single string, comprised of multiple names.
+#It should return the "fancy" name: the first initials of the
+#first several names followed by a period and space, followed
+#by the final last name. It should preserve case; if someone
+#has a middle name starting with a lower-case letter, then
+#it should be lower-case in their fancy name.
 
 
+#Write your function below!
+def my_fancy_name(string):
+    first_initials = ""
+    last_name = string[-1:]
+    names_list = string.split(" ")
+    for name in names_list[:-1]:
+        first_initials += name[0] + ". "
+    for name in names_list[-1:]:
+        last_name = name
+    return first_initials + last_name
 
 
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#D. A. Joyner
+#J. R. R. Tolkien
+#I. L. Fisher
+#S. B. Cohen
+#M. M. B. B. Cohen
+#P. D. J. F. d. P. J. N. M. d. l. R. C. d. l. S. T. R. y. Picasso
+print(my_fancy_name("David Andrew Joyner"))
+print(my_fancy_name("John Ronald Reuel Tolkien"))
+print(my_fancy_name("Isla Lang Fisher"))
+print(my_fancy_name("Sasha Baron Cohen"))
+print(my_fancy_name("Montgomery Moses Brian Baron Cohen"))
+print(my_fancy_name("Pablo Diego Jose Francisco de Paula Juan Nepomuceno Maria de los Remedios Cipriano de la Santisima Trinidad Ruiz y Picasso"))
 
 
+## Practice problem 8
+
+#In the classic children's game Swords (also called Odds
+#and Evens, Choosies, or Pick), two players simultaneously
+#hold out some number of fingers. The winner is determined
+#by whether the total number of fingers is odd or even.
+#
+#For our variant, let us say Player 1 wins if the total
+#number of fingers is odd, and Player 2 wins if the total
+#number of fingers is even.
+#
+#Write a function called find_winner. find_winner will take
+#as input a list of 2-tuples, each representing a round of
+#Swords. Each 2-tuple will contain two integers, each between
+#1 and 5. If the sum of the two numbers is odd, then Player
+#1 wins the round. If the sum of the two numbers is even,
+#then Player 2 wins the round.
+#
+#find_winner should return the string "Player 1 wins!" if
+#Player 1 wins more rounds than Player 2. It should return the
+#string "Player 2 wins!" if Player 2 wins more rounds than
+#Player 1. It should return the string "It's a tie!" if the
+#two players win an equal number of times. 
+#
+#For example:
+#
+# find_winner([(1, 1), (2, 1), (1, 2), (2, 4), (5, 2)])
+#
+#...would return "Player 1 wins!" because Player 1 wins
+#three rounds and Player 2 wins two rounds. (If you're
+#confused: Player 1 wins rounds 2, 3, and 5 because those
+#add to 3, 3, and 7; Player 2 wins rounds 1 and 4 because
+#those add to 2 and 6).
 
 
+#Write your function here!
+def find_winner(match):
+    player1 = 0
+    player2 = 0
+    for game in match:
+        if (game[0] + game[1]) % 2 == 0:
+            player2 += 1
+        if (game[0] + game[1]) % 2 == 1:
+            player1 += 1
+    if player1 > player2:
+        return "Player 1 wins!"
+    if player2 > player1:
+        return "Player 2 wins!"
+    if player1 == player2:
+        return "It's a tie!"
 
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#Player 1 wins!
+#Player 2 wins!
+#It's a tie!
+print(find_winner([(1, 1), (2, 1), (1, 2), (2, 4), (5, 2)]))
+print(find_winner([(1, 1), (2, 2), (1, 2), (2, 4), (5, 5)]))
+print(find_winner([(1, 1), (2, 5), (3, 2), (2, 4), (5, 2), (3, 3)]))
