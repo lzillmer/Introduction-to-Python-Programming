@@ -1,1 +1,1145 @@
+### OBJECTS ###
+
+#Define the class Person
+class Person:
+    #Create a new instance of Person
+    def __init__(self):
+        #Person's default values
+        self.firstname = "[no first name]"
+        self.lastname = "[no last name]"
+        self.eyecolor = "[no eye color]"
+        self.age = -1
+
+###
+
+#Define the class Name
+class Name:
+    def __init__(self):
+        self.firstname = "[no first name]"
+        self.lastname = "[no last name]"
+
+#Define the class Person
+class Person:
+    #Create a new instance of Person
+    def __init__(self):
+        #Person's default values
+        self.name = Name()
+        self.eyecolor = "[no eye color]"
+        self.age = -1
+
+###
+
+#Write a class named "Phone". The Phone class should 
+#have an attribute called "storage" which defaults to
+#128, and an attribute called "color" which defaults
+#to "red".
+#
+#Hint: 'attribute' is another common word for
+#'instance variable'.
+
+
+#Write your class here!
+class Phone:
+    def __init__(self):
+        self.storage = 128
+        self.color = "red"
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print 128 and red, each on a separate line.
+new_phone = Phone()
+print(new_phone.storage)
+print(new_phone.color)
+
+###
+
+#Define the class Person
+class Person:
+    #Create a new instance of Person
+    def __init__(self):
+        #Person's default values
+        self.firstname = "[no first name]"
+        self.lastname = "[no last name]"
+        self.eyecolor = "[no eye color]"
+        self.age = -1
+
+#Create a new Person and assign it to myPerson
+myPerson = Person()
+#Print myPerson's values
+print(myPerson.firstname)
+print(myPerson.lastname)
+print(myPerson.eyecolor)
+print(myPerson.age)
+
+###
+
+#Define the class Person
+class Person:
+    #Create a new instance of Person
+    def __init__(self):
+        #Person's default values
+        self.firstname = "[no first name]"
+        self.lastname = "[no last name]"
+        self.eyecolor = "[no eye color]"
+        self.age = -1
+
+#Create a new Person and assign it to myPerson
+myPerson = Person()
+#Print myPerson's values
+print(myPerson.firstname)
+print(myPerson.lastname)
+print(myPerson.eyecolor)
+print(myPerson.age)
+
+###
+
+#Define the class Name
+class Name:
+    def __init__(self):
+        self.firstname = "[no first name]"
+        self.lastname = "[no last name]"
+
+#Define the class Person
+class Person:
+    def __init__(self):
+        self.name = Name()
+        self.eyecolor = "[no eye color]"
+        self.age = -1
+
+#Create a new Person and assign it to myPerson
+myPerson = Person()
+#Print myPerson's name's firstname
+print(myPerson.name.firstname)
+#Change myPerson's name's firstname to David
+myPerson.name.firstname = "David"
+#Print myPerson's name's firstname
+print(myPerson.name.firstname)
+
+###
+
+#Define the class Person
+class Person:
+    #Create a new instance of Person
+    def __init__(self):
+        #Person's default values
+        self.firstname = "[no first name]"
+        self.lastname = "[no last name]"
+        self.eyecolor = "[no eye color]"
+        self.age = -1
+
+#Create two new Persons and assign them to
+#myPerson1 and myPerson2
+myPerson1 = Person()
+myPerson2 = Person()
+myPerson1.firstname = "David"
+myPerson2.firstname = "Vrushali"
+
+print("myPerson1: " + myPerson1.firstname)
+print("myPerson2: " + myPerson2.firstname)
+
+###
+
+#Write a class named "Number" with one attribute called 
+#"value" which defaults to 0 and another attribute called 
+#"even" which defaults to True.
+#
+#Next, create an instance of this class and assign it to
+#a variable called "number_instance".
+#
+#Then, set the value attribute to 101 and the even
+#attribute to False.
+
+
+#Write your code here!
+class Number:
+    def __init__(self):
+        self.value = 0
+        self.even = True
+
+number_instance = Number()
+number_instance.value = 101
+number_instance.even = False
+
+#Note that this exercise does not print anything by
+#default. You're welcome to add print statements to debug
+#your code when running it. Note that the autograder
+#will check both your value for number_instance and your
+#definition of the class Number.
+
+###
+
+#Define the class Name
+class Name:
+    def __init__(self):
+        self.firstname = "[no first name]"
+        self.lastname = "[no last name]"
+
+#Define dictionaries with keys firstname and lastname
+myNameDict = {"firstname" : "David", "lastname" : "Joyner"}
+
+#Define instances of Name
+myNameInst = Name()
+myNameInst.firstname = "David"
+myNameInst.lastname = "Joyner"
+
+print("Dictionary: " + myNameDict["firstname"])
+print("Instance: " + myNameInst.firstname)
+
+###
+
+#Define the class Person
+class Person:
+    #Create a new instance of Person
+    def __init__(self, firstname, lastname):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.eyecolor = "[no eye color]"
+        self.age = -1
+
+#Creates a person with names David and Joyner
+myPerson = Person("David", "Joyner")
+print(myPerson.firstname)
+print(myPerson.lastname)
+
+###
+
+#Define the class Person
+class Person:
+    #Create a new instance of Person
+    def __init__(self, firstname, lastname):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.eyecolor = "[no eye color]"
+        self.age = -1
+
+#Creates a new person
+myPerson = Person()
+print(myPerson.firstname)
+print(myPerson.lastname)
+
+###
+
+#Define the class Person
+class Person:
+    #Create a new instance of Person
+    def __init__(self, firstname="[no first name]",
+                 lastname="[no last name"):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.eyecolor = "[no eye color]"
+        self.age = -1
+
+myPerson1 = Person()
+print(myPerson1.firstname)
+myPerson2 = Person(firstname = "David")
+print(myPerson2.firstname)
+myPerson3 = Person("Vrushali")
+print(myPerson3.firstname)
+
+###
+
+#Define the class Person
+class Person:
+    #Create a new instance of Person
+    def __init__(self):
+        #Person's default values
+        self.firstname = "[no first name]"
+        self.lastname = "[no last name]"
+        self.eyecolor = "[no eye color]"
+        self.age = -1
+
+###
+
+#Rewrite the "Number" class from 5.1.2 Coding Exercise 2.
+#This time, however, require arguments for value and
+#even in the constructor. Then, inside the constructor,
+#create new instance variables called value and even that
+#copy the values of the arguments passed into the
+#constructor.
+#
+#In other words, rewrite the Number class such that value
+#and even behave the way studentName and enrolled behaved
+#in the exercise above, and the way firstname and lastname
+#behaved in video 5.1.4.1.
+#
+#Then, as before, create an instance of this class and
+#assign it to a variable called "number_instance". value
+#should again be set to 101 and even should be set to
+#False.
+#
+#Hint: Remember, the way you initialize the instance will
+#have to change, too, based on the changes to the
+#constructor that we're requiring.
+
+
+#Write your code here!
+class Number:
+    def __init__(self, a_value, is_even):
+        self.value = a_value
+        self.even = is_even
+
+number_instance = Number(101, False)
+
+
+#Note that this exercise does not print anything by
+#default. You're welcome to add print statements to debug
+#your code when running it. Note that the autograder
+#will check both your value for number_instance and your
+#definition of the class Number.
+
+###
+
+#Define class BankAccount
+class BankAccount:
+    #Initialize balance to 0
+    def __init__(self, name, balance = 0.0):
+        self.log("Account created!")
+        self.name = name
+        self.balance = balance
+
+    def getBalance(self): #Getter for balance
+        self.log("Balance checked at " + str(self.balance))
+        return self.balance
+
+    def setBalance(self, newBalance): #Setter for balance
+        self.log("Balance changed to " + str(newBalance))
+        self.balance = newBalance
+
+    def log(self, message): #Logging method
+        myLog = open("Log.txt", "a")
+        print(message, file = myLog)
+        myLog.close()
+
+myBankAccount = BankAccount("David Joyner")
+myBankAccount.setBalance(20.0)
+print(myBankAccount.getBalance())
+
+###
+
+#Imagine you're writing an exercise-tracking app like Fitbit
+#or MyFitnessPal. Part of your app is that a user can log an
+#exercise session by naming the exercise, the intensity, and
+#the duration.
+#
+#Write a class called ExerciseSession. ExerciseSession
+#should have a constructor that requires two strings and an
+#integer: the strings represent the exercise name and the
+#exercise intensity, which will be "Low", "Moderate", or
+#"High". The integer will represent the length of the
+#exercise session in minutes. These should be saved in the
+#instance of the class.
+#
+#Then, add three getters to the class. The getters should
+#be named get_exercise, get_intensity, and get_duration,
+#and should return the exercise string, the exercise
+#intensity, and the duration, respectively.
+#
+#The setters should be named set_exercise, set_intensity,
+#and set_duration. Each should have one parameter (besides
+#self), which should be stored as the new value of
+#exercise, intensity, or duration. You may assume only
+#valid values will be passed in.
+#
+#HINT: You don't have to do any logging like you saw in
+#the video! That was just an example of one benefit of
+#using getters and setters, but this problem does not ask
+#you to do that.
+
+
+#Add your code here!
+class ExerciseSession:
+    def __init__(self, name, intensity, length):
+        self.name = name
+        self.intensity = intensity
+        self.duration = length
+        
+    def get_exercise(self):
+        return self.name
+    
+    def set_exercise(self, new_value):
+        self.name = new_value
+    
+    def get_intensity(self):
+        return self.intensity
+
+    def set_intensity(self, new_value):
+        self.intensity = new_value
+    
+    def get_duration(self):
+        return self.duration
+
+    def set_duration(self, new_value):
+        self.duration = new_value
+
+#If your code is implemented correctly, the lines below
+#will run error-free. They will result in the following
+#output to the console:
+#Running
+#Low
+#60
+#Swimming
+#High
+#30
+new_exercise = ExerciseSession("Running", "Low", 60)
+print(new_exercise.get_exercise())
+print(new_exercise.get_intensity())
+print(new_exercise.get_duration())
+new_exercise.set_exercise("Swimming")
+new_exercise.set_intensity("High")
+new_exercise.set_duration(30)
+print(new_exercise.get_exercise())
+print(new_exercise.get_intensity())
+print(new_exercise.get_duration())
+
+###
+
+class BankAccount:
+    def __init__(self, name, balance = 0.0):
+        self.log("Account created!")
+        self.name = name
+        self.balance = balance
+
+    def getBalance(self):
+        self.log("Balance checked at " + str(self.balance))
+        return self.balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        self.log("+" + str(amount) + ": " + str(self.balance))
+
+    def withdraw(self, amount):
+        self.balance -= amount
+        self.log("-" + str(amount) + ": " + str(self.balance))
+
+    def log(self, message): ...
+
+myBankAccount = BankAccount("David Joyner")
+myBankAccount.deposit(20.0)
+print(myBankAccount.getBalance())
+myBankAccount.withdraw(10.0)
+print(myBankAccount.getBalance())
+
+###
+
+#Previously, you wrote a class called ExerciseSession that
+#had three attributes: an exercise name, an intensity, and a
+#duration.
+#
+#Add a new method to that class called calories_burned.
+#calories_burned should have no parameters (besides self, as
+#every method in a class has). It should return an integer
+#representing the number of calories burned according to the
+#following formula:
+#
+# - If the intensity is "Low", 4 calories are burned per
+#   minute.
+# - If the intensity is "Medium", 8 calories are burned
+#   per minute.
+# - If the intensity is "High", 12 calories are burned per
+#   minute.
+#
+#You may copy your class from the previous exercise and just
+#add to it.
+
+
+#Add your code here!
+class ExerciseSession:
+    def __init__(self, name, intensity, length):
+        self.name = name
+        self.intensity = intensity
+        self.duration = length
+        
+    def get_exercise(self):
+        return self.name
+    
+    def set_exercise(self, new_value):
+        self.name = new_value
+    
+    def get_intensity(self):
+        return self.intensity
+
+    def set_intensity(self, new_value):
+        self.intensity = new_value
+    
+    def get_duration(self):
+        return self.duration
+
+    def set_duration(self, new_value):
+        self.duration = new_value
+    
+    def calories_burned(self):
+        calories_burned = 0
+        if self.intensity == "Low":
+            calories_burned += (4 * self.duration)
+        if self.intensity == "Medium":
+            calories_burned += (8 * self.duration)
+        if self.intensity == "High":
+            calories_burned += (12 * self.duration)
+        return calories_burned
+    
+#If your code is implemented correctly, the lines below
+#will run error-free. They will result in the following
+#output to the console:
+#240
+#360
+new_exercise = ExerciseSession("Running", "Low", 60)
+print(new_exercise.calories_burned())
+new_exercise.set_exercise("Swimming")
+new_exercise.set_intensity("High")
+new_exercise.set_duration(30)
+print(new_exercise.calories_burned())
+
+###
+
+#Defines the class Person
+class Person:
+    def __init__(self, name, eyecolor, age):
+        self.name = name
+        self.eyecolor = eyecolor
+        self.age = age
+
+#Defines the class Name
+class Name:
+    def __init__(self, firstname, lastname):
+        self.firstname = firstname
+        self.lastname = lastname
+
+#Creates a person with eyecolor "brown", age 30, and
+#a name with firstname "David", lastname "Joyner",
+myPerson = Person(Name("David", "Joyner"), "brown", 30)
+print(myPerson.name.firstname)
+print(myPerson.name.lastname)
+print(myPerson.eyecolor)
+print(myPerson.age)
+
+###
+
+#Classes can also have references to other instances of
+#themselves. Consider this Person class, for example, 
+#that allows for an instance of a father and mother
+#to be given in the constructor.
+#
+#Create 3 instances of this class. The first should have 
+#the name "Mr. Burdell" with an age of 53. The second
+#instance should have a name of "Mrs. Burdell" with an age
+#of 53 as well. Finally, make an instance with the name of
+#"George P. Burdell" with an age of 25. This final instance
+#should also have the father attribute set to the instance 
+#of Mr. Burdell, and the mother attribute set to the 
+#instance of Mrs. Burdell. Finally, store the instance of 
+#George P. Burdell in a variable called george_p. (It does
+#not matter what variable names you use for Mr. and Mrs.
+#Burdell.)
+
+class Person:
+    def __init__(self, name, age, father=None, mother=None):
+        self.name = name
+        self.age = age
+        self.father = father
+        self.mother = mother
+
+#Write your code here!
+
+person1 = Person("Mr. Burdell", 53)
+person2 = Person("Mrs. Burdell", 53)
+george_p = Person("George P. Burdell", 25, father = person1, mother = person2)
+
+
+#The code below will let you test your code. It isn't used
+#for grading, so feel free to modify it. As written, it
+#should print George P. Burdell, Mrs. Burdell, and Mr.
+#Burdell each on a separate line.
+print(george_p.name)
+print(george_p.mother.name)
+print(george_p.father.name)
+
+###
+
+class Person:
+    def __init__(self, name, eyecolor, age):
+        self.name = name
+        self.eyecolor = eyecolor
+        self.age = age
+
+class Name:
+    def __init__(self, firstname, lastname):
+        self.firstname = firstname
+        self.lastname = lastname
+
+myPerson1 = Person(Name("David", "Joyner"), "brown", 30)
+myPerson2 = myPerson1
+myPerson2.eyecolor = "blue"
+print("myPerson1's eyecolor: " + myPerson1.eyecolor)
+print("myPerson2's eyecolor: " + myPerson2.eyecolor)
+
+###
+
+#We've given you a class called "Song" that represents
+#some basic information about a song. We also wrote a 
+#class called "Artist" which contains some basic 
+#information about an artist.
+#
+#Your job is to create three instances of the song class,
+#called song_1, song_2, and song_3.
+#
+#song_1 should have the following attributes:
+#   name = "You Belong With Me"
+#   album = "Fearless"
+#   year = 2008
+#   artist.name = "Taylor Swift"
+#   artist.label = "Big Machine Records, LLC"
+#
+#song_2 should have the following attributes:
+#   name = "All Too Well"
+#   album = "Red"
+#   year = 2012
+#   artist.name = "Taylor Swift"
+#   artist.label = "Big Machine Records, LLC"
+#
+#song_3 should have the following attributes:
+#   name = "Up We Go"
+#   album = "Midnight Machines"
+#   year = 2016
+#   artist.name = "LiGHTS"
+#   artist.label = "Warner Bros. Records Inc."
+#
+#Notice, though, that song_1 and song_2 have the same
+#artist and label. That means they should each have the
+#SAME instance of artist: do not create separate instances
+#of artist for each song.
+#
+#When your code is done running, there should exist three
+#variables: song_1, song_2, and song_3, according to the
+#requirements above.
+
+class Artist:
+    def __init__(self, name, label):
+        self.name = name
+        self.label = label
+
+class Song:
+    def __init__(self, name, album, year, artist):
+        self.name = name
+        self.album = album
+        self.year = year
+        self.artist = artist
+        
+
+#Write your code here!
+artist_1 = Artist("Taylor Swift", "Big Machine Records, LLC")
+artist_2 = Artist("LiGHTS", "Warner Bros. Records Inc.")
+
+song_1 = Song("You Belong With Me", "Fearless", 2008, artist_1)
+song_2 = Song("All Too Well", "Red", 2012, artist_1)
+song_3 = Song("Up We Go", "Midnight Machines", 2016, artist_2)
+
+###
+
+class Person:
+    def __init__(self, name, eyecolor, age):
+        self.name = name
+        self.eyecolor = eyecolor
+        self.age = age
+
+class Name:
+    def __init__(self, firstname, lastname):
+        self.firstname = firstname
+        self.lastname = lastname
+
+def capitalizeName(name):
+    name.firstname = name.firstname.upper()
+    name.lastname = name.lastname.upper()
+
+myPerson = Person(Name("David", "Joyner"), "brown", 30)
+capitalizeName(myPerson.name)
+print(myPerson.name.firstname)
+print(myPerson.name.lastname)
+
+###
+
+class Person:
+    def __init__(self, name, eyecolor, age):
+        self.name = name
+        self.eyecolor = eyecolor
+        self.age = age
+
+class Name:
+    def __init__(self, firstname, lastname):
+        self.firstname = firstname
+        self.lastname = lastname
+
+def capitalizeString(instring):
+    instring = instring.upper()
+
+myPerson = Person(Name("David", "Joyner"), "brown", 30)
+capitalizeString(myPerson.name.firstname)
+capitalizeString(myPerson.name.lastname)
+print(myPerson.name.firstname)
+print(myPerson.name.lastname)
+
+###
+
+#Below are the two class definitions we supplied previously:
+#Artist and Song.
+#
+#Write a function called "get_song_string". It should accept
+#one argument which will be a Song object. It should return
+#a string in the following format:
+#
+# "<song name>" - <artist name> (<song year>)
+# e.g: 
+# "You Belong With Me" - Taylor Swift (2008)
+#
+#The quotation marks around the song title should be *part*
+#of the string.
+#
+#Hint: You're writing a function, not a method. That means
+#the function get_song_string should not be inside either
+#of these classes.
+
+class Artist:
+    def __init__(self, name, label):
+        self.name = name
+        self.label = label
+
+class Song:
+    def __init__(self, name, album, year, artist):
+        self.name = name
+        self.album = album
+        self.year = year
+        self.artist = artist
+
+def get_song_string(my_song):
+    return '"' + my_song.name + '"' + " - " + my_song.artist.name + " (" + str(my_song.year) + ")" 
+        
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: "You Belong With Me" -Taylor Swift (2008)
+new_artist = Artist("Taylor Swift", "Big Machine Records, LLC")
+new_song = Song("You Belong With Me", "Fearless", 2008, new_artist)
+print(get_song_string(new_song))
+
+###
+
+class Person:
+    def __init__(self, name, eyecolor, age):
+        self.name = name
+        self.eyecolor = eyecolor
+        self.age = age
+
+class Name:
+    def __init__(self, firstname, lastname):
+        self.firstname = firstname
+        self.lastname = lastname
+
+myPerson1 = Person(Name("David", "Joyner"), "brown", 30)
+myPerson2 = Person(myPerson1.name, myPerson1.eyecolor, myPerson1.age)
+myPerson2.eyecolor = "blue"
+print(myPerson1.eyecolor)
+print(myPerson2.eyecolor)
+myPerson2.name.firstname = "Vrushali"
+print(myPerson1.name.firstname)
+print(myPerson2.name.firstname)
+
+###
+
+class Person:
+    def __init__(self, name, eyecolor, age):
+        self.name = name
+        self.eyecolor = eyecolor
+        self.age = age
+
+class Name:
+    def __init__(self, firstname, lastname):
+        self.firstname = firstname
+        self.lastname = lastname
+
+myPerson1 = Person(Name("David", "Joyner"), "brown", 30)
+myPerson2 = Person(Name(myPerson1.name.firstname, myPerson1.name.lastname),
+                   myPerson1.eyecolor, myPerson1.age)
+myPerson2.eyecolor = "blue"
+print(myPerson1.eyecolor)
+print(myPerson2.eyecolor)
+myPerson2.name.firstname = "Vrushali"
+print(myPerson1.name.firstname)
+print(myPerson2.name.firstname)
+
+
+### ALGORITHMS ###
+
+#Let's implement the factorial function we saw in the
+#previous video in Python!
+#
+#Our factorial function should take as input a number, and
+#it should return the product of that number times every
+#number between itself and 1.
+
+#Let's start with the function definition. This function
+#definition creates the function factorial with one
+#parameter, n.
+
+def factorial(n):
+    #What do we want to do inside the function? Well, there
+    #are two cases. First, if n is 1, we just want to return
+    #1. After all, 1! is 1.
+    
+    if n == 1:
+        return 1
+    
+    #What if n doesn't equal 1, though? Then we want to
+    #return n times the factorial of (n - 1). After all,
+    #5! = 5 * 4!, 4! = 4 * 3!, etc.
+    
+    else:
+        return n * factorial(n - 1)
+    
+    #If n is greater than 1, then it multiplies 1 by the
+    #factorial of n - 1, as calculated with the same
+    #function. Every time factorial() runs, n decreases
+    #by 1, which guarantees that eventually, n will equal
+    #1.
+
+#Now let's test it out! Run this file to see the results.
+print("5! is", factorial(5))
+print("10! is", factorial(10))
+
+#Want to see more about how this works? Select the other
+#file, FactorialwithPrints.py, from the drop-down in the
+#top left to see a version of this that traces the output.
+
+###
+
+#We've written a function below called count_down(). This
+#function takes an int parameter, start, and prints every
+#number from that start to 0. The way we've written it uses
+#recursion. Below that funtion, write a function that does
+#the exact same thing, but do not use recursion.
+#
+#The purpose of this exercise is for you to recognize some
+#example instances in which you can use recursion, and what
+#differences can be seen in the actual code.
+#
+#Make sure to actually print 0 as the last number!
+
+def count_down(start):
+    #If we've reached 0 already, print 0 but do not call
+    #another copy
+    if start <= 0:
+        print(start)
+    
+    #If we haven't reached 0 yet, print the current number,
+    #then call count_down with the current number minus 1.
+    else:
+        print(start)
+        count_down(start - 1)
+        
+#Do not modify the code above.
+#Fill in the function below to do the same as the function
+#above, but without recursion. You could use for loops,
+#while loops, or some other approach.
+
+def count_down2(start):
+    while start >= 0:
+        print(start)
+        start -= 1
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 5, 4, 3, 2, 1, 0, each on their own line.
+count_down2(5)
+
+###
+
+#Let's implement the Fibonacci function we saw in the
+#previous video in Python!
+#
+#Like our Factorial function, our Fibonacci function
+#should take as input one parameter, n, an integer. It
+#should calculate the nth Fibonacci number. For example,
+#fib(7) should give 13 since the 7th number in
+#Fibonacci's sequence is 13.
+
+#So, our function definition will basically be the same:
+
+def fib(n):
+    #What do we want to do inside the function? Once again,
+    #there are really only two cases: either we're looking
+    #for the first two Fibonacci numbers, or we're not.
+    #What happens if we're looking for the first two? Well,
+    #we already know that the 1st and 2nd Fibonacci numbers
+    #are both 1, so if n == 1 or n == 2, we can go ahead
+    #and return 1.
+    
+    if n == 1 or n == 2:
+        return 1
+    
+    #What if n doesn't equal 1? For any value for n greater
+    #than 2, the result should be the sum of the previous
+    #two numbers. The previous Fibonacci number could then
+    #be calculated with the same kind of function call,
+    #decrementing n by 1 or 2.
+    
+    else:
+        return fib(n - 1) + fib(n - 2)
+    
+    #If n is greater than 2, then it returns the sum of the
+    #previous two fibonacci numbers, as calculated by the
+    #same function.
+
+#Now let's test it out! Run this file to see the results.
+print("fib(5) is", fib(5))
+print("fib(10) is", fib(10))
+
+#Want to see more about how this works? Select the other
+#file, FibonacciwithPrints.py, from the drop-down in the
+#top left to see a version of this that traces the output.
+
+###
+
+#We've started a recursive function below called
+#exponent_calc(). It takes in two integer parameters, base
+#and expo. It should return the mathematical answer to
+#base^expo. For example, exponent_calc(5, 3) should return
+#125: 5^3 = 125.
+#
+#The code is almost done - we have our base case written.
+#We know to stop recursing when we've reached the simplest
+#form. When the exponent is 0, we return 1, because anything
+#to the 0 power is 1. But we are missing our recursive call!
+#
+#Fill in the marked line with the recursive call necessary
+#to complete the function. Do not use the double-asterisk
+#operator for exponentiation. Do not use any loops.
+#
+#Hint: Notice the similarity between exponentiation and
+#factorial:
+#  4! = 4! = 4 * 3!, 3! = 3 * 2!, 2! = 2 * 1
+#  2^4 = 2 * 2^3, 2^3 = 2 * 2^2, 2^2 = 2 * 2^1, 2^1 = 2 * 2^0
+
+def exponent_calc(base, expo):
+    if expo == 0:
+        return 1
+    else:
+        return base * exponent_calc(base, expo - 1)
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 125
+print(exponent_calc(5, 3))
+
+###
+
+#We've written the function, sort_with_bubbles, below. It takes
+#in one list parameter, lst. However, there are two problems in
+#our current code:
+# - There's a missing line
+# - There's a semantic error (the code does not raise an
+#   error message, but it does not perform correctly)
+#
+#Find and fix these problems! Note that you should only need
+#to change or add code where explicitly indicated.
+#
+#Hint: If you're stuck, use an example input list and trace
+#the code and how it modifies your list on paper. For
+#example, try writing out what happens to the following list:
+#
+#  [34, 16, 2, 78, 4, 6, 1]
+
+def sort_with_bubbles(lst):
+    #Set swap_occurred to True to guarantee the loop runs once
+    swap_occurred = True
+    
+    #Run the loop as long as a swap occurred the previous time
+    while swap_occurred:
+        
+        #Start off assuming a swap did not occur
+        swap_occurred = False
+        
+        #For every item in the list except the last one...
+        for i in range(len(lst) - 1):
+
+            #If the item should swap with the next item...
+            if lst[i] > lst[i + 1]:
+
+                #Then, swap them! But these lines aren't
+                #quite right: fix this code!
+                temp = lst[i] #temp is 34, lst[i] is 34
+                lst[i] = lst[i + 1] #lst[i] is 16
+                lst[i + 1] = temp #lst[i+1] is 34
+                
+                #One more line is needed here; add it!
+                swap_occurred = True
+
+    return lst
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: [1, 2, 3, 4, 5]
+print(sort_with_bubbles([5, 3, 1, 2, 4]))
+
+###
+#We've written the function, sort_with_select, below. It takes
+#in one list parameter, a_list. Our version of selection sort
+#involves finding the minimum value and moving it to an
+#earlier spot in the list.
+#
+#However, some lines of code are blank. Complete these lines
+#to complete the selection_sort function. You should only need
+#to modify the section marked 'Write your code here!'
+
+def sort_with_select(a_list):
+    
+    #For each index in the list...
+    for i in range(len(a_list)):
+        
+        #Assume first that current item is already correct...
+        minIndex = i
+
+        #For each index from i to the end...
+        for j in range(i + 1, len(a_list)):
+            
+            #Complete the reasoning of this conditional to
+            #complete the algorithm! Remember, the goal is
+            #to find the lowest item in the list between
+            #index i and the end of the list, and store its
+            #index in the variable minIndex.
+            #
+            #Write your code here!
+            if a_list[j] < a_list[minIndex]:
+                minIndex = j
+
+        #Save the current minimum value since we're about
+        #to delete it
+        minValue = a_list[minIndex]
+        
+        #Delete the minimum value from its current index
+        del a_list[minIndex]
+        
+        #Insert the minimum value at its new index
+        a_list.insert(i, minValue)
+    
+    #Return the resultant list
+    return a_list
+	
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: [1, 2, 3, 4, 5]
+print(sort_with_select([5, 3, 1, 2, 4]))
+
+###
+
+#Let's implement Mergesort! This is a complex problem
+#because it applies recursion to sorting algorithms, but
+#it's also by far the most efficient sorting algorithm we'll
+#cover.
+
+#First, we need a function definition: MergeSort should take
+#as input one list.
+
+def mergesort(lst):
+    
+    #Then, what does it do? mergesort should recursively
+    #run mergesort on the left and right sides of lst until
+    #it's given a list only one item. So, if lst has only
+    #one item, we should just return that one-item list.
+    
+    if len(lst) <= 1:
+        return lst
+    
+    #Otherwise, we should call mergesort separately on the
+    #left and right sides. Since each successive call to
+    #mergesort sends half as many items, we're guaranteed
+    #to eventually send it a list with only one item, at
+    #which point we'll stop calling mergesort again.
+    else:
+
+        #Floor division on the length of the list will
+        #find us the index of the middle value.
+        midpoint = len(lst) // 2
+
+        #lst[:midpoint] will get the left side of the
+        #list based on list slicing syntax. So, we want
+        #to sort the left side of the list alone and
+        #assign the result to the new smaller list left.
+        left = mergesort(lst[:midpoint])
+
+        #And same for the right side.
+        right = mergesort(lst[midpoint:])
+
+        #So, left and right now hold sorted lists of
+        #each half of the original list. They might
+        #each have only one item, or they could each
+        #have several items.
+
+        #Now we want to compare the first items in each
+        #list one-by-one, adding the smaller to our new
+        #result list until one list is completely empty.
+
+        newlist = []
+        while len(left) and len(right) > 0:
+
+            #If the first number in left is lower, add
+            #it to the new list and remove it from left
+            if left[0] < right[0]:
+                newlist.append(left[0])
+                del left[0]
+
+            #Otherwise, add the first number from right
+            #to the new list and remove it from right
+            else:
+                newlist.append(right[0])
+                del right[0]
+
+        #When the while loop above is done, it means
+        #one of the two lists is empty. Because both
+        #lists were sorted, we can now add the remainder
+        #of each list to the new list. The empty list
+        #will have no items to add, and the non-empty
+        #list will add its items in order.
+
+        newlist.extend(left)
+        newlist.extend(right)
+
+        #newlist is now the sorted version of lst! So,
+        #we can return it. If this was a recursive call
+        #to mergesort, then this sends a sorted half-
+        #list up the ladder. If this was the original
+        #call, then this is the final sorted list.
+
+        return newlist
+
+#Let's try it out!
+print(mergesort([2, 5, 3, 8, 6, 9, 1, 4, 7]))
+
+#It works! To see more about how it works, check out
+#MergesortwithPrints.py. To get a succinct version of
+#this algorithm, checkout MergesortShort.py.
+
+###
+
+
+
+
+
+
 
