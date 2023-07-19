@@ -80,6 +80,1384 @@ result = (side1 + side2) > side3
 print("'these sides can form a triangle' is, result)
 
 
+### VARIABLES ###
+
+#Create four variables name my_integer, my_decimal,
+#my_string, and my_boolean. Assign to each variable a
+#value of the corresponding type (an integer for
+#my_integer, a string of characters for my_string,
+#etc.). You can choose whatever values you want --
+#just make sure the variable names and types are
+#correct!
+#
+#Then, print the types of each of the four variables
+#in order: first the integer, then the decimal
+#number, then the string, then the boolean. This
+#should print text like <class 'int'>, <class
+#'float'>, and so on.
+#
+#Don't print anything except their types!
+
+
+#Create your variables here!
+my_integer = 5
+my_decimal = 1.2
+my_string = "laura"
+my_boolean = False
+
+
+#Print their types here!
+print(type(my_integer))
+print(type(my_decimal))
+print(type(my_string))
+print(type(my_boolean))
+
+###
+
+num_pancakes = 7
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#Write a line of code below that will print the following
+#message:
+#
+#The most pancakes Bob has eaten at one time is 7
+#
+#The number in the sentence should always be the value of
+#num_pancakes.
+#
+#However, you may _not_ use the + operator. You must put
+#together the output in a different way.
+#
+#Add your code below!
+print("The most pancakes Bob has eaten at one time is", num_pancakes)
+
+###
+
+total = 2.51
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#The code below attempts to print the message:
+#
+#Thank you for coming to Junior's. Your total is $2.51.
+#
+#Right now, however, the code is broken because the variable
+#total must be converted to a string before printing.
+#
+#Fix the code below! You may fix it however you want.
+
+print("Thank you for coming to Junior's. Your total is $" + str(total) + ".")
+
+###
+
+#Modify the code below so that the output matches the following:
+#
+#<class 'str'>
+#<class 'int'>
+#<class 'bool'>
+#<class 'float'>
+#
+#Don't write any new lines. Just rearrange the existing lines so
+#that the output matches the above.
+
+print(type("Hello!"))
+print(type(5))
+print(type(True))
+print(type(5.1))
+
+###
+
+#The code below creates a variable named my_int and
+#assigns to it a random number from 0 to 10. You
+#don't need to worry about how this works; all you
+#need to know is that my_int will have an integer
+#as its value once this code is done.
+
+import random
+my_int = random.randint(0, 10)
+
+#Do not edit the code above!
+#
+#The line below attempts to print the value of
+#my_int, but currently it does not work. Fix
+#this code so that it works and prints "The
+#current value of my_int is:", followed by the
+#value.
+#
+#If you get stuck, look back at the Converting to
+#Strings vide from Lesson 2.2.7.
+
+print("The current value of my_int is: " + str(my_int))
+
+###
+
+name = "Elphaba"
+verb = "flew"
+where = "the western sky"
+number = 5
+result = True
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Above we have created five variables: name, verb, and where
+#which are strings, number which is an integer, and result,
+#which is a boolean.
+#
+#Below, write some code that will take these variables and
+#print out the sentence below with the values of the variables
+#filling in the corresponding spots in the sentence as
+#indicated by the variable name in brackets.
+
+#My name is [name] and it is [result] that I [verb] across [where] [number] times.
+#
+#Make sure to watch out for the data types of the values of
+#each of these variables, and make sure you have the right
+#number of spaces between each part!
+#
+#
+#Add your code below:
+print("My name is", name, "and it is", str(result), "that I", verb, "across", where, str(number), "times.")
+
+###
+
+ones = 8
+tens = 6
+hundreds = 1
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#Imagine you want to find the integer represented by the
+#variables ones, tens, and hundreds above. For their initial
+#values, then, this would be 168.
+#
+#Below is some code that attempts to compute and print that
+#value, but at present it isn't working. Fix it so that it
+#works correctly.
+#
+#Fix the code below!
+
+result = hundreds * 100 + tens * 10 + ones
+print(result)
+
+###
+
+#In the code below, we've created two dates. The day in each
+#date is chosen randomly. You don't need to worry about how
+#this works; all you need to know is that when you start
+#writing your code, you'll have access to two variables, each
+#holding a date: earlier_date and later_date, and later_date
+#is guaranteed to be later than earlier_date.
+#
+#Complete this code so that it creates a variable called
+#days_between that stores the number of days between the two
+#dates.
+#
+#Hint: You can find the number of days between two dates by
+#subtracting the day number of the earlier date from the
+#day number of the later date.
+
+from datetime import date
+import random
+earlier_date = date(2017, 6, random.randint(1, 25))
+later_date = date(2017, 6, random.randint(earlier_date.day + 1, 28))
+
+#Do not modify the code above!
+
+
+#Write your code here!
+days_between = (later_date - earlier_date).days
+
+#If your code is working correctly, then the following line
+#of code will print the correct number of dayes between the
+#two dates. Notice that this line uses commas instead of plus
+#signs, which is why it doesn't have to convert the dates to
+#strings: Python does that implicitly when we use this syntax.
+#print("There are", days_between, "days between", earlier_date, "and", later_date)
+
+###
+
+my_int1 = 1
+my_int2 = 5
+my_int3 = 9
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#The code above creates three variables: my_int1, my_int2,
+#and my_int3. Each will always be an integer
+#
+#Now, add three lines of code that will print the values
+#of those three variables with "my_int1:", "my_int2:", and
+#"my_int3:" labeling the output. So, if the variables' values
+#were 1, 5, and 9, your lines would print:
+#
+#my_int1: 1
+#my_int2: 5
+#my_int3: 9
+
+
+#Add your lines of code here!
+print("my_int1:", my_int1)
+print("my_int2:", my_int2)
+print("my_int3:", my_int3)
+
+#Next, these lines of code will modify the values of those
+#three variables. You don't need to worry about how these
+#work. We'll talk about it in the next couple chapters.
+
+my_int1 += 5
+my_int2 *= 3
+my_int3 **= 2
+
+#Now, copy and paste the same lines from above into the lines
+#below. This way, your output will show you the new values of
+#these variables.
+
+
+#Add your lines of code here!
+print("my_int1:", my_int1)
+print("my_int2:", my_int2)
+print("my_int3:", my_int3)
+
+
+#If your code works correctly, then when run, it should print:
+#my_int1: 1
+#my_int2: 5
+#my_int3: 9
+#my_int1: 6
+#my_int2: 15
+#my_int3: 81
+#
+#This should be the output when Running. When Submitting,
+#we'll test your code with other values of these three
+#variables.
+
+###
+
+my_variable = "Hello, world!"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#The code above creates one variable. Right now, it's a
+#string, but we might change it to be an integer, a float, or
+#something else.
+#
+#Add a line of code below that will print the variable's value
+#and type in a sentence like this:
+#
+#The value is Hello, world! and the type is <class 'str'>
+
+
+#Add your lines of code here!
+print("The value is", my_variable, "and the type is", type(my_variable))
+
+
+#When running your code, you should see the message on line
+#14 printed. When submitting, we'll test your code with other
+#values and types.
+
+
+### LOGICAL OPERATORS ###
+
+mystery_string_1 = "Grapes"
+mystery_string_2 = "apples"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Remember, greater than and less than operators can be used to
+#compare strings. A string is "less than" another string if it
+#comes earlier when sorted alphabetically.
+#
+#This can have some nuances, though, when it comes to
+#capitalization, punctuation, and spaces.
+#
+#Write some code below that will print True if mystery_string_1
+#comes before mystery_string_2 alphabetically according to
+#Python, and False if it does not.
+#
+#While this might be a simple line of code, we'd strongly
+#recommend checking out the submission results to see some of
+#the odd ways that Python performs. For example, don't be
+#surprised when your code says that it's True that "Grapes"
+#comes before "apples" alphabetically: Python puts all
+#upper-case letters before all lower-case letters.
+
+
+#Write your code here!
+mystery_string_1 = mystery_string_1.lower()
+mystery_string_2 = mystery_string_2.lower()
+
+print(mystery_string_1 < mystery_string_2)
+
+###
+
+mystery_string = "Hello, world!"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#The 'in' operator can be used to see if a string of characters
+#is found within another string of characters, just like it can
+#be used to find if an item is in a list.
+#
+#Above we've created a string with the variable name
+#mystery_string. Write some code below that will print True
+#if the string "world" appears within mystery_string, and
+#False if it does not.
+
+
+#Write your code here!
+print("world" in mystery_string)
+
+###
+
+balance = 20.0
+price = 19.0
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine we're writing some software for a cash register or
+#credit card processor. We want to approve a purchase if the
+#customer's balance is greater than or equal to the purchase
+#price, and reject it otherwise.
+#
+#Write some code below that will print True if balance is
+#greater than or equal to price, and False if it is not.
+
+
+#Add your code here!
+print(balance >= price)
+
+###
+
+balance = 20.0
+price = 19.0
+overdraft_protection = True
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Last exercise, we printed True if balance was greater than or
+#equal to price, and False otherwise. However, some banks have
+#something called overdraft protection. Overdraft protection
+#means that the customer is allowed to spend more than their
+#balance, and the bank just expects them to deposit the money
+#to cover the purchase later.
+#
+#Write some code below that will print True if the customer
+#can make the purchase given their balance, the purchase
+#price, and whether or not they have overdraft protection.
+#Specifically, the result should be True if balance is greater
+#than or equal to price or if overdraft_protection is True,
+#and False if neither of these are true.
+
+
+#Add your code here!
+print((balance >= price) or overdraft_protection)
+
+###
+
+hot = True
+cold = False
+rainy = True
+windy = False
+snowy = False
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you're writing a clothing-recommendation app that
+#makes suggestions based on the weather. It has booleans
+#representing five different kinds of weather: hot, cold,
+#rainy, windy, snowy.
+#
+#The app recommends four kinds of clothing:
+#
+# - a jacket, if it's either cold or windy.
+# - boots, if it's cold and snowy.
+# - flip flops, if it's hot, unless it's rainy.
+# - a t-shirt, if it's hot, unless it's rainy or windy.
+#
+#Write some code below that will print four lines, one for
+#each of the four types of clothing. Under the original
+#values for the variables above, the lines should look
+#like this:
+#
+#Jacket: False
+#Boots: False
+#Flip-Flops: False
+#T-shirt: False
+#
+#The values (True and False) will differ based on the
+#values assigned to hot, cold, windy, snowy, and rainy
+#at the start of the program.
+#
+#Hint: To print these lines, you'll need to add the
+#result of the expression to a string of the clothing item.
+#To do that, we'll need to convert the boolean from the
+#expression into a string.
+
+
+#Add your code here!
+print("Jacket:", cold or windy)
+print("Boots:", cold and snowy)
+print("Flip-Flops:", hot and not rainy)
+print("T-shirt:", hot and (not rainy and not windy))
+
+###
+
+my_gpa = 3.6
+my_major = "Computer Science"
+my_interest = "Software"
+company_gpa_req = 3.5
+company_major_recruiting  = "Computer Science"
+company_interest = "Software"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#It's career fair season and you are in the middle of applying
+#to all of these different companies for a potential internship
+#next summer, but you plan on only applying to companies that
+#you are interested in and companies whose requirements you meet.
+#
+#You'll only apply to the company if your GPA either matches or
+#is greater than the company's required GPA. Even then you'll
+#only apply to them if the major they are recruiting is your
+#major. However if you are not the major they are recruiting,
+#you'll still apply to them if your interest matches the interest
+#the company is advertising.
+#
+#Write some lines of code using logical operators that will print
+#True if you do end up applying to the company or False if you
+#don't end up appplying to the company based on the requirements
+#described above. Use the variable names as listed in the top of
+#the problem description.
+#
+#If your code is working correctly, with the original values of
+#the variables defined above, your code should print out True.
+
+#Add your code below!
+
+print(my_gpa >= company_gpa_req and (my_major == company_major_recruiting or my_interest == company_interest))
+
+###
+
+test_percent = 20
+review_time = 2
+feel_prepared = True
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#You've been studying for your test for a few hours and you're
+#trying to decide if you can go to bed or if you need to study
+#longer.
+#
+#To go to bed, you need to feel prepared. Even if you "feel"
+#prepared, you need to make sure you have prepared adequately:
+#that means reviewing for at least 2 hours (review_time), or
+#at least 4 hours if the test is worth 20 percent or more of
+#your grade.
+#
+#So, to go to bed, you must feel prepared (feel_prepared must
+#be True), and you must have reviewed for 2 or more hours
+#(review_time must be greater than or equal to 2). If the
+#test is worth 20% or more (test_percent is greater than
+#or equal to 20), you should have reviewed for 4 or more hours
+#(review_time greater than or equal to 4).
+#
+#Add your code below! It should print True if you can go to
+#bed, False if you cannot.
+print(feel_prepared and ((review_time >= 2 and test_percent < 20) or (review_time >= 4 and test_percent >= 20)))
+
+###
+
+cold = False
+windy = False
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#In this problem, we want to print the message, "You should
+#wear a jacket today!" if it's cold or windy, or the message
+#"You don't need a jacket today!" if it's not.
+#
+#At the bottom of this file, we've added some code that
+#handles printing these two messages. For this code to work,
+#the variable need_jacket needs to exist. Its value should be
+#True (the boolean, not the string) if it's cold or windy,
+#False if it's neither cold nor windy.
+
+
+#Add your code to create the variable need_jacket with the
+#appropriate value here!
+need_jacket = cold or windy
+
+
+#Do not modify the code below. It will work if you have
+#correctly create the variable need_jacket with the
+#appropriate value.
+if need_jacket:
+    print("You should wear a jacket today!")
+else:
+    print("You don't need a jacket today!")
+
+###
+
+busy = True
+hungry = False
+tired = True
+stressed = False
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Logical operators get more complex when we start using them
+#with the results of other logical operators. So, let's try
+#it out!
+#
+#Using the variables above, we want to assess whether the
+#person is happy, sad, bored, confused, or anxious.
+#
+# - The person is happy if they're busy but not stressed.
+# - The person is sad if they're either hungry or tired.
+# - The person is confused if they're both happy and sad.
+# - The person is bored if they're neither happy, sad,
+#   nor busy.
+# - The person is anxious if they're neither happy nor sad,
+#   but they are stressed.
+#
+#Add code below whose output will list whether each of these
+#emotions is true or false. For example, with the original
+#values of the variables above, this would print:
+#
+#Happy: True
+#Sad: True
+#Confused: True
+#Bored: False
+#Anxious: False
+
+
+#Add your code here!
+print("Happy:", busy and not stressed)
+print("Sad:", hungry or tired)
+print("Confused:", (busy and not stressed) and (hungry or tired))
+print("Bored:", not busy and not (busy and not stressed) and not (hungry or tired))
+print("Anxious:", stressed and not (busy and not stressed) and not (hungry or tired))
+
+###
+
+can_afford = False
+destination_is_safe = True
+educational_value = False
+relatives_nearby = False
+is_international = False
+have_passport = True
+afraid_to_fly = False
+have_a_car = False
+is_a_beach = False
+is_warm = True
+has_skiing = False
+is_a_city = True
+is_off_peak = True
+has_attraction = False
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine for a moment that you're a college student who wants
+#to travel during spring break. You have a destination in
+#mind. What determines whether you can go there?
+#
+#First, how would you pay for the trip? If you can afford it
+#(can_afford), then all you need is for your parents to agree
+#to let you go. Your parents will agree to let you go if the
+#destination is safe (destination_is_safe). 
+#
+#If you can't afford it, then you need your parents to pay for
+#the trip. Your parents will pay for the trip if the destination
+#is safe (destination_is_safe) and if either there is educational
+#value (educational_value) or there are relatives nearby for
+#you to visit (relatives_nearby).
+#
+#Second, are you sure you're able to go to this location? If
+#it's international (is_international), then you'll need a
+#passport (have_passport) and you can't be afraid to fly
+#(afraid_to_fly). If it's not international (is_international),
+#then you either must have a car (have_a_car) or you can't be
+#afraid to fly (afraid_to_fly).
+#
+#Third, do you actually want to go to this location? If it's a
+#beach location (is_a_beach), then you want the weather to be
+#warm (is_warm). If it's instead a skiing location (has_skiing),
+#you don't want it to be warm (is_warm). If it's a tourist city
+#(is_a_city), then you either want it to be an off-peak travel
+#time (is_off_peak) or you want there to be an attraction in
+#town that week (has_attraction).
+#
+#If it's both a beach and a city, then you'd decide to go if it
+#meets the condition for the beach (it's warm) or for a city
+#(is an off-peak time or has an attraction). If it's both a
+#skiing location and a city, then you'd decide to go if it meets
+#either type of location's conditions as well.
+#
+#Your only goal here is to print True or False: True if the
+#destination represented by the variables is an acceptable
+#travel location, False if it is not.
+#
+#HINT: Don't try to do this all in one line. Break it into
+#smaller parts.
+
+
+#Add your code here!
+
+afford_trip = can_afford and destination_is_safe
+parents_pay_trip = (not can_afford) and (destination_is_safe and (educational_value or relatives_nearby))
+able_to_go = (is_international and have_passport and not afraid_to_fly) or (not is_international and (have_a_car or not afraid_to_fly))
+want_to_go = (is_a_beach and is_warm) or (has_skiing and not is_warm) or (is_a_city and (is_off_peak or has_attraction))
+both_beach_and_city = is_a_beach and is_a_city
+both_skiing_and_city = has_skiing and is_a_city
+
+acceptable_location = afford_trip or (parents_pay_trip and able_to_go and want_to_go) or (both_beach_and_city and want_to_go) or (both_skiing_and_city and want_to_go)
+
+print(acceptable_location)
+
+###
+
+exam = False
+sunny = False
+sunblock = False
+morning_classes = True
+night_classes = True
+raining = False
+rain_jacket = True
+snowing = False
+friends_are_going = True
+fluffy_coat = False
+snow_boots = True
+really_want_to_go = True
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you commute to your classes and want to write code to 
+#determine when it is appropriate for you to go to class based
+#on the following conditions:
+#
+# - If you have an exam, then you should go to class, regardless
+#   of the weather.
+# - If you do not have an exam and it is sunny outside, then you
+#   want to go to class if either of the following are true: you
+#   have sunblock  and your classes are in the morning or your
+#   classes are at night.
+# - If you do not have an exam and it is raining outside, then
+#   you want to go to class if you have a rain jacket.
+# - If you do not have an exam and it is snowing, then you want
+#   to go if any of the following are true: your friends are
+#   going and you have a fluffy coat, you have snow boots and a
+#   fluffy coat, or you just really want to go to class.
+
+#If none of the previously stated conditions are true, then you
+#do not want to go to class.
+
+#Once you have determined if you should go to class, print the 
+#following statement without the quotation marks, where "___"
+#corresponds to the boolean that you have found:
+#"True or false: I should go to class: ___"
+
+#Add your code here!
+should_go_to_class = exam or (sunny and ((sunblock and morning_classes) or night_classes)) or (raining and rain_jacket) or (snowing and ((friends_are_going and fluffy_coat) or (snow_boots and fluffy_coat) or really_want_to_go))
+
+print("True or false: I should go to class:", should_go_to_class)
+
+#With the initial inputs, your code
+#should print:
+#True or false: I should go to class: False
+
+###
+
+a = True
+b = False
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#There are six logical operations to compare two boolean
+#values. They are:
+#
+#  And: True if both are True, False otherwise
+#   Or: True if either is True, False otherwise.
+#  Xor: True if exactly one is True; False if both are True
+#       or both are False ("Exclusive Or")
+# Nand: False if both are True, True otherwise.
+#  Nor: False if either is True, True otherwise.
+# Xnor: False if exactly one is True; True if both are True
+#       or both are False.
+#
+#For a and b above, print the results of all six operations,
+#with the following format:
+#
+#And: False
+#Or: True
+#Xor: True
+#Nand: True
+#Nor: False
+#Xnor: False
+#
+#Add your code below! Be aware: there is no dedicated operator
+#in Xor, Nand, Nor, or Xnor. You'll have to find those values
+#through a combination of And, Or, and Not.
+
+print("And:", a and b)
+print("Or:", a or b)
+print("Xor:", (a and not b) or (not a and b))
+print("Nand:", not (a and b))
+print("Nor:", not (a or b))
+print("Xnor:", (a and b) or (not a and not b))
+
+
+### MATHEMATICAL OPERATORS ###
+
+dividend = 7
+divisor = 3
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#The variables above create a dividend and a divisor. Add
+#some code below that will print the quotient and remainder
+#of performing this operation. The quotient should be the
+#whole number, not the decimal number: for example, with the
+#original values of dividend and divisor (7 and 3), your code
+#should print 2, then 1: 3 goes into 7 two whole times, with
+#one left over.
+#
+#Print the quotient and remainder each on their own line.
+#Both values should be integers: there should be no decimals.
+
+
+#Add your code here!
+print(dividend // divisor)
+print(dividend % divisor)
+
+###
+
+speed_mph = 60
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#In the United States, speeds are typically given in terms of
+#miles per hour. In the rest of the world, speeds are
+#typically given in kilometers per hour.
+#
+#To convert miles per hour to kilometers per hour, we
+#multiply miles per hour by 1.6 (technically 1.60934, but
+#we're going to round anyway, so the extra decimals won't
+#matter).
+#
+#Write some code that will convert the speed given by
+#speed_mph to kilometers per hour, then print the
+#following message (substituting in the right values):
+#
+#60 miles per hour equals 96 kilometers per hour.
+#
+#You should drop off any decimals that result from this
+#conversion. Note that this is different from rounding:
+#if speed_mph was 53, your answer would be 84 kilometers
+#per hour, not 84.8 or 85. (Hint: Converting a float to
+#an integer automatically rounds down.)
+
+
+#Add your code here!
+print(speed_mph, "miles per hour equals", int(speed_mph * 1.6), "kilometers per hour.")
+
+###
+
+speed_mph = 60
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#In the United States, speeds are typically given in terms of
+#miles per hour. In the rest of the world, speeds are
+#typically given in kilometers per hour.
+#
+#To convert miles per hour to kilometers per hour, we
+#multiply miles per hour by 1.6 (technically 1.60934, but
+#we're going to round anyway, so the extra decimals won't
+#matter).
+#
+#Write some code that will convert the speed given by
+#speed_mph to kilometers per hour, then print the
+#following message (substituting in the right values):
+#
+#60 miles per hour equals 96 kilometers per hour.
+#
+#You should drop off any decimals that result from this
+#conversion. Note that this is different from rounding:
+#if speed_mph was 53, your answer would be 84 kilometers
+#per hour, not 84.8 or 85. (Hint: Converting a float to
+#an integer automatically rounds down.)
+
+
+#Add your code here!
+print(speed_mph, "miles per hour equals", int(speed_mph * 1.6), "kilometers per hour.")
+
+###
+
+A = 50
+T = 301
+n = 0.5
+Ea = 30
+R = 0.8268
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#The Arrhenius equation is a formula used in physical
+#chemsitry to show temperature dependence on reaction rates.
+#A modified form of the equation is showed below:
+#
+# k = A x T^n x e^(-Ea/(R x T))
+#
+#Where k is a rate constant, T is the temperature in Kelvin,
+#n is some constant, A is the pre-exponential factor, Ea is
+#the activation energy, R is the universal gas constant, and
+#e is the mathematical constant.
+#
+#It can also be seen here: 
+#https://wikimedia.org/api/rest_v1/media/math/render/svg/178c4170c8a642485243ccc3e816f7ae4056dd51
+#
+#Below, write some lines of code that replicates this modified
+#Arrhenius equation using the variables created above as the
+#different factors in the equation, and print out the resulting
+#value of k. For the mathematical constant e, we have imported
+#e from the math library so you can simply use e to access this
+#value (as if it's a variable defined above as well).
+#
+#You should round the result to two decimal places. To do this,
+#you can use Python's built-in round() function. To use it, use
+#the following syntax:
+#
+#rounded_num = round(original_num, 2)
+#
+#The syntax on the line above will round original_num to 2
+#decimal points and assign the result to rounded_num.
+
+#With the current values of these variables, your code should
+#output 768.95.
+
+from math import e
+
+#Write your code here!
+ans = A * T ** n * e ** (-Ea / (R * T))
+print(round(ans, 2))
+
+###
+
+s1 = 95
+s2 = 40
+s3 = 50
+s4 = 100
+s5 = 87
+s6 = 24
+s7 = 8
+s8 = 76
+s9 = 52
+s10 = 84
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you are a professor and trying to determine whether
+#you should curve the grades for an exam based on the class 
+#average. You are given the exam scores for your class of 10
+#students above. Find the class average; if it is less than 70,
+#then the exam should be curved.
+#
+#Once you have determined whether the exam should be curved,
+#print the following string: "The exam should be curved: True."
+#If the exam should not be curve, use 'False' instead of 'True',
+#but either way, make sure to include the period after the
+#result.
+
+#Add your code here! With the initial values of the 10 variables
+#above, your result should be True.
+print("The exam should be curved:", (70 <= ((s1+s2+s3+s4+s5+s6+s7+s8+s9+s10)/10)))
+
+###
+
+s1 = 95
+s2 = 40
+s3 = 50
+s4 = 100
+s5 = 87
+s6 = 24
+s7 = 8
+s8 = 76
+s9 = 52
+s10 = 84
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you are a professor and trying to determine whether
+#you should curve the grades for an exam based on the class 
+#average. You are given the exam scores for your class of 10
+#students above. Find the class average; if it is less than 70,
+#then the exam should be curved.
+#
+#Once you have determined whether the exam should be curved,
+#print the following string: "The exam should be curved: True."
+#If the exam should not be curve, use 'False' instead of 'True',
+#but either way, make sure to include the period after the
+#result.
+
+#Add your code here! With the initial values of the 10 variables
+#above, your result should be True.
+print("The exam should be curved: " + str((s1+s2+s3+s4+s5+s6+s7+s8+s9+s10) / 10 < 70) + ".")
+
+###
+
+amount = 67
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#Write a program that will print out the coins needed to
+#arrive at the amount shown above. Assume that we always want
+#the maximum number of large coins: for example, for 67 cents,
+#we want 2 quarters, 1 dime, 1 nickel, and 2 pennies instead
+#of 6 dimes and 7 pennies.
+#
+#If you are unfamiliar with American currency: a quarter is
+#worth 25 cents; a dime is worth 10 cents; a nickel is worth
+#5 cents; a penny is worth 1 cent.
+#
+#To make things easier, we've gone ahead and supplied your
+#print statements. All you need to do is create four variables:
+#quarters, dimes, nickels, and pennies.
+#
+#HINT: Change the value of amount as you go to reflect what
+#coins you've already found.
+
+
+#Add your code here!
+quarters = amount // 25
+amount -= 25 * quarters
+dimes = amount // 10
+amount -= 10 * dimes
+nickels = amount // 5
+amount -= 5 * nickels
+pennies = amount
+
+
+
+#If your code above is correct, the following lines will
+#initially print (for amount = 67):
+#Quarters: 2
+#Dimes: 1
+#Nickels: 1
+#Pennies: 2
+print("Quarters:", quarters)
+print("Dimes:", dimes)
+print("Nickels:", nickels)
+print("Pennies:", pennies)
+
+###
+
+my_current_average = 87.1
+survey_completers = 50
+class_size = 100
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Unlike David Joyner (who believes such bonuses are unethical),
+#Prof. Shmavid Shmoyner offers a bonus to students' final
+#average based on the percentage of students that complete the
+#end-of-course survey.
+#
+#Prof. Shmoyner's formula is simple: every person that does
+#the end-of-course survey adds one point to the "pool" of
+#points. These points are then divided evenly among all
+#students in the class.
+#
+#For example, if 50 students do the end-of-course survey,
+#then 50 points are divided among the class. If there were
+#100 students in the class, then each student gets 0.5 bonus
+#points. If there were 50 students in the class, then every
+#student would get 1 bonus point.
+#
+#The variables above describe a particular class. Your
+#average is given by my_current_average. survey_completers
+#shows how many students completed the survey. class_size
+#holds how many students are in the class.
+#
+#Write some code that will print the following message with
+#the appropriate values:
+#
+#After the 0.5 point bonus, my average is 87.6.
+#
+#You should round the bonus to the nearest tenth of a point.
+#To do this, you can use Python's built-in round() function.
+#To use it, use the following syntax:
+#
+#rounded_num = round(original_num, 1)
+#
+#The syntax on the line above will round original_num to 1
+#decimal point and assign the result to rounded_num.
+#
+#Hint: You might need to round both the bonus and the final
+#grade separately! Python does some odd things with adding
+#decimals sometimes, such as thinking 80.1 + 0.1 is 
+#80.1999999999999.
+
+
+#Add your code here!
+bonus = round(survey_completers / class_size, 1)
+print("After the " + str(bonus) + " point bonus, my average is " + str(my_current_average + bonus) + ".")
+
+###
+
+my_current_average = 87.1
+survey_completers = 50
+class_size = 100
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Unlike David Joyner (who believes such bonuses are unethical),
+#Prof. Shmavid Shmoyner offers a bonus to students' final
+#average based on the percentage of students that complete the
+#end-of-course survey.
+#
+#Prof. Shmoyner's formula is simple: every person that does
+#the end-of-course survey adds one point to the "pool" of
+#points. These points are then divided evenly among all
+#students in the class.
+#
+#For example, if 50 students do the end-of-course survey,
+#then 50 points are divided among the class. If there were
+#100 students in the class, then each student gets 0.5 bonus
+#points. If there were 50 students in the class, then every
+#student would get 1 bonus point.
+#
+#The variables above describe a particular class. Your
+#average is given by my_current_average. survey_completers
+#shows how many students completed the survey. class_size
+#holds how many students are in the class.
+#
+#Write some code that will print the following message with
+#the appropriate values:
+#
+#After the 0.5 point bonus, my average is 87.6.
+#
+#You should round the bonus to the nearest tenth of a point.
+#To do this, you can use Python's built-in round() function.
+#To use it, use the following syntax:
+#
+#rounded_num = round(original_num, 1)
+#
+#The syntax on the line above will round original_num to 1
+#decimal point and assign the result to rounded_num.
+#
+#Hint: You might need to round both the bonus and the final
+#grade separately! Python does some odd things with adding
+#decimals sometimes, such as thinking 80.1 + 0.1 is 
+#80.1999999999999.
+
+
+#Add your code here!
+bonus = round(survey_completers / class_size, 1)
+final_average = round((my_current_average + bonus), 1)
+print("After the " + str(bonus) + " point bonus, my average is " + str(final_average) + ".")
+
+###
+
+meal_cost = 10.00
+tax_rate = 0.08
+tip_rate = 0.20
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#When eating at a restaurant in the United States, it's
+#customary to have two percentage-based surcharges added on
+#top of your bill: sales tax and tip. These percentages are
+#both applies to the original cost of the meal. For example,
+#a 10.00 meal with 8% sales tax and 20% tip would add 0.80
+#for tax (0.08 * 10.00) and 2.00 for tip (0.20 * 10.00).
+#
+#The variables above create the cost of a meal and identify
+#what percentage should be charged for tax and tip.
+#
+#Add some code below that will print the "receipt" for a
+#meal purchase. The receipt should look like this:
+#
+#Subtotal: 10.00
+#Tax: 0.8
+#Tip: 2.0
+#Total: 12.8
+#
+#Subtotal is the original value of meal_cost, tax is the
+#tax rate times the meal cost, tip is the tip rate times
+#the meal cost, and total is the sum of all three numbers.
+#Don't worry about the number of decimal places; it's fine
+#if your code leaves off some numbers (like 0.8 for tax) or
+#includes too many decimal places (like 2.121212121 for tip).
+
+
+#Add your code here!
+print("Subtotal:", meal_cost)
+print("Tax:", (meal_cost * tax_rate))
+print("Tip:", (meal_cost * tip_rate))
+print("Total:", (meal_cost + meal_cost * tax_rate + meal_cost * tip_rate))
+
+###
+
+STAB = 1
+Type = 0.25
+Critical = 2
+Other = 1
+Random = 1
+Level = 50
+Attack = 125
+Defense = 110
+Base = 60
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#In the Pokemon game franchise, damage is calculated using this formula:
+#https://studio.edx.org/asset-v1:GTx+CS1301+1T2017+type@asset+block@DamageCalc.png
+#
+#In that formula, the variable Modifier is calculated using this formula:
+#https://studio.edx.org/asset-v1:GTx+CS1301+1T2017+type@asset+block@ModifierCalc.png
+#
+#Add code below such that the program prints the total damage
+#caused based on the STAB, Type, Critical, Other, Random,
+#Level, Attack, Defense, and Base given above.
+#
+#Hint: Don't try to do all these calculations at once! Break
+#the complicated formual down into bite-sized little chunks.
+
+
+#Add your code here!
+modifier = STAB * Type * Critical * Other * Random
+total_damage = (((2 * Level + 10) / 250) * (Attack / Defense) * Base + 2) * modifier
+print(total_damage)
+
+###
+
+principal = 5000
+rate = 0.05
+time = 5
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#One important formula in finance and accounting is the
+#formula for continually compounding interest. This formula
+#takes as input an amount of money invested, an interest
+#rate, and an amount of time (in years), and returns the
+#value of the investment after that period of time.
+#
+#The formula is:
+#
+#   amount = principal * e ^ (rate * time)
+#
+#Add some code below that will find the amount of money in
+#an account with the initial investment, interest rate, and
+#number of years given by the variables above. Note,
+#however, that we've gone ahead and supplied you the print
+#statement: you shouldn't need to change this. Instead, just
+#complete this code such that the variable 'amount' is
+#created with the right value.
+#
+#Note that e is a constant; you may access it with math.e --
+#you can use math.e as a variable like any other after
+#importing math:
+
+import math
+
+#Add your code here such that there exists a variable named
+#'amount' with the amount in the account after the given
+#time at the given interest rate.
+amount = principal * math.e ** (rate * time)
+
+
+#Don't touch the line of code below!
+print("After " + str(time) + " years invested with a " + str(rate) + " interest rate, a $" + str(principal) + " investment will be worth $" + str(round(amount, 2)) + ".")
+
+###
+
+start_hour = 3
+start_minute = 48
+length = 172
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Let's try something trickier! The variables above represent
+#the start time for a run as well as the length of the run
+#in minutes. The original values, for example, show a run
+#that started at 3:48 and lasted 172 minutes.
+#
+#Add some code below that will print the time at which the
+#run will end, using normal formatting (e.g. 6:40 for the
+#original data above). To do this, you'll need to somehow
+#find both the hours and minutes of the new time, convert
+#both to strings, and add those to the colon ":" to print
+#the time.
+#
+#You may assume that the length of the run will never cross
+#12:59 (e.g. you don't have to worry about going from
+#12:59 to 1:00 or 23:59 to 0:00). You also don't need to
+#worry about the lack of 0 in front of single-digit minute
+#counts (e.g. it's fine to show 5:07 as 5:7).
+
+
+#Add your code here!
+hours = length // 60
+end_hour = start_hour + hours
+length -= 60 * hours
+if length + start_minute > 60:
+    another_hour = (length + start_minute) // 60
+    end_hour += another_hour
+    length -= 60 * another_hour
+    end_minute = length + start_minute
+else:
+    end_minute = length + start_minute
+    
+print(str(end_hour) + ":" + str(end_minute))
+
+###
+
+dosage = 100
+time_since_last_dose = 7
+is_nighttime = False
+took_something_cross_reactive = False
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#Let's try to use our mathematical operators and logical
+#operators together.
+#
+#Imagine you've been battling a cold. You're deciding whether
+#to take cough syrup or not, and if so, how much to take.
+#
+#time_since_last_dose represents the number of hours since
+#you last took some cough syrup. For every hour it's been,
+#you're allowed to have one dose.
+#
+#If it's nighttime (is_nighttime), then you may double
+#your dose since you won't be taking any until morning.
+#
+#However, if you've taken something cross-reactive
+#(took_something_cross_reactive), then you should not take
+#any cough syrup.
+#
+#Write a program that will print how large a dose of cough
+#syrup to take.
+#
+#HINT: Remember, if you try to multiply a number times a
+#boolean, Python treats False as 0 and True as 1. There are
+#other ways to do this, though.
+
+
+#Add your code here!
+
+if took_something_cross_reactive == True:
+    dose = 0
+else:
+    if is_nighttime == True:
+        dose = time_since_last_dose * dosage * 2
+    elif is_nighttime == False:
+        dose = time_since_last_dose * dosage
+print(dose)
+
+###
+
+mystery_value_1 = 6
+mystery_value_2 = 3
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#Print a sentence describing the values you get when you add,
+#subtract, multiply, and divide the numbers above. The
+#sentence should look like this:
+#
+#The sum is 9, the difference is 3, the product is 18, and the
+#quotient is 2.0.
+#
+#Make sure to include all commas, spaces, and periods exactly
+#as shown -- the only thing that should change based on the
+#values of the variables is the numbers.
+
+
+#Add your code here!
+print("The sum is ", mystery_value_1 + mystery_value_2, ", the difference is ", mystery_value_1 - mystery_value_2, ", the product is ", mystery_value_1 * mystery_value_2, ", and the quotient is ", mystery_value_1 / mystery_value_2, ".", sep='')
+
+###
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## PRACTICE PROBLEMS
 
 ## Practice problem 1
