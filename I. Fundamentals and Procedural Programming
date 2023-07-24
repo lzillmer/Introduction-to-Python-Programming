@@ -2751,3 +2751,283 @@ expired = (current_year > exp_year) or \
 # Print whether the food has expired or not
 print(expired)
 
+
+### EXAM ###
+
+slices_per_pizza = 6
+pizzas = 5
+students = 6
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you are throwing a pizza party for some students.
+#You order some number of pizzas, each with some number of
+#slices. You want each student to receive the same number
+#of slices, even if that means some slices are left over.
+#
+#The number of pizzas, number of slices per pizza, and
+#number of students are given by the variables
+#slices_per_pizza, pizzas, and students. Using this information,
+#write some code that prints out a sentence like the following:
+#
+#Each student gets 4 slices, and there will be 2 left over.
+#
+#The number of slices per person will be calculated as the total
+#number of slices (number of pizzas times slices per pizza)
+#divided by the number of students rounded down to a whole
+#number. The number of slices left over will be whatever is left
+#after that calculation.
+
+
+#Write your code here!
+slices_per_person = (slices_per_pizza * pizzas) // students
+slices_remaining = (slices_per_pizza * pizzas) - (slices_per_person * students)
+
+print("Each student gets " + str(slices_per_person) + " slices, and there will be " + str(slices_remaining) + " left over.")
+
+###
+
+in_a_hurry = True
+is_raining = False
+have_backpack = True
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you are deciding how to get to school today. You have
+#four options: walk, bike, bus, or drive.
+#
+#There are three variables that determine which options you
+#might choose:
+#
+# - in_a_hurry: whether you're in a hurry to get to class.
+# - is_raining: whether it's raining outside
+# - have_backpack: whether you need to carry a backpack
+#
+#The following rules tell you whether each option is
+#possible:
+#
+# - Walking is an option if it is not raining and you
+#   are not in a hurry to get to class.
+# - Biking is an option as long as it is not raining,
+#   unless you need to carry a backpack.
+# - A bus is an option as long as you are not in a hurry
+#   to get to class.
+# - A car is your last resort: it is only an option if
+#   none of the other three are options.
+#
+#Print True or False for each option, according to the
+#following structure:
+#
+#Walk: False
+#Bike: False
+#Bus: False
+#Car: True
+
+
+#Add your code here!
+print("Walk:", not is_raining and not in_a_hurry)
+print("Bike:", not is_raining and not have_backpack)
+print("Bus:", not in_a_hurry)
+print("Car:", not(not is_raining and not in_a_hurry) and not(not is_raining and not have_backpack) and not(not in_a_hurry))
+
+###
+
+bottle_month = "Feb"
+bottle_day = 5
+bottle_year = 21
+use_by_month = "March"
+use_by_day = 6
+use_by_year = 21
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#The lines above give the information for the bottle date and
+#use by date for a bottle of salad dressing.
+#
+#Write some code that will generate what should be printed on
+#the bottle. You should print two lines. The first line should
+#be the bottle date itself, according to the following structure:
+#
+#Bottled Feb521
+#
+#Feb, 5, and 21 should be replaced by the values of bottle_month,
+#bottle_day, and bottle_year, respectively.
+
+#The second line should be the use by date, printed in more
+#natural language, according to the following structure:
+#
+#For best experience, please use by March 6 2021.
+#
+#March, 6, and 21 should be replaced by the values of use_by_month,
+#use_by_day, and use_by_year respectively. Note that you will need
+#to add the '20' to the year; only the last two digits of the year
+#are contained in use_by_year. Don't forget the period.
+
+
+#Add your code here!
+print("Bottled", bottle_month + str(bottle_day) + str(bottle_year))
+print("For best experience, please use by " + str(use_by_month) + " " + str(use_by_day) + " 20" + str(use_by_year) + ".")
+
+###
+
+original_price = 15.0
+num_shares = 100
+final_price = 100.0
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Short selling is when an investor borrows some shares of a
+#stock to sell at the current price, expecting that at a later
+#date they can buy the stock at a lower price to give back.
+#For example, if you anticipate the stock GME will drop in
+#value, you might borrow 100 shares today, sell them for $15
+#each, and expect to buy them back in two weeks for $10,
+#netting you $500 in profit (100 * $15 - 100 * $10 = $500).
+#
+#A short squeeze occurs when instead of falling, the stock
+#price rises. If instead of dropping to $10 per share, GME
+#rose to, say, $100 per share, then the investor would owe
+#$8500 (100 * $15 - 100 * $100 = -$8500).
+#
+#For this problem, let's only look at these short squeezes.
+#original_price, num_shares, and final_price give the
+#price at which an investor buys a stock, the number of
+#shares they buy, and the price of the stock when they must
+#buy their shares to return.
+#
+#Calculate the total amount lost by this attempt at short
+#selling, and print it according to the following format:
+#
+#You lost: $8500.0
+#
+#You should round this number to two decimal places. To do
+#this, you may use the round function. For example:
+#
+#rounded_num = round(123.456, 2)
+#
+#...will result in rounded_num = 123.46. Do not worry about
+#adding the extra 0 if the result is an even tenth ($8500.0
+#is fine, you don't need to print $8500.00).
+
+
+#Add your code here!
+loss = num_shares * final_price - num_shares * original_price
+rounded_loss = round(loss, 2)
+print("You lost: " + "$" + rounded_loss)
+
+###
+
+total_seconds = 5278
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you are writing the software for a call center. As
+#part of this, you need to tell the customer currently on hold
+#what their estimated wait time is.
+#
+#The software that actually generates the estimated wait time
+#returns it as a number of seconds. However, telling the customer
+#"Your estimated wait time is 5278 seconds" is pretty meaningless.
+#Instead, we want to say something like:
+
+#Your estimated wait time is 1 hour(s), 27 minute(s), and 58 second(s).
+#
+#Add some code that will print that sort of estimated wait time,
+#replacing 1, 27, and 58 with the actual numbers derived from the
+#variable total_seconds. Remember, there are 60 seconds in a minute,
+#and 60 minutes in an hour: you never wawnt to mention more than 60
+#minutes (as that would add an hour) or 60 seconds (as that would add
+#a minute).
+
+
+#Add your code here!
+hours = int(total_seconds / 60 / 60)
+minutes = int(total_seconds / 60 - hours * 60)
+seconds = int(total_seconds - hours * 60 * 60 - minutes * 60)
+print("Your estimated wait time is", hours, "hour(s),", minutes, "minute(s),", "and", seconds, "second(s).")
+
+###
+
+original_number = 5
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Write some code that will triple original_number in three ways,
+#in this order:
+#
+# - First, triple the number by cubing it (raising it to the
+#   3rd power)
+# - Second, triple the number by duplicating it 3 times.
+# - Third, triple the number by multiplying it by 3 again.
+#
+#For example, original_number 5 would first be cubed into
+#125 (5^3 = 125), then it would be tripled to 125125125
+#(duplicating 125 three times), and then it would be tripled
+#to 375375375 (125125125 * 3 = 375375375).
+#
+#Print out the number after you've tripled it all three times.
+
+
+#Add your code here!
+original_number **= 3
+original_number = str(original_number) * 3
+original_number = int(original_number) * 3
+print(original_number)
+
+###
+
+order_total = 30
+coupon_value = 3
+coupon_valid = True
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you are writing the code for an online shopping
+#platform. On this platform, a $5 shipping fee is added unless
+#the order total is over $50; if the original order total is $50
+#or higher (before subtracting coupons), shipping is free.
+#
+#Additionally, buyers may have coupons. If the coupon is valid,
+#the price is subtracted from the order.
+#
+#The order total, coupon value, and coupon validity are
+#reflected above as order_total, coupon_value, and coupon_valid.
+#Based on these, calculate the total for an order, and print the
+#sentence:
+#
+#Your total is: $32
+#
+#32 would be replaced by the actual value based on the values
+#of order_total, coupon_value, and coupon_valid.
+#
+#HINT: You may use conditionals on this problem, but you don't
+#need to. Remember, you can use boolean statements in mathematical
+#calculations. Multiplying by False is the same as multiplying
+#by 0; multiplying by True is the same as multiplying by 1.
+
+
+#Add your code here!
+if order_total < 50:
+    if coupon_valid:
+        order_total = order_total - coupon_value + 5
+    else:
+        order_total += 5
+else:
+    if coupon_valid:
+        order_total -= coupon_value
+
+print("Your total is: " + "$" + str(order_total))
