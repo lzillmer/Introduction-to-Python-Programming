@@ -2793,15 +2793,207 @@ print(check_blood_pressure(test_systolic, test_diastolic))
 
 ###
 
+#Recall Coding Problem 2.4.8. In that problem, you calculated
+#the damage done by an attack based on several parameters.
+#
+#Convert your code from there into two functions, one called
+#calculate_damage and one called calculate_modifier.
+#
+#Your function for calculate_damage must call calculate_modifier;
+#it may not calculate the modifier separately. As such,
+#calculate_damage should accept all ten parameters: STAB,
+#Type, Critical, Other, Random, Level, Attack, Defense, and
+#Base. You'll need to pass STAB, Type, Critical, Other, and
+#Random to calculate_modifier.
+#
+#Make sure the parameters to each function follow the order
+#shown above.
+#
+#As a reminder, damage is calculated using this formula:
+#courses.edx.org/asset-v1:GTx+CS1301xII+1T2018+type@asset+block@DamageCalc.png
+#
+#Modifier is calculated using this formula:
+#https://studio.edx.org/asset-v1:GTx+CS1301+1T2017+type@asset+block@ModifierCalc.png
+
+
+#Add your code here!
+def calculate_modifier(STAB, Type, Critical, Other, Random):
+    modifier = STAB * Type * Critical * Other * Random
+    return modifier
+    
+def calculate_damage(STAB, Type, Critical, Other, Random, Level, Attack, Defense, Base):
+    modifier = calculate_modifier(STAB, Type, Critical, Other, Random)
+    total_damage = (((2 * Level + 10) / 250) * (Attack / Defense) * Base + 2) * modifier
+    return total_damage
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 16.0
+STAB = 1
+Type = 0.25
+Critical = 2
+Other = 1
+Random = 1
+Level = 50
+Attack = 125
+Defense = 110
+Base = 60
+
+print(calculate_damage(STAB, Type, Critical, Other, Random, Level, Attack, Defense, Base))
+
+###
+
+#-----------------------------------------------------------
+#In this problem, you should write three functions:
+#word_count, letter_count, and average_word_length.
+#
+#word_count should take as input a string. It should return
+#the number of words in the string. You may assume that the
+#number of words in the string will be one more than the
+#number of spaces in the string.
+#
+#letter_count should take as input a string. It should return
+#the number of letters in the string. You may assume that
+#the string is only letters and spaces: no punctuation or
+#numbers.
+#
+#average_word_length should take as input a string. It should
+#return the average length of the words in the string. You
+#can find the average length by dividing the number of letters
+#by the number of words.
+#
+#Your implementation for average_word_length *must* call
+#word_count and letter_count.
+
+
+#Add your code here!
+letter_list = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+def word_count(a_string):
+    num_words = 1
+    for char in a_string:
+        if char == " ":
+            num_words += 1
+    return num_words
+
+def letter_count(a_string):
+    num_letters = 0
+    for char in a_string:
+        if char in letter_list:
+            num_letters += 1
+    return num_letters
+
+def average_word_length(a_string):
+    average = letter_count(a_string) / word_count(a_string)
+    return average
 
 
 
+#Below are some lines of code that will test your function.
+#You can change the value of the variable to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 3.5
+a_string = "Up with the white and gold"
+print(average_word_length(a_string))
+
+###
+
+#There are a lot of use cases where we want to check to see
+#if a string has any invalid characters in it. For example,
+#when asking for a credit card number, we want to make sure
+#there are no non-numerals (although we might accept dashes
+#or spaces). When asking for a name, we want to make sure
+#all the characters are letters, spaces, or the occasional
+#punctuation mark.
+#
+#Write a function called is_valid. is_valid should take two
+#parameters: a string to check, and a string of all valid
+#characters.
+#
+#is_valid should return the boolean True if all the
+#characters in the string to check are present in the string
+#of valid characters. It should return False if any character
+#in the checked string does not appear.
 
 
+#Add your code here!
+def is_valid(string, valid_characters):
+    count_invalid = 0
+    for char in string:
+        if char not in valid_characters:
+            count_invalid += 1
+    if count_invalid > 0:
+        return False
+    else:
+        return True
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print True, then False
+sample_valid_string = "1234-5678-9011-1111"
+sample_invalid_string = "1234!5678.9011?1111"
+valid_characters = "0123456789-"
+
+print(is_valid(sample_valid_string, valid_characters))
+print(is_valid(sample_invalid_string, valid_characters))
+
+###
+
+#In this problem, your goal is to write a function that can
+#either count all the vowels in a string or all the consonants
+#in a string.
+#
+#Call this function count_letters. It should have two
+#parameters: the string in which to search, and a boolean
+#called find_consonants. If find_consonants is True, then the
+#function should count consonants. If it's False, then it
+#should instead count vowels.
+#
+#Return the number of vowels or consonants in the string
+#depending on the value of find_consonants. Do not count
+#any characters that are neither vowels nor consonants (e.g.
+#punctuation, spaces, numbers).
+#
+#You may assume the string will be all lower-case letters
+#(no capital letters).
 
 
+#Add your code here!
+def count_letters(string, find_consonants):
+    consonants = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz"
+    vowels = "AEIOUaeiou"
+    count_consonants = 0
+    count_vowels = 0
+    if find_consonants == True:
+        for char in string:
+            if char in consonants:
+                count_consonants += 1
+        return count_consonants                
+    else:
+        for char in string:
+            if char in vowels:
+                count_vowels += 1
+        return count_vowels
+             
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print 14, then 7.
 
+a_string = "up with the white and gold"
 
+print(count_letters(a_string, True))
+print(count_letters(a_string, False))
 
 
 ### ERROR HANDLING ###
@@ -3016,6 +3208,430 @@ def get_integer(my_var):
 print(get_integer("5"))
 print(get_integer("Boggle."))
 print(get_integer(5.1))
+
+###
+
+words = ["dog", "sparrow", "cat", "frog"]
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#This program is supposed to print the location of the 'o'
+#in each word in the list. However, line 22 causes an
+#error if 'o' is not in the word. Add try/except blocks
+#to print "Not found" when the word does not have an 'o'.
+#However, when the current word does not have an 'o', the
+#program should continue to behave as it does now.
+#
+#Hint: don't worry that you don't know how line 18 works.
+#All you need to know is that it may cause an error.
+#
+#You may not use any conditionals.
+
+#Fix this code!
+for word in words:
+    try:
+        print(word.index("o"))
+    except:
+        print("Not found")
+
+###
+
+mystery_value = 5
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Write a program that divides mystery_value by mystery_value
+#and prints the result. If that operation results in an
+#error, divide mystery_value by (mystery_value + 5) and then
+#print the result. If that still fails, multiply mystery_value
+#by 5 and print the result. You may assume one of those three
+#things will work.
+#
+#You may not use any conditionals.
+#
+#Hint: You're going to want to test one try/except structure
+#inside another! Think carefully about whether the second
+#one should go inside the try block or the except block.
+
+
+#Add your code here!
+try:
+    result = mystery_value / mystery_value
+    print(result)
+except:
+    try: 
+        result = mystery_value / (mystery_value + 5)
+        print(result)
+    except:
+        result = mystery_value * 5
+        print(result)
+
+###
+
+given_items = ["one", "two", 3, 4, "five", ["six", "seven", "eight"]]
+
+#Write a program that iterates through the items in the
+#given list. For each item, you should attempt to iterate
+#through the item and print each character seperately. 
+#
+#If this second part fails, print "Not iterable" -- but
+#even if the second part fails, you should still go on
+#to the next item in the list.
+#
+#Hint: Although we'll cover lists more in Unit 4, all
+#you need to know right now is that this syntax will run
+#a loop over a list, a string, or any other iterable
+#type of information:
+#
+#  for item in given_items:
+#
+#To iterate over the items in 'item', you can do the
+#same thing: for subitem in item:
+#
+#Start out by building the nested for-each loops that
+#you'll need. Then, identify where the error is
+#occurring to figure out where to put the try-except
+#structure.
+#
+#This one's tricky, but you can do it!
+
+
+#Add your code here!
+for item in given_items:
+    try:
+        for subitem in item:
+            print(subitem)
+    except:
+        print("Not iterable")
+
+###
+
+#In Chapter 3.4, we wrote a function called find_pressure
+#that calculated pressure given number of moles,
+#temperature, volume, and optionally, a value for R. If no
+#value was given for R, we assumed its value should be
+#0.082057.
+#
+#However, as written, that function could crash: what about
+#when the user enters a Volume of 0? That would cause a
+#ZeroDivisonError! (In addition to breaking the laws of
+#physics, but there's no Python error for that.)
+#
+#Revise that find_pressure function to catch that error. If
+#that error occurs, return the string "Volume must be
+#greater than 0." Otherwise, the function should work just
+#as it did before.
+#
+#Feel free to copy your answer to that exercise and work
+#from there. If you'd prefer to start from scratch, remember:
+#you're creating a function called find_pressure that returns
+#a value for pressure given variables n, T, V, and optionally
+#R, according to this formula:
+#
+# Pressure = (nRT) / V
+#
+#You may not use a conditional. R should have a default value
+#of 0.082057.
+
+
+#Write your function here!
+def find_pressure(moles, temperature, volume, R = .082057):
+    try:
+        pressure = (moles * R * temperature) / volume
+        return pressure
+    except ZeroDivisionError:
+        return "Volume must be greater than 0."
+
+
+#You may use these lines to test your function. With the
+#values initially supplied here, your function should return
+#"Volume must be greater than 0."
+test_n = 10
+test_T = 298
+test_V = 0
+test_R = 62.364 #Torr!
+print("Result:", find_pressure(test_n, test_T, test_V, R = test_R))
+
+###
+
+#We've come a long way in this unit! You've learned about
+#conditionals, loops, functions, and error handling. To end
+#the unit, let's do a couple problems that tie all these
+#concepts together.
+#
+#Write a function called word_count. word_count takes as
+#input a string called my_string, and returns as output the
+#number of words in the string. For the purposes of this
+#problem, you can assume that every space indicates a new
+#word; so, the number of words should be one more than the
+#number of spaces. You may also assume that any strings are
+#not empty, so there should always be at least one word if
+#my_string is a string.
+#
+#Note, though, that it could be the case that a non-string
+#is accidentally passed in as the argument for my_string. If
+#that happens, an error will arise. If such an error arises,
+#you should instead return "Not a string". Otherwise,
+#return an integer representing the number of words in the
+#string.
+
+
+#Write your function here!
+def word_count(my_string):
+    try:
+        words = 1
+        for char in my_string:
+            if char == " ":
+                words += 1
+        return(words)
+    except:
+        return("Not a string")
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 
+#Word Count: 4
+#Word Count: 1
+#Word Count: 7
+#Word Count: Not a string
+#Word Count: Not a string
+#Word Count: Not a string
+
+print("Word Count:", word_count("Four words are here!"))
+print("Word Count:", word_count("One."))
+print("Word Count:", word_count("There are seven words in this sentence."))
+print("Word Count:", word_count(5))
+print("Word Count:", word_count(5.1))
+print("Word Count:", word_count(True))
+
+###
+
+#Now let's make things a little more challenging.
+#
+#Last exercise, you wrote a function called word_count that
+#counted the number of words in a string essentially by
+#counting the spaces. However, if there were multiple spaces
+#in a row, it would incorrectly add additional words. For
+#example, it would have counted the string "Hi   David" as
+#4 words instead of 2 because there are two additional
+#spaces.
+#
+#Revise your word_count method so that if it encounters
+#multiple consecutive spaces, it does *not* count an
+#additional word. For example, these three strings should
+#all be counted as having two words:
+#
+# "Hi David"
+# "Hi   David"
+# "Hi                 David"
+#
+#Other than ignoring consecutive spaces, the directions are
+#the same: write a function called word_count that returns an
+#integer representing the number of words in the string, or
+#return "Not a string" if the input isn't a string. You may
+#assume that if the input is a string, it starts with a
+#letter word instead of a space.
+
+#Write your function here!
+
+def word_count(my_string):
+    try:
+        words = len(my_string.split())
+        return(words)
+    except:
+        return("Not a string")
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#Word Count: 4
+#Word Count: 2
+#Word Count: Not a string
+#Word Count: Not a string
+#Word Count: Not a string
+
+print("Word Count:", word_count("Four words are here!"))
+print("Word Count:", word_count("Hi   David"))
+print("Word Count:", word_count(5))
+print("Word Count:", word_count(5.1))
+print("Word Count:", word_count(True))
+
+###
+
+#This will be the largest, most authentic program you've
+#written so far. It will require everything you've learned
+#and should take some time to test and debug. Be patient,
+#you can do it!
+#
+#Write a function called average_word_length that takes as
+#input a string called my_string, and returns as output the
+#average length of the words in the string.
+#
+#In writing this function, note the following:
+#
+# - You should account for consecutive spaces. A string like
+#   "Hi   Lucy" is two words with an average length of 3.0
+#   characters.
+# - You should not assume the string starts with a letter.
+#   A string like "  David" has one word with an average
+#   length of 5.0 characters.
+# - You should not count punctuation marks toward the
+#   length of a word. A string like "Hi, Lucy" has two
+#   words with an average length of 3.0 characters: the ,
+#   after "Hi" does not count as a character in the word.
+#   The only punctuation marks you need to handle are
+#   these: . , ! ?
+# - You may assume the only characters in the string are
+#   letters, the punctuation marks listed above, and spaces.
+# - If my_string is not a string, you should instead return
+#   the string, "Not a string".
+# - If there are no words in my_string, you should instead
+#   return the string, "No words". This could happen for
+#   strings like "" (an empty string) and ".,!?" (a string
+#   of only punctuation marks). You may assume that any
+#   of these punctuation marks will always be followed by
+#   at least one space.
+#
+#Here are a few hints that might help you:
+#
+# - You can peak at the first character in my_string with
+#   my_string[0]. If my_string is "Hi, Lucy", then the value
+#   of my_string[0] is "H". You don't have to do this, but
+#   you can if you want.
+# - There are lots of ways you can do this. If you're
+#   stuck, try taking a step back and thinking about the
+#   problem from a fresh perspective.
+# - If you're still stuck, try counting words and letters
+#   separately, and worrying about average length only
+#   after both have been counted.
+# - The word count should equal the number of letters that
+#   come immediately after a space or the start of the
+#   string. The character count should simply equal the
+#   number of characters besides spaces and punctuation
+#   marks. The average word length should be character
+#   count divided by word count.
+
+
+#Write your function here!
+def word_count(my_string):
+    my_string = my_string.split()
+    num_words = len(my_string)
+    return num_words
+
+def letter_count(my_string):
+    num_letters = 0
+    for char in my_string:
+        if char in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXZY":
+            num_letters += 1
+    return num_letters
+
+def average_word_length(my_string):
+    try:
+        average = letter_count(my_string) / word_count(my_string)
+        if average > 0:
+            return average
+        else:
+            return "No words"
+    except:
+        return "Not a string"
+
+
+
+#When your function works, the following code should
+#output:
+#2.0
+#3.0
+#4.0
+#Not a string
+#No words
+
+print(average_word_length("Hi"))
+print(average_word_length("Hi, Lucy"))
+print(average_word_length("   What   big spaces  you    have!"))
+print(average_word_length(True))
+print(average_word_length("?!?!?! ... !"))
+
+###
+
+a_list = [1, 2, 3, 4, 5]
+list_index = 7
+
+#-----------------------------------------------------------
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#In this problem, we're going to use some unfamiliar syntax.
+#You'll learn more about this syntax in Unit 4. For now,
+#though, you don't need to understand the syntax. All you
+#need to know is that right now, this code will cause an
+#error with the values supplied above.
+#
+#Revise this code so that this error is caught, and the
+#message "Invalid index!!" is printed. However, your revision
+#must meet these requirements, too:
+#
+# - If the values of the variables above are changed so
+#   that the error doesn't occur, the program should behave
+#   the same way that it does now.
+# - The two first and last lines, "Accessing index..." and
+#   "Done!", should print whether or not an error occurs.
+# - If a *different* error occurs from the one that arises
+#   initially, your code should instead print "Unknown
+#   error!"
+#
+#HINT: You won't be able to do this without running the code
+#first and seeing what the error is. So, try it out first!
+
+#Revise this code:
+print("Accessing index...")
+try:
+    result = a_list[list_index]
+    print("Value at index:", result)
+except IndexError:
+    print("Invalid index!!")
+except:
+    print("Unknown error!")
+print("Done!")
+
+###
+
+mystery_string = "Hello! What a fine day it is today."
+mystery_character = "a"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Write some code below that will count and print how many
+#times mystery_character appears in mystery_string. You may
+#not use the string class's .count method.
+#
+#With the original values for mystery_string and
+#mystery_character, your code should initially print 4. Only
+#count characters with the same case as mystery_character
+#(in other words, here you would ignore capital A).
+
+
+#Add your code here!
+count = 0
+for char in mystery_string:
+    if char == mystery_character:
+        count += 1
+print(count)
+
 
 ### PRACTICE PROBLEMS ###
 
@@ -4580,3 +5196,523 @@ print(hex_to_decimal("1234"))
 print(hex_to_decimal("4321"))
 print(hex_to_decimal("0000"))
 print(hex_to_decimal("075D"))
+
+
+### EXAM ###
+
+score = 500
+difficulty_bonus = 1.2
+perfect_run = True
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Imagine you're writing the code for a video game. Your code
+#calculates the player's final score on a particular level.
+#
+#The player's original final score is given by the variable
+#score. Then, there are a few multipliers or changes that
+#can apply:
+#
+# - The score should be multiplied by the Difficulty Bonus,
+#   which could be 1.0, 1.2, 1.4, 1.6, 1.8, or 2.0.
+# - If the player achieves a Perfect Run (perfect_run = True),
+#   their score (after applying the Difficulty Bonus) is
+#   doubled.
+# - If the player's original score (before the difficulty
+#   bonus and perfect run bonus) exceeds 200 points, then
+#   they receive a 200 point High Performer bonus. The
+#   Difficulty bonus and Perfect Run multiplier should not
+#   be applied to the High Performer bonus, though.
+# - Finally, round their score should be cast to an integer
+#   in case any decimals were introduced in the process.
+#
+#For example, with the original values above, the player's
+#original score is 500. The Difficulty Bonus is 1.2, and
+#500 * 1.2 = 600. They had a Perfect Run, so their score
+#is doubled, and 600 * 2 = 1200. Then, their original score
+#was over 200, so they receive the 200-point High Performer
+#bonus, and 1200 + 200 = 1400. So, their final scoreis 1400.
+#
+#Print the final score according to this format:
+#
+#Your final score is: 1400
+
+
+#Add your code here!
+if perfect_run == True:
+    final_score = score * difficulty_bonus * 2
+    if score > 200:
+        final_score += 200
+if perfect_run == False:
+    final_score = score * difficulty_bonus
+    if score > 200:
+        final_score += 200
+
+final_score = int(final_score)
+print("Your final score is:", final_score)
+
+###
+
+minimum = 2
+maximum = 5
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+
+#Print the result of multiplying every number from minimum to
+#maximum, including both minimum and maximum.
+#
+#For example, if minimum = 2 and maximum = 5, you would print
+#120: 2 * 3 * 4 * 5 = 120.
+#
+#You may assume minimum will always be less than
+#maximum.
+
+
+#Add your code here!
+product = 1
+
+for num in range(minimum, maximum + 1):
+    product *= num
+print(product)
+
+###
+
+#Write a function called count_factors. count_factors should
+#take as input one integer. It should return a count of the
+#number of factors that number has. You should not include 1
+#or the number itself among its factors.
+#
+#For example, count_factors(6) would return 2: 6 has two
+#factors, 2 and 3.
+#
+#As a reminder, x is a factory of y if the remainder of
+#dividing y by x is 0. In the case of count_factors(6), the
+#answer is 2 because 6 % 2 = 0 and 6 % 3 = 0.
+
+
+#Add your code here!
+def count_factors(integer):
+    count = 0
+    for number in range(2, integer):
+        if integer % number == 0:
+            count += 1
+    return count    
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 2, 0, 2, 6, each on their own line.
+print(count_factors(6))
+print(count_factors(7))
+print(count_factors(8))
+print(count_factors(24))
+
+###
+
+#Imagine you're writing the code to support the launch
+#of an interstellar spacecraft, which can be launched
+#from either earth or one of a number of other
+#interstellar bodies. Each such body would have its own
+#escape velocity.
+#
+#Depending on the use case, you may need to provide the
+#escape velocity in terms of kilometers per second,
+#kilometers per hour, miles per second, or miles per
+#hour.
+#
+#Write a function called escape_velocity. escape_velocity
+#should have one positional parameter, escape_velocity.
+#escape_velocity represents the escape velocity in terms
+#of kilometers per second.
+#
+#escape_velocity should also have two keyword parameters,
+#in_kilometers and in_seconds, in that order. The default
+#value for both should be True.
+#
+#Your function should return the escape velocity, rounded
+#to two decimal points, converted to the desired units.
+#
+#If in_kilometers is False, you should convert the escape
+#velocity from kilometers to miles by multiplying by 0.62.
+#
+#If in_seconds is False, you should convert the escape
+#velocity from seconds to hours by multiplying by 3600.
+#
+#If both are False, you should perform both conversions.
+#If both are True, you should return the original number
+#rounded to two decimal places.
+#
+#Hint: Remember, you can round a number to two decimal
+#places by using the round function. round(the_num, 2) will
+#return the_num rounded to two decimal places.
+
+
+#Add your code here!
+def escape_velocity(escape_velocity, in_kilometers = True, in_seconds = True):
+    if in_kilometers == False:
+        escape_velocity *= 0.62
+    if in_seconds == False:
+        escape_velocity *= 3600
+    return round(escape_velocity, 2)
+    
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#216.61
+#134.3
+#779796.0
+#483473.52
+print(escape_velocity(216.61))
+print(escape_velocity(216.61, in_kilometers = False))
+print(escape_velocity(216.61, in_seconds = False))
+print(escape_velocity(216.61, in_kilometers = False, in_seconds = False))
+
+###
+
+a = "Four"
+b = "Score"
+
+#You may modify the lines of code above, but don't move them!
+#When you Submit your code, we'll change these lines to
+#assign different values to the variables.
+#
+#Attempt to perform the four arithmetic operations (a plus b,
+#a minus b, a times b, a divided by b, in that order) between
+#a and b and print the result of each on its own line.
+#
+#If one of the operations cannot work for ANY reason, print
+#Error! for that operation instead. You should still print the
+#results of the other operations, though.
+#
+#For any numeric results, round the result to 2 decimal
+#places using round(the_num, 2). Note that if the_num is an
+#integer, this won't change the number; that's okay! However,
+#note that trying to round a string will also cause an error;
+#in that case, you would still print the string, not "Error!"
+#Only print "Error!" if the error arises from the arithmetic
+#operation, not the rounding.
+#
+#Remember, arithmetic operators still work on some non-numeric
+#values: for example, we can multiply a string by an integer,
+#add two strings together, or use booleans in mathematical
+#expressions.
+#
+#For example, for the initial values of a and b above, you
+#should print:
+#Error!    -> we can't add an integer and a string!
+#Error!    -> we can't subtract a string from an integer!
+#ScoreScoreScoreScore   -> we can multiply a string by an int!
+#Error!    -> we can't divide an integer by a string!
+#
+#If a and b were changed to 4 and 3, you would print:
+#7
+#1
+#12
+#1.33
+
+
+#Add your code here!
+def perform_arithmetic(a, b):
+    # Addition
+    try:
+        result = a + b
+        try:
+            print(round(result, 2))
+        except:
+            print(result)
+    except:
+        print("Error!")
+
+    # Subtraction
+    try:
+        result = a - b
+        try:
+            print(round(result, 2))
+        except:
+            print(result)
+    except:
+        print("Error!")
+
+    # Multiplication
+    try:
+        result = a * b
+        try:
+            print(round(result, 2))
+        except:
+            print(result)
+    except:
+        print("Error!")
+
+    # Division
+    try:
+        result = a / b
+        try:
+            print(round(result, 2))
+        except:
+            print(result)
+    except:
+        print("Error!")
+
+perform_arithmetic(a, b)
+
+###
+
+#Every character in Python has what is called an ordinal
+#number. The ordinal number is an integer Python uses to
+#store what each character should be. For example, the
+#ordinal number for a lower-case a is 97. The ordinal number
+#for an upper-case A is 65.
+#
+#To get the ordinal number for any character, you can use
+#the ord() function:
+#
+# the_ord_for_a = ord("a")
+# the_ord_for_B = ord("B")
+#
+#...and so on. ord() must take a string with only one
+#character, and it will always return an integer.
+#
+#Write a function called string_to_ordinals. This function
+#should take as input a single parameter, a string.
+#
+#string_to_ordinals should return a new string made of all
+#the ordinal numbers for the characters in the original
+#string.
+#
+#For example, the ordinals for "A", "B", and "C" are 65,
+#66, and 67, respectively. So, string_to_ordinals("ABC")
+#would return "656667". Or, the ordinals for "x", "y", and
+#"z" are 120, 121, and 122, respectively. So,
+#string_to_ordinals("xyz") would return "120121122".
+
+
+#Write your function here!
+def string_to_ordinals(a_string):
+    result_string = ""
+    for char in a_string:
+        result_string += str(ord(char))
+    return result_string
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#656667
+#120121122
+#678349514849
+#633363336333
+#3232323232
+print(string_to_ordinals("ABC"))
+print(string_to_ordinals("xyz"))
+print(string_to_ordinals("CS1301"))
+print(string_to_ordinals("?!?!?!"))
+print(string_to_ordinals("     "))
+
+###
+
+#Write a function that will calculate the Francine index of
+#a number. The Francine Index is a thing I made up for this
+#problem, and it is defined as follows:
+#
+#Start with the number. If the number is a multiple of 3 (e.g.
+#3, 6, 9), divide it by 3 (use floor division to keep it as
+#an integer). If the number is one more than a multiple of
+#three (e.g. 4, 7, 10), add 2 to the number. If the number is
+#two more than a multiple of three (e.g. 5, 8, 11), double
+#the number.
+#
+#If you continue repeating this sequence, the number will
+#eventually reach either 1 or 2, at which point the sequence
+#would repeat either 2-4-6 or 1-3 forever.
+#
+#For example, imagine we started with the number 50:
+#50 is two more than the nearest multiple of 3, so 50 * 2 = 100
+#100 is one more than the nearest multiple of 3, so 100 + 2 = 102
+#102 is a multiple of 3, so 102 // 3 = 34
+#34 is one more than the nearest multiple of 3, so 34 + 2 = 36
+#36 is a multiple of 3, so 36 // 3 = 12
+#12 is a multiple of 3, so 12 // 3 = 4
+#4 is one more the the nearest multiple of 3, so 4 + 2 = 6
+#6 is a multiple of 3, so 6 // 3 = 2
+#
+#Starting with 50, this sequence converges on 2 in 8 iterations:
+#50 to 100, 100 to 102, 102 to 34, 34 to 36, 36 to 12, 12 to 4,
+#4 to 6, and 6 to 2.
+#
+#Implement a function called francine. francine should take as
+#input an integer, and return the integer's Francine Index;
+#that is, the number of iterations it takes for the
+#number to reach either 1 or 2 the first time following those rules.
+#For example, francine(50) would return 8 because it took 8
+#iterations to converge on 2.
+
+
+#Add your code here!
+def francine(number):
+    iteration = 0
+    while number > 2:
+        iteration += 1
+        if number % 3 == 0:
+            number //= 3
+        elif number % 3 == 1:
+            number += 2
+        elif number % 3 == 2:
+            number *= 2
+    return(iteration)
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 8, 6, and 10, each on their own lines.
+print(francine(50))
+print(francine(15))
+print(francine(124))
+
+###
+
+#A credit card transaction is defined, at a minimum, by
+#the card number, CVV code, and expiration date of a
+#credit card. The card provider (Visa, Mastercard,
+#American Express, or Discover) can be inferred from
+#the number, but we'll have it provided directly.
+#
+#Write a function called validate_card. validate_card
+#should have four positional parameters and one keyword
+#parameter. The parameters should be, in this order:
+#
+# - number: the card number, a 15- or 16-character
+#   string.
+# - cvv: the verification number, a 3- or 4-character
+#   string.
+# - expiration_month: an integer from 1 to 12 giving
+#   the expiration month.
+# - expiration_year: an integer from 22 to 28 giving
+#   the expiration year.
+# - provider: a string representing the card provider,
+#   either "Visa", "MasterCard", "Discover", or
+#   "American Express". provider should be a keyword
+#   parameter with a default value of "Visa".
+#
+#You may assume that proper data types will be supplied
+#(e.g. we'll never pass an integer for CVV, a string for
+#expiration_year, a float for provider, etc.).
+#
+#Your code should return True if the card information
+#represented by these five variables is valid, or False
+#if not.
+#
+#Here are the details to validate about the card info:
+# - The card numbers for Visa, MasterCard, and Discover
+#   are 16 numbers long. For American Express, card
+#   numbers are 15 numbers long.
+# - The CVV for Visa, MasterCard, and Discover is 3
+#   numbers long. For American Express, the CVV is
+#   4 numbers long.
+# - For all cards, the card number and CVV are all
+#   numerals, no letters or punctuation marks.
+# - All expiration months must be between 1 and 12.
+# - All expiration years must be between 22 and 28.
+# - All providers must be "Visa", "MasterCard",
+#   "Discover", or "American Express".
+#
+#If a card breaks any of these rules, it is invalid,
+#and you should return False. If a card follows all of
+#these rules, it is valid, and you should return True.
+
+
+#Write your function here!
+def validate_card(number, cvv, expiration_month, expiration_year, provider="Visa"):
+
+    if provider in ["Visa", "MasterCard", "Discover"]:
+        if len(number) != 16:
+            return False
+    elif provider == "American Express":
+        if len(number) != 15:
+            return False
+    else:
+        return False
+
+    if provider in ["Visa", "MasterCard", "Discover"]:
+        if len(cvv) != 3:
+            return False
+    elif provider == "American Express":
+        if len(cvv) != 4:
+            return False
+    else:
+        return False
+
+    if not number.isdigit() or not cvv.isdigit():
+        return False
+
+    if not 1 <= expiration_month <= 12:
+        return False
+
+    if not 22 <= expiration_year <= 28:
+        return False
+
+    if provider not in ["Visa", "MasterCard", "Discover", "American Express"]:
+        return False
+
+    return True
+        
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print the values shown in the comments
+
+#True
+print(validate_card("1234567890123456", "123", 1, 22))
+
+#True
+print(validate_card("1234567890123456", "123", 1, 22, provider = "MasterCard"))
+
+#False (American Express cards have 15 digits, not 16)
+print(validate_card("1234567890123456", "123", 1, 22, provider = "American Express"))
+
+#False (Visa cards have 16 digits, not 15)
+print(validate_card("123456789012345", "1234", 1, 22))
+
+#True
+print(validate_card("123456789012345", "1234", 1, 22, provider = "American Express"))
+
+#False (no card numbers have only 12 digits)
+print(validate_card("123456788012", "123", 1, 22))
+
+#False (no cards have 5-digit CVVs)
+print(validate_card("1234567890123456", "15062", 1, 22))
+
+#False (no cards have an expiration month of 13)
+print(validate_card("1234567890123456", "123", 13, 22))
+
+#False (no cards have an expiration year of 18)
+print(validate_card("1234567890123456", "123", 1, 18))
+
+#False (Diner's Club is not a valid provider)
+print(validate_card("1234567890123456", "123", 1, 22, provider = "Diner's Club"))
+
+#False (no cards have the letter A in the number)
+print(validate_card("123456789A123456", "123", 1, 22))
+
+#False (no cards have letters in the CVV)
+print(validate_card("1234567890123456", "ABC", 1, 22))
+
