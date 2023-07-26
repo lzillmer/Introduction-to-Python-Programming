@@ -13,7 +13,7 @@ print("myInteger after addOne:", myInteger)
 ### Printing Memory Addresses
 print(id())
 
-### Methods
+### STRINGS ###
 
 myString1 = "12345"
 myString2 = "ABCDE"
@@ -312,9 +312,725 @@ mystring.upper()
 mystring.title()                 ## capitalizes any character found after space
 mystring.strip()                 ## strips any empty spaces at end
 mystring.replace("MY", "YOUR")   ## replaces first instances of word with second
+mystring.find("*")               ## gives index where * is 
+mystring.count(".")              ## counts how many periods
+string.startswith("G")           ## will check if string starts with G
 
 mylist = mystring.split()        ## splits string into list of items
 print("-".join(mylist))          ## adds "-" between each word in list
+
+###
+
+#One common issue with auto-generated text is a mismatch
+#between numbers and whether a word is pluralized. For example,
+#your code might accidentally say "You bought 1 items" or
+#"You have 7 cat".
+#
+#Write a function called pluralize. pluralize should have three
+#parameters: an integer and two strings. The integer is the
+#number of some item. The first string is the string to use if
+#the item should not be pluralized. The second string is the
+#string to use if the item should be pluralized.
+#
+#pluralize should return the correct string based on the number
+#and plural form: it should use the non-plural version if the
+#number is 1, and the plural form for all other numbers.
+#
+#For example:
+#
+# pluralize(1, "cat", "cats") -> "1 cat"
+# pluralize(7, "item", "items") -> "7 items"
+# pluralize(127, "octopus", "octopi") -> "127 octopi"
+
+
+#Add your code here!
+def pluralize(integer, string1, string2):
+    if integer == 1:
+        return str(integer) + " " + string1
+    else:
+        return str(integer) + " " + string2
+        
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#1 cat
+#7 items
+#127 octopi
+print(pluralize(1, "cat", "cats"))
+print(pluralize(7, "item", "items"))
+print(pluralize(127, "octopus", "octopi"))
+
+###
+
+#Python, like most languages, actually uses numbers in the 
+#background to represent individual characters in a string. 
+#For example, "a" is assigned the numeric value of 97. 
+#We call this the ordinal value. www.asciitable.com shows
+#a table of ordinal values: the ordinal value is listed in
+#the 'dec' column, and the actual character is listed in
+#'chr' column.
+#
+#You'll notice, though, that many of the characters here
+#are weird. The first 31 are cryptic characters that have
+#special meaning to the computer. The extended codes haven't
+#really been used since Windows came along. Beyond these
+#255, the higher numbers are actually used to represent
+#emojis.
+#
+#Now, think about when you're asked to create a password.
+#Typically, there are restrictions on what characters you
+#can use. How do you check if a password is valid? You
+#could have a list of valid characters and check each
+#character against that list, but that would be a really
+#long list. Instead, let's use ordinal values.
+#
+#Write a function called "valid_char" that determines
+#if a single character (a string of length one) has an
+#ordinal value corresponding to a valid character for a
+#password. Valid characters are any character on the
+#keyboard except spaces. Return True if it's a valid
+#character, False if it is not.
+#
+#Hint: you can find the ordinal value of a character using 
+#the built-in Python function ord(): ord("a") -> 97
+#
+#Hint 2: the range of legal characters will be one
+#continuous range (e.g. characters 55 through 65, not
+#separate ranges like 55 through 65 and 69 through 79).
+#You can use asciitable.com to look up what range you
+#should use.
+
+
+#Write your function here!
+def valid_char(password):
+    for char in password:
+        if not (33 <= ord(char) <= 136):
+            return False
+    else:
+        return True
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: True, False, True, False
+
+print(valid_char("a"))
+print(valid_char(" "))
+print(valid_char("!"))
+print(valid_char("☺"))
+
+###
+
+#Write function called third_character that accepts a
+#string as an argument and returns the third character
+#of the string. If the user inputs a string with fewer than
+#3 characters, return "Too short". 
+
+
+#Write your function here!
+def third_character(string):
+    try:
+        return string[2]
+    except:
+        return "Too short"
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 1, o, and "Too short", each on a different line.
+print(third_character("CS1301"))
+print(third_character("Georgia Tech"))
+print(third_character("GT"))
+
+###
+
+#Write a function called "num_changer" that accepts a string 
+#of digits (0-9). You should make an integer from the digits 
+#of the even indices and another number from the digits in 
+#the odd indices. Return the sum of these two numbers. You 
+#can assume the given string will have a length of at least 
+#2 digits.
+#
+#For example, if the string was "123456", you would split
+#this into two integers, 135 and 246. Adding them would give
+#381. Or if the string was "13579", you would split this into
+#159 and 37, then add them to get 196.
+#
+#Hint: You can do this with loops, but it's easier to do
+#this with string slicing. Remember how we could pass a third
+#argument to range() that would tell range how many numbers
+#to skip? You can do something similar with string slices: if
+#you include second colon in a string slice, the number
+#that follows it lets you skip characters in the string. For
+#example:
+#
+# "Hello, world!"[1:9] -> This gives "ello, wo".
+# "Hello, world!"[1:9:2] -> This gives "el,w". Including :2
+#    in the string slice skips every other letter. 
+# "Hello, world!" [::3] -> This gives "Hl r!". Leaving the
+#    first two spots blank tells it to look at the entire
+#    string, but putting :3 at the end says to only take
+#    every third character (H, l, space, r, and !).
+#
+#Hint 2: Remember, Python is zero-indexed. That means the
+#first number in the string is at position 0, and so it goes
+#in the even list.
+
+
+#Write your function here!
+def num_changer(string):
+    even = ""
+    odd = ""
+    for num in string:
+        if int(num) % 2 == 0:
+            even += num
+        if int(num) % 2 == 1:
+            odd += num
+    ans = int(even) + int(odd)
+    return(ans)
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 123456 -> 381
+string_int = "123456"
+result = num_changer(string_int)
+print(string_int + " -> " + str(result))
+
+###
+
+#Write a function called "num_changer" that accepts a string 
+#of digits (0-9). You should make an integer from the digits 
+#of the even indices and another number from the digits in 
+#the odd indices. Return the sum of these two numbers. You 
+#can assume the given string will have a length of at least 
+#2 digits.
+#
+#For example, if the string was "123456", you would split
+#this into two integers, 135 and 246. Adding them would give
+#381. Or if the string was "13579", you would split this into
+#159 and 37, then add them to get 196.
+#
+#Hint: You can do this with loops, but it's easier to do
+#this with string slicing. Remember how we could pass a third
+#argument to range() that would tell range how many numbers
+#to skip? You can do something similar with string slices: if
+#you include second colon in a string slice, the number
+#that follows it lets you skip characters in the string. For
+#example:
+#
+# "Hello, world!"[1:9] -> This gives "ello, wo".
+# "Hello, world!"[1:9:2] -> This gives "el,w". Including :2
+#    in the string slice skips every other letter. 
+# "Hello, world!" [::3] -> This gives "Hl r!". Leaving the
+#    first two spots blank tells it to look at the entire
+#    string, but putting :3 at the end says to only take
+#    every third character (H, l, space, r, and !).
+#
+#Hint 2: Remember, Python is zero-indexed. That means the
+#first number in the string is at position 0, and so it goes
+#in the even list.
+
+
+#Write your function here!
+def num_changer(digits_string):
+
+    even_digits = digits_string[::2]
+    odd_digits = digits_string[1::2]
+
+    even_number = int(even_digits)
+    odd_number = int(odd_digits)
+
+    return even_number + odd_number
+
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 123456 -> 381
+string_int = "13579"
+result = num_changer(string_int)
+print(string_int + " -> " + str(result))
+
+###
+
+#Write a function called "in_parentheses" that accepts a 
+#single argument, a string representing a sentence that
+#contains some words in parentheses. Your function should
+#return the contents of the parentheses.
+#
+#For example:
+#
+# in_parentheses("This is a sentence (words!)") -> "words!"
+#
+#If no text appears in parentheses, return an empty string.
+#Note that there are several edge cases introduced by this:
+#all of the following function calls would return an empty
+#string:
+#
+# in_parentheses("No parentheses")
+# in_parentheses("Open ( only")
+# in_parentheses("Closed ) only")
+# in_parentheses("Closed ) before ( open")
+#
+#You may assume, however, that there will not be multiple
+#open or closed parentheses.
+
+
+#Write your function here!
+def in_parentheses(sentence):
+    open_index = sentence.find("(")
+    close_index = sentence.find(")")
+    if open_index != -1 and close_index != -1:
+        return sentence[open_index + 1:close_index]
+    else:
+        return ""
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (including the blank lines):
+#words!
+#
+#as he is doing right now
+#
+#
+#!
+
+print(in_parentheses("This is a sentence (words!)."))
+print(in_parentheses("No parentheses here!"))
+print(in_parentheses("David tends to use parentheses a lot (as he is doing right now). It tends to be quite annoying."))
+print(in_parentheses("Open ( only"))
+print(in_parentheses("Closed ) only"))
+print(in_parentheses("Closed ) before ( open"))
+print(in_parentheses("That's a lot of test cases(!)"))
+
+###
+
+#Write a function called 'string_type' which accepts one
+#string argument and determines what type of string it is. 
+#
+# - If the string is empty, return "empty".
+# - If the string is a single character, return "character".
+# - If the string represents a single word, return "word".
+#   The string is a single word if it has no spaces.
+# - If the string is a whole sentence, return "sentence".
+#   The string is a sentence if it contains spaces, but
+#   at most one period.
+# - If the string is a paragraph, return "paragraph". The
+#   string is a paragraph if it contains both spaces and
+#   multiple periods (we won't worry about other
+#   punctuation marks).
+# - If the string is multiple paragraphs, return "page".
+#   The string is a paragraph if it contains any newline
+#   characters ("\n").
+#
+#Hint: think carefully about what order you should check
+#these conditions in.
+#
+#Hint 2: remember, there exists a count() method that
+#counts the number of times a string appears in another
+#string. For example, "blah blah blah".count("blah")
+#would return 3.
+
+
+#Write your function here!
+def string_type(string):
+    if string == "":
+        return "empty"
+    if len(string) == 1:
+        return "character"
+    if " " not in string:
+        return "word"
+    if " " in string and ("." in string or "!" in string) and (string.count(".") == 1 or string.count("!") == 1):
+        return "sentence"
+    if " " in string and "." in string and string.count(".") > 1 and "\n" not in string:
+        return "paragraph"
+    if "\n" in string:
+        return "page"
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#empty
+#character
+#word
+#sentence
+#paragraph
+#page
+print(string_type(""))
+print(string_type("!"))
+print(string_type("CS1301."))
+print(string_type("This is too many cases!"))
+print(string_type("There's way too many ostriches. Why are there so many ostriches. The brochure said there'd only be a few ostriches."))
+print(string_type("Paragraphs need to have multiple sentences. It's true.\nHowever, two is enough. Yes, two sentences can make a paragraph."))
+
+###
+
+#Recall that input from a user is always in the form of a string. 
+#Write a function called "input_type" that gets user input and 
+#determines what kind of string the user entered. The user input
+#will be supplied as an argument to the function like normal.
+#
+#  - Your function should return "integer" if the string only
+#    contains characters 0-9.
+#  - Your function should return "float" if the string only
+#    contains the numbers 0-9 and at most one period.
+#  - You should return "boolean" if the user enters "True" or
+#    "False". 
+#  - Otherwise, you should return "string".
+
+
+#Write your function here!
+def input_type(string):
+    if string.isdigit():
+        return "integer"
+    elif string.replace(".", "", 1).isdigit():
+        return "float"
+    elif string == "True" or string == "False":
+        return "boolean"
+    else:
+        return "string"
+        
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#string
+#boolean
+#float
+#integer
+print(input_type(""))
+print(input_type("False"))
+print(input_type("7.432621"))
+print(input_type("2788"))
+
+###
+
+#Write a function called "quote_this" that accepts two 
+#strings as arguments: a string representing a quote and
+#a string of a name. The function should return a new
+#string with the quote surrounded by quotation marks (")
+#followed by a dash and the given name. For example:
+#
+#a = quote_this("Try and fail, but never fail to try.",
+#"Jared Leto")
+#print(a) 
+#
+#Will print:
+#"Try and fail, but never fail to try." -Jared Leto
+#
+#If the code were to continue, this:
+#
+#b = quote_this(a, "Michael Scott")
+#print(b)
+#
+#Would print:
+#""Try and fail, but never fail to try." -Jared Leto"
+#- Michael Scott
+
+
+#Write your function here!
+def quote_this(quote, name):
+    return '"' + quote + '"' + " -" + name
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print the same output as the examples above.
+a = quote_this("Try and fail, but never fail to try.", "Jared Leto")
+print(a) 
+b = quote_this(a, "Michael Scott")
+print(b)
+
+###
+
+#Write a function called string_finder. string_finder should
+#take two parameters: a target string and a search string.
+#The function will look for the search string within the
+#target string.
+#
+#The function should return a string representing where in
+#the target string the search string was found:
+#
+# - If search string is at the very beginning of target
+#   string, then return "Beginning". For example:
+#   string_finder("Georgia Tech", "Georgia") -> "Beginning"
+#
+# - If search string is at the very end of target string,
+#   then return "End". For example:
+#   string_finder("Georgia Tech", "Tech") -> "End"
+#
+# - If search string is in target string but not at the
+#   very beginning or very end, then return "Middle. For
+#   example:
+#   string_finder("Georgia Tech", "gia") -> "Middle"
+#
+# - If search string is not in target string at all, then
+#   return "Not found". For example:
+#   string_finder("Georgia Tech", "Idaho") -> "Not found"
+#
+#Assume that we're only interested in the first instance
+#of the search string if it appears multiple times in the
+#target string, and that search string is definitely
+#shorter than target string.
+#
+#Hint: Don't be surprised if you find that the "End" case
+#is the toughest! You'll need to look at the lengths of
+#both the target string and the search string.
+
+
+#Write your function here!
+def string_finder(target, search):
+    if target.startswith(search):
+        return "Beginning"
+    elif target.endswith(search):
+        return "End"
+    elif search in target:
+        return "Middle"
+    else:
+        return "Not found"
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: Beginning, Middle, End, Not found, each on their own
+#line.
+print(string_finder("Georgia Tech", "Georgia"))
+print(string_finder("Georgia Tech", "gia"))
+print(string_finder("Georgia Tech", "Tech"))
+print(string_finder("Georgia Tech", "Idaho"))
+
+###
+
+#We've talked about ordinal numbers before, but they can
+#mean something else: "ordinal" is also the term for numbers
+#like 1st, 2nd, 3rd, 4th, etc.
+
+#Write a function called to_ordinal. to_ordinal should
+#take as input an integer greater than 0. to_ordinal should
+#return a string of the ordinal of the integer (according to
+#the above definition of ordinal).
+#
+#For example:
+#
+# to_ordinal(1) -> 1st
+# to_ordinal(2) -> 2nd
+# to_ordinal(3) -> 3rd
+# to_ordinal(4) -> 4th
+# to_ordinal(5) -> 5th
+# to_ordinal(11) -> 11th
+# to_ordinal(21) -> 21st
+#
+#Generally, ordinal numbers are always the original integer
+#plus "th" _unless_ the original integer ended with 1 (in
+#which case you add "st"), 2 (in which case you add "nd"),
+#or 3 (in which case you add "rd")... except for 11, 12, and
+#13, which still end in "th".
+
+
+#Add your function below!
+def to_ordinal(integer):
+    integer = str(integer)
+    if integer == "11" or integer == "12" or integer == "13":
+        return integer + "th"
+    elif integer.endswith("1"):
+        return integer + "st"
+    elif integer.endswith("2"):
+        return integer + "nd"
+    elif integer.endswith("3"):
+        return integer + "rd"
+    else:
+        return integer + "th"
+        
+        
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#1st
+#2nd
+#3rd
+#4th
+#5th
+#11th
+#21st
+print(to_ordinal(1))
+print(to_ordinal(2))
+print(to_ordinal(3))
+print(to_ordinal(4))
+print(to_ordinal(5))
+print(to_ordinal(11))
+print(to_ordinal(21))
+
+###
+
+#Write a function called to_metric. to_metric should take
+#as input one parameter, a string. The string will represent
+#a quantity in imperial volume units, such as "7 cups", "2
+#tablespoons", or "8 gallons". to_metric should return the
+#equivalent number of milliliters as a float. Round the
+#result to two decimal places.
+#
+#The possible imperial units to handle and their conversion to
+#milliliters are:
+#
+# - gallons: 3785.41 milliliters
+# - quarts: 946.35 milliliters
+# - pints: 473.18 milliliters
+# - cups: 240 milliliters
+# - ounces: 29.57 milliliters
+# - tablespoons: 14.79 milliliters
+# - teaspoons: 4.93 milliliters
+#
+#Return only the float representing the number of milliliters,
+#not the label. For example:
+#
+#to_metric("7.0 cups") -> 1680
+#to_metric("2.0 tablespoons") -> 29.58
+#to_metric("8.0 gallons") -> 30283.28
+#
+#You may assume that the string will be formatted like the
+#strings above: a decimal number, then a space, then one of
+#the following words: cgallons, quarts, pints, cups, ounces,
+#tablespoons, teaspoons
+
+
+#Add your code here!
+def to_metric(input_string):
+
+    conversion = {"gallons": 3785.41, "quarts": 946.35, "pints": 473.18, "cups": 240, "ounces": 29.57, "tablespoons": 14.79, "teaspoons": 4.93}
+
+    quantity, unit = input_string.split()
+    numeric_value = float(quantity)
+    result = numeric_value * conversion[unit]
+    return round(result, 2)
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#1680
+#29.58
+#30283.28
+print(to_metric("7.0 cups"))
+print(to_metric("2.0 tablespoons"))
+print(to_metric("8.0 gallons"))
+
+###
+
+#One common function of online text-parsers is trying to find
+#known text in a block of other text. For example, from a web
+#site, we might want to find any phone numbers present on the
+#web site.
+#
+#Write a function called find_phone_number. The function
+#should have one parameter, a string. The function should
+#return the phone number that was present in the string.
+#
+#For this problem, you may make the following assumptions:
+#
+# - The phone number will be all digits, such as 4043219876.
+# - There will only be one phone number in the string.
+# - There will be a phone number in the string.
+# - Either the phone number will be at the start or end of
+#   the string, or it will have spaces on either side of it.
+#
+#There may be other numbers in the string, but there will only
+#be one 10-digit number. Find and return that number as a
+#string.
+#
+#Hint: There are lots of different ways to do this. Think about
+#all the tools at your disposal: split, find, casting strings
+#to integers, error handling, etc.!
+
+
+#Add your code here!
+def find_phone_number(string):
+    phone_number = ""
+
+    for char in range(len(string) - 9):
+        potential_phone = string[char:char+10]
+        if potential_phone.isdigit():
+            phone_number = potential_phone
+            break
+
+    return phone_number
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#4049876543
+#7705551234
+#6789123456
+print(find_phone_number("hello 4049876543 goodbye"))
+print(find_phone_number("7705551234 this is alex"))
+print(find_phone_number("doh ray me abc 123 its 6789123456"))
+
+###
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ### TUPLES ###
