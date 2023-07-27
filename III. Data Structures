@@ -1006,8 +1006,453 @@ print(find_phone_number("hello 4049876543 goodbye"))
 print(find_phone_number("7705551234 this is alex"))
 print(find_phone_number("doh ray me abc 123 its 6789123456"))
 
+
+### LISTS ###
+
+#Write a function called multiply_by_index. multiply_by_index
+#should have one parameter, a list; you may assume every item
+#in the list will be an integer. multiply_by_index should
+#return a list where each number in the original list is
+#multipled by the index at which it appeared.
+#
+#For example:
+#
+#multiply_by_index([1, 2, 3, 4, 5]) -> [0, 2, 6, 12, 20]
+#
+#In the example above, the numbers 1, 2, 3, 4, and 5 appear
+#at indices 0, 1, 2, 3, and 4. 1*0 = 0, 2 * 1 = 2, 3 * 2 = 6,
+#and so on.
+
+
+#Write your code here!
+def multiply_by_index(my_list):
+    new_list = []
+    index = 0
+    for num in my_list:
+        num = num * index
+        new_list.append(num)
+        index += 1
+    return new_list
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#[0, 2, 6, 12, 20]
+#[0, 7, 14, 21, 28, 35, 42]
+#[0, 7, 74, 195, 36, 0, 330]
+print(multiply_by_index([1, 2, 3, 4, 5]))
+print(multiply_by_index([7, 7, 7, 7, 7, 7, 7]))
+print(multiply_by_index([14, 7, 37, 65, 9, 0, 55]))
+
 ###
 
+#Write a function, called lucky_sevens, that takes in one
+#parameter, a list of integers, and returns True if the list
+#has three '7's  in a row and False if the list doesn't.
+#
+#For example:
+#
+#  lucky_sevens([4, 7, 8, 2, 7, 7, 7, 3, 4]) -> True
+#  lucky_sevens([4, 7, 7, 2, 8, 3, 7, 4, 3]) -> False
+#
+#Hint: As soon as you find one instance of three sevens, you
+#could go ahead and return True -- you only have to find it
+#once for it to be True! Then, if you get to the end of the
+#function and haven't returned True yet, then you might
+#want to return False.
+
+
+#Write your function here!
+def lucky_sevens(my_list):
+    for index in range(len(my_list) - 2):
+        if my_list[index] == my_list[index + 1] == my_list[index + 2] == 7:
+            return True
+    else:
+        return False
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: True, then False
+print(lucky_sevens([4, 7, 8, 2, 7, 7, 7, 3, 4]))
+print(lucky_sevens([4, 7, 7, 2, 8, 3, 7, 4, 3]))
+
+###
+
+#Write a function called attendance_check. attendance_check
+#should have two parameters: roster and present. Both roster
+#and present will be lists of strings. Return a list (sorted
+#alphabetically) of all strings in the list roster that are
+#not in the list present. In other words, if roster is a
+#list of students enrolled in a class and present is a list
+#of students in class today, return a list of students that
+#are absent.
+#
+#You may assume that every item in each list will be a
+#string. You may also assume that every name in the list
+#present will be in the list roster. If no students are
+#absent, return an empty list.
+
+
+#Write your function here!
+def attendance_check(roster, present):
+    absent = []
+    for name in roster:
+        if name not in present:
+            absent.append(name)
+    absent.sort()
+    return absent
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 
+#['Ferguson', 'Winston']
+test_roster = ['Jessica', 'Nick', 'Winston', 'Schmidt', 'Cece', 'Ferguson']
+test_present = ['Nick', 'Cece', 'Schmidt', 'Jessica']
+print(attendance_check(test_roster, test_present))
+
+###
+
+#Write a function called grade_scantron. grade_scantron should
+#take as input two lists: answers and key. Each list contain
+#strings. Each string will be only one letter, a character
+#from A to E. grade_scantron should return how many questions
+#the student got "right", where a student gets a question
+#right if their answer for a problem matches the answer key.
+#
+#In other words, if value of the first item in answers matches
+#the value of the first item in key, the student gets a point.
+#If it does not, the student does not get a point.
+#
+#If the lists do not have the same number of items, return
+#-1 to indicate that the answer key did not belong to the
+#same test as the student's answers.\
+#
+#Hint: in the past, lots of people have tried to do this using
+#the index() method. That won't work! You'll need to track the
+#index yourself.
+
+
+#Write your function here!
+def grade_scantron(answers, keys):
+    if len(answers) != len(keys):
+        return -1
+    
+    grade = 0
+    for i in range(len(answers)):
+        if answers[i] == keys[i]:
+            grade += 1
+    return grade
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 7
+test_answers = ["A", "B", "B", "A", "D", "A", "B", "A", "E"]
+test_key = ["A", "B", "B", "A", "D", "E", "B", "A", "D"]
+print(grade_scantron(test_answers, test_key))
+
+###
+
+#Write a function called solve_right_triangle. The function
+#solve_right_triangle should have three parameters: opposite, 
+#adjacent, and use_degrees. opposite and adjacent will be
+#floats, and use_degrees will be a boolean. use_degrees
+#should be a keyword parameter, and it should have a
+#default value of False.
+#
+#The function should return a tuple containing the
+#hypotenuse and angle of the right triangle (in that order).
+#If use_degrees is False, the angle should be in radians.
+#If use_degrees is True, the angle should be in degrees.
+#
+#Remember, the formula for the hypotenuse of a right
+#triangle is the square root of the sum of the squared side
+#lengths. You can find arctan using math.atan(), passing in
+#the quotient of the opposite and adjacent as the argument.
+#By default, math.atan() returns the angle in radians; you
+#can pass that angle as an argument into the math.degrees()
+#method to convert it to degrees; for example:
+#
+# angle_in_degrees = math.degrees(angle_in_radians)
+
+import math
+
+
+#Write your function here!
+def solve_right_triangle(opposite, adjacent, use_degrees = False):
+    #my_tuple = ()
+    hypotenuse = (opposite ** 2 + adjacent ** 2) ** 0.5
+    angle = math.atan(opposite / adjacent)
+    if use_degrees == True:
+       angle = math.degrees(angle) 
+    my_tuple = (hypotenuse, angle)    
+    return my_tuple
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#(5.0, 0.6435011087932844)
+#(5.0, 36.86989764584402)
+print(solve_right_triangle(3.0, 4.0))
+print(solve_right_triangle(3.0, 4.0, use_degrees = True))
+
+###
+
+#Write a function called find_max_sales. find_max_sales will
+#have one parameter: a list of tuples. Each tuple in the
+#list will have two items: a string and an integer. The
+#string will represent the name of a movie, and the integer
+#will represent that movie's total ticket sales (in millions
+#of dollars).
+#
+#The function should return the movie from the list that
+#had the most sales. Return only the movie name, not the
+#full tuple.
+
+
+#Write your function here!
+def find_max_sales(list_of_tuples):
+    biggest_sale = 0
+    movie = ""
+    
+    for tuple in list_of_tuples:
+        if tuple[1] > biggest_sale:
+            biggest_sale = tuple[1]
+            movie = tuple[0]
+    return movie
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: Rogue One
+movie_list = [("Finding Dory", 486), ("Captain America: Civil War", 408), ("Deadpool", 363), ("Zootopia", 341), ("Rogue One", 529), ("The Secret Life of Pets", 368), ("Batman v Superman", 330), ("Sing", 268), ("Suicide Squad", 325), ("The Jungle Book", 364)]
+print(find_max_sales(movie_list))
+
+###
+
+#Write a function called wish_list. wish_list should have
+#four parameters, in this order: 
+#
+# - a list of strings, representing a list of items on a
+#   wish list
+# - a string, representing a particular item
+# - a float, representing the cost of this item
+# - a float, representing your budget
+#
+#If the item is on the list and you can afford it (cost is
+#less than or equal to budget), return the string,
+#"You should buy a [item name]!", replacing [item name]
+#with the string.
+#
+#If the item is on the list but you can't afford it,
+#return the string, "You should save up for a [item name]!",
+#replacing [item name] with the string.
+#
+#If the item is not on the list, you should return the
+#string "You probably don't want to buy a [item name].",
+#replacing [item name] with the string.
+#
+#HINT: You do not need a loop to solve this. You can use
+#one, but you don't need one.
+
+
+#Add your function here!
+def wish_list(wish_list_items, selected_item, item_cost, budget):
+    if selected_item in wish_list_items and item_cost <= budget:
+        return "You should buy a " + selected_item + "!"
+    if selected_item in wish_list_items and item_cost > budget:
+        return "You should save up for a " + selected_item + "!"
+    if selected_item not in wish_list_items:
+        return "You probably don't want to buy a " + selected_item + "."
+   
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: "You should save up for a bugle!"
+
+wish_list_items = ["bugle", "trumpet", "banjo", "tuba"]
+selected_item = "bugle"
+item_cost = 199.99
+budget = 150.00
+
+print(wish_list(wish_list_items, selected_item, item_cost, budget))
+
+###
+
+#Imagine you're writing some code for an exercise tracker.
+#The tracker measures heart rate, and should display the
+#average heart rate from an exercise session.
+#
+#However, the tracker doesn't automatically know when the
+#exercise session began. It assumes the session starts the
+#first time it sees a heart rate of 100 or more, and ends
+#the first time it sees one under 100.
+#
+#Write a function called average_heart_rate.
+#average_heart_rate should have one parameter, a list of
+#integers. These integers represent heart rate measurements
+#taken 30 seconds apart. average_heart_rate should return
+#the average of all heart rates between the first 100+
+#heart rate and the last one. Return this as an integer
+#(use floor division when calculating the average).
+#
+#You may assume that the list will only cross the 100 beats
+#per minute threshold once: once it goes above 100 and below
+#again, it will not go back above.
+
+
+#Add your function here!
+def average_heart_rate(my_list):
+    count = 0
+    sum = 0
+    for number in my_list:
+        if number >= 100:
+            sum += number
+            count += 1
+
+    average = sum // count
+    return average
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print 114 (because there are 14 measurements from 102 to
+#101, their sum is 1609, and 1609 // 14 is 114).
+beats = [72, 77, 79, 95, 102, 105, 112, 115, 120, 121, 121,
+         125, 125, 123, 119, 115, 105, 101, 96, 92, 90, 85]
+print(average_heart_rate(beats))
+
+###
+
+#Write a function called inside_search. inside_search should
+#have two parameters: a list of strings and a string to search
+#for. inside_search should return a list of all the indices at
+#which the string in the list contains the search string. Note
+#that the string at that index does not need to BE the search
+#string, but rather must just contain it.
+#
+#For example:
+#
+#a_list = ["cat", "cats", "dog", "dogs", "catsup"]
+#search_term = "cat"
+#inside_search(a_list, search_term) -> [0, 1, 4]
+#
+#Note that the strings "cat", "cats", and "catsup" all contain
+#the search string "cat", and thus the result is their indices:
+#[0, 1, 4].
+#
+#Make sure the list you return is sorted from lowest index to
+#highest.
+
+
+#Add your code here!
+def inside_search(my_list, search_string):
+    indices = []
+    for word in my_list:
+        if search_string in word:
+            index = my_list.index(word)
+            indices.append(index)
+    return indices
+            
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#[0, 1, 4]
+#[2, 3]
+#[1, 4]
+#[4]
+#[]
+cats_and_dogs_list = ["cat", "cats", "dog", "dogs", "catsup"]
+print(inside_search(cats_and_dogs_list, "cat"))
+print(inside_search(cats_and_dogs_list, "dog"))
+print(inside_search(cats_and_dogs_list, "cats"))
+print(inside_search(cats_and_dogs_list, "sup"))
+print(inside_search(cats_and_dogs_list, "aardvark"))
+
+###
+
+#You've been sent a list of names. Unfortunately, the names
+#come in two different formats:
+#
+#First Middle Last
+#Last, First Middle
+#
+#You want the entire list to be the same. For this problem,
+#we'll say you want the entire list to be Last, First Middle.
+#
+#Write a function called name_refixer. name_refixer should take
+#as input the list of strings. You may assume that every string
+#will match one of the two formats above: either First Middle Last
+#or Last, First Middle. 
+#
+#name_fixer should return a list of names all structured as
+#Last, First Middle. If the name was already structured as
+#Last, First Middle, it should remain unchanged. If it was
+#structured as First Middle Last, then Last should be moved
+#to the beginning and a comma should be added after it.
+#
+#The names should appear in the same order as the original list.
+#
+#For example:
+#
+#name_list = ["David Andrew Joyner", "Hart, Melissa Joan", "Cyrus, Billy Ray"]
+#name_fixer(name_list) -> ["Joyner, David Andrew", "Hart, Melissa Joan", "Cyrus, Billy Ray"]
+
+
+#Add your code here!
+def name_refixer(my_list):
+    final_list = []
+    for name in my_list:
+        if "," in name:
+            final_list.append(name)
+        elif "," not in name:
+            correct_name = name.split()
+            correct_name = correct_name[2] + ", " + correct_name[0] + " " + correct_name[1]
+            final_list.append(correct_name)
+    return final_list
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#["Joyner, David Andrew", "Hart, Melissa Joan", "Cyrus, Billy Ray"]
+name_list = ["David Andrew Joyner", "Hart, Melissa Joan", "Cyrus, Billy Ray"]
+print(name_refixer(name_list))
 
 
 
@@ -1033,7 +1478,18 @@ print(find_phone_number("doh ray me abc 123 its 6789123456"))
 
 
 
-### TUPLES ###
+
+
+
+
+
+
+
+
+
+
+
+### LISTS AND TUPLES ###
 
 #Write a function called unpack_and_reverse that will
 #accept one parameter, a tuple with at least three items.
@@ -1116,7 +1572,7 @@ print(character_info("q"))
 print(character_info("7"))
 print(character_info("`"))
 
-### List functions ###
+### Useful list functions ###
 
 mylist.sort()                     ## sorts low to high
 mylist.append()                   ## adds to list
