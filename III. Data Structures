@@ -3005,6 +3005,612 @@ for (student, answers) in students.items():
     print(student, ": ", answers["grade"], sep = "", end = "; ")
 
 
+### PROBLEM SET
+
+#-----------------------------------------------------------
+#Let's get back to basics for a moment. We're going to write
+#a function that very simply reads a dictionary and returns
+#a result.
+#
+#Write a function called safe_lookup. safe_lookup should have
+#two parameters: a dictionary and a key. safe_lookup should
+#see if the key is in the dictionary. If it is, it should
+#return its value. If it not, it should return None (not the
+#string, but the value None: return None).
+#
+#safe_lookup might be used to avoid having to add error
+#handling every time a dictionary is used. A programmer could
+#call safe_lookup(dict, key) and know that it will not cause
+#an error even if key is not found.
+
+
+#Add your code here!
+def safe_lookup(dictionary, key):
+    if key in dictionary:
+        return dictionary[key]
+    return None
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#1
+#2
+#3
+#None
+test_dictionary = {"A": 1, "B": 2, "C": 3}
+print(safe_lookup(test_dictionary, "A"))
+print(safe_lookup(test_dictionary, "B"))
+print(safe_lookup(test_dictionary, "C"))
+print(safe_lookup(test_dictionary, "D"))
+
+###
+
+#One of the confusing things about dictionaries is that they
+#are unordered: the keys have no internal ordering to them.
+#Sometimes though, you want to look through the keys in a
+#particular order, such as printing them alphabetically if
+#they represent something like artist names.
+#
+#For example, imagine if a forum tool used for a course
+#exported its data as a dictionary. The keys of the dictionary
+#are students' names, and the values are days of activity.
+#Your goal is to return a list of students in the class
+#in alphabetical order, followed by their days of activity,
+#like this:
+#Chopra, Deepak: 22
+#Joyner, David: 14
+#Winfrey, Oprah: 17
+#
+#Write a function named alphabetical_keys. alphabetical_keys
+#should take as input a dictionary, and return a single string.
+#The keys of the dictionary will be names and the values will
+#be integers. The output should be a single string made of multiple
+#lines, following the format above: the name (the key), a colon and
+#space, then the number of days of activity (the value), sorted
+#alphabetically by key.
+#
+#Remember, you are _returning_ this as a single string: you're
+#going to need to put the \n character after each line.
+#
+#To convert a dictionary's keys into a list, use this line
+#of code:
+#keys_as_list = list(the_dict.keys)
+#
+#From there, you could sort keys_as_list like any normal list.
+
+
+#Add your code heredef alphabetical_keys(dictionary):
+def alphabetical_keys(dictionary):
+    my_list = []
+    my_string = ""
+    for (key, value) in dictionary.items():
+        my_list.append(key + ": " + str(value))
+    my_list.sort()
+    for item in my_list:
+        my_string += item + "\n"
+    return my_string
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#Chopra, Deepak: 22
+#Joyner, David: 14
+#Winfrey, Oprah: 17
+the_dictionary = {"Joyner, David": 14, "Chopra, Deepak": 22, "Winfrey, Oprah": 17}
+print(alphabetical_keys(the_dictionary))
+
+###
+
+#Write a function called most_active. most_active should take
+#one parameter, a dictionary. The dictionary's keys will all
+#be strings representing people's names. The dictionary's
+#values will be integers representing days of activity on a
+#course forum.
+#
+#most_active should return the name of the most active student
+#in the class. That is, most_active should return the key
+#whose value is the highest in the dictionary.
+#
+#For example:
+#
+#some_dictionary = {"Joyner, David": 14, "Chopra, Deepak": 22, "Winfrey, Oprah": 17}
+#most_active(some_dictionary) -> "Chopra, Deepak"
+#
+#The key "Chopra, Deepak" has the highest value (22), so
+#the function returns "Chopra, Deepak". You may assume
+#there will not be a tie for most active.
+
+
+#Add your code here!
+def most_active(dictionary):
+    max_days = 0
+    student = ""
+    for name, days in dictionary.items():
+        if days > max_days:
+            max_days = days
+            student = name
+    return student
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#Chopra, Deepak
+some_dictionary = {"Joyner, David": 14, "Chopra, Deepak": 22, "Winfrey, Oprah": 17}
+print(most_active(some_dictionary))
+
+###
+
+#In the previous problem, you were given a dictionary where
+#the keys were names and the values were days of activity
+#on a class forum. You returned the name of the most active
+#student; or, more simply, the key corresponding to the
+#highest value.
+#
+#In this problem, you'll do the same thing, but with a more
+#complex data structure. Your function should be called
+#most_active, and it should have one parameter.
+#
+#Instead of a dictionary, your parameter is a list of
+#dictionaries. Every dictionary in the list will have exactly
+#two keys: 'name' and 'days_active'. Your goal, as before,
+#is to return the name of the most active student.
+#
+#Some of the code you wrote on the previous problem will be
+#reusable, but you'll need to modify it.
+#
+#Hint: you do NOT need to iterate over the keys in the
+#dictionaries inside the lists. You can always just access
+#the_dict["name"] and the_dict["days_active"] directly.
+#Your only loop should be the loop over the list.
+
+
+#Add your code here!
+def most_active(list_of_dictionaries):
+    max_days = 0
+    student = ""
+    for dictionary in list_of_dictionaries:
+        days_active = dictionary["days_active"]
+        if days_active > max_days:
+            max_days = days_active
+            student = dictionary["name"]
+    return student
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#Chopra, Deepak
+the_list = [{"name": "Joyner, David", "days_active": 14},
+            {"name": "Chopra, Deepak", "days_active": 22},
+            {"name": "Winfrey, Oprah", "days_active": 17}]
+print(most_active(the_list))
+
+###
+
+#Write a function called phonebook that takes two lists as
+#input:
+#
+# - names, a list of names as strings
+# - numbers, a list of phone numbers as strings
+#
+#phonebook() should take these two lists and create a
+#dictionary that maps each name to its phone number. For
+#example, the first name in names should become a key in
+#the dictionary, and the first number in numbers should
+#become the value corresponding to the first name. Then, it
+#should return the dictionary that results.
+#
+#Hint: Because you're mapping the first name with the first
+#number, the second name with the second number, etc., you do
+#not need two loops. For a similar exercise, check back on
+#Coding Problem 4.3.3, the Scantron grading problem.
+#
+#You may assume that the two lists have the same number of
+#items: there will be no names without numbers or numbers
+#without names.
+
+
+#Write your function here!
+def phonebook(name_list, number_list):
+    dictionary = {}
+    for i in range(len(name_list)):
+        dictionary[name_list[i]] = number_list[i]
+    return dictionary
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#{'Jackie': '404-555-1234', 'Joshua': '678-555-5678', 'Marguerite': '770-555-9012'
+
+name_list = ['Jackie', 'Joshua', 'Marguerite']
+number_list = ['404-555-1234', '678-555-5678', '770-555-9012']
+print(phonebook(name_list, number_list))
+
+###
+
+#Do not change the line of code below. It's at the top of
+#the file to ensure that it runs before any of your code.
+#You will be able to access french_dict from inside your
+#function.
+french_dict = {"me": "moi", "hello": "bonjour", 
+               "goodbye": "au revoir", "cat": "chat", 
+               "dog": "chien", "and": "et"}
+
+#Write a function called french2eng that takes in one string
+#parameter called sentence. french2eng should look at each
+#word in the sentence and translate it into French if it is
+#found in the dictionary, french_dict. If a word is not found
+#in the dictionary, do not translate it: use the original
+#word. Then, the function should return a string of the
+#translated sentence.
+#
+#You may assume that the sentence you're translating has no
+#punctuation. However, you should convert it to lower case
+#before translating.
+#
+#For example:
+#
+#  french2eng("Hello it's me") -> "bonjour it's moi"
+#
+#Hint: Use .split() to get a list of strings representing
+#each word in the string, then use ' '.join to merge the
+#translated list back into one string.
+#
+#Hint 2: Remember, lists are mutable, so we can change
+#individual items in the list. However, to change an item
+#in a list, we must change it using its index. We can
+#write lines like my_words[1] = new_word.
+#
+#Hint 3: If you're stuck, try breaking it down into small
+#parts. How do you access an item from a list? How do you
+#look up a key in a dictionary? How do you change the
+#value of an item in a list? How do you check if a key is
+#in the dictionary?
+
+
+#Write your function here!
+def french2eng(sentence):
+    my_list = sentence.lower().split()
+    translated_words = []
+    for word in my_list:
+        if word in french_dict:
+            translated_words.append(french_dict[word])
+        if word not in french_dict:
+            translated_words.append(word)
+    return ' '.join(translated_words)
+        
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: bonjour it's moi
+print(french2eng("Hello it's me"))
+
+###
+
+#Write a function called course_info that takes as input a
+#list of tuples. Each tuple contains two items: the first
+#item in each tuple is a student's name as a string, and the
+#second item in each tuple is that student's age as an
+#integer.
+#
+#The function should return a dictionary with two keys.
+#The key "students" should have as its value a list of all
+#the students (in other words, a list made from the first
+#value of each tuple), in the original order in which they
+#appeared in the list. The key "avg_age" should have as its
+#value a float representing the average age of all the
+#students in the list (in other words, the average of all
+#the second items in the tuples).
+#
+#For example:
+#
+#  course_info([("Jackie", 20), ("Marguerite", 21)])
+#  -> {"students": ['Jackie', 'Marguerite'], "avg_age": 20.5}
+#
+#Hint: Concentrate first on building the list of students
+#and calculating the average age. Save creating the
+#dictionary for last.
+
+
+#Write your function here!
+def course_info(list_of_tuples):
+    my_dictionary = {}
+    students = []
+    sum = 0
+    count = 0
+    for my_tuple in list_of_tuples:
+        sum += my_tuple[1]
+        count += 1
+        students.append(my_tuple[0])
+    avg_age = sum / count
+    
+    my_dictionary["students"] = students
+    my_dictionary["avg_age"] = avg_age
+    
+    return my_dictionary
+    
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#{'avg_age': 20.5, 'students': ['Jackie', 'Marguerite']}
+print(course_info([("Jackie", 20), ("Marguerite", 21)]))
+
+###
+
+#Write a function called modify_dict. modify_dict takes one
+#parameter, a dictionary. The dictionary's keys are people's
+#last names, and the dictionary's values are people's first
+#names. For example, the key "Joyner" would have the value
+#"David".
+#
+#modify_dict should delete any key-value pair for which the
+#key's first letter is not capitalized. For example, the
+#key-value pair "joyner":"David" would be deleted, but the
+#key-value pair "Joyner":"david" would not be deleted. Then,
+#return the modified dictionary.
+#
+#Remember, the keyword del deletes items from lists and
+#dictionaries. For example, to remove the key "key!" from
+#the dictionary my_dict, you would write: del my_dict["key!"]
+#Or, if the key was the variable my_key, you would write:
+#del my_dict[my_key]
+#
+#Hint: If you try to delete items from the dictionary while
+#looping through the dictionary, you'll run into problems!
+#We should never change the number if items in a list or
+#dictionary while looping through those items. Think about
+#what you could do to keep track of which keys should be
+#deleted so you can delete them after the loop is done.
+#
+#Hint 2: To check if the first letter of a string is a
+#capital letter, use string[0].isupper().
+
+
+#Write your function here!
+def modify_dict(my_dict):
+    new_dictionary = {}
+    for first_name, last_name in my_dict.items():
+        if first_name != first_name.lower():
+            new_dictionary[first_name] = last_name
+    return new_dictionary
+    #del my_dict[""]
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#  {'Diaddigo':'Joshua', 'Elliott':'jackie'}
+my_dict = {'Joshua':'Diaddigo', 'joyner':'David', 'Elliott':'jackie', 'murrell':'marguerite'}
+print(modify_dict(my_dict))
+
+###
+
+#Write a function called clean_data. clean_data takes one
+#parameter, a dictionary. The dictionary represents the
+#observed rainfall in inches on a particular calendar day
+#at a particular location. However, the data has some
+#errors.
+#
+#clean_data should delete any key-value pair where the value
+#has any of the following issues:
+#
+# - the type is not an integer or a float. Even if the value
+#   is a string that could be converted to an integer (e.g.
+#   "5") it should be deleted.
+# - the value is less than 0: it's impossible to have a
+#   negative rainfall number, so this must be bad data.
+# - the value is greater than 100: the world record for
+#   rainfall in a day was 71.8 inches
+#
+#Return the dictionary when you're done making your changes.
+#
+#Remember, the keyword del deletes items from lists
+#and dictionaries. For example, to remove the key "key!" from
+#the dictionary my_dict, you would write: del my_dict["key!"]
+#Or, if the key was the variable my_key, you would write:
+#del my_dict[my_key]
+#
+#Hint: If you try to delete items from the dictionary while
+#looping through the dictionary, you'll run into problems!
+#We should never change the number if items in a list or
+#dictionary while looping through those items. Think about
+#what you could do to keep track of which keys should be
+#deleted so you can delete them after the loop is done.
+#
+#Hint 2: To check if a variable is an integer, use
+#type(the_variable) == int. To check if a variable is a float,
+#use type(the_variable) == float.
+
+
+#Write your function here!
+def clean_data(my_dict):
+    new_dictionary = {}
+    final_dictionary = {}
+    for key, value in my_dict.items():
+        if type(value) == float or type(value) == int:
+            new_dictionary[key] = value
+    for key, value in new_dictionary.items():
+        if 0 <= value < 100:
+            final_dictionary[key] = value
+    return final_dictionary
+    
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#{"20190101": 5, "20190103": 7.5, "20190104": 0, "20190107": 1}
+rainfall = {"20190101": 5, "20190102": "6", "20190103": 7.5, 
+           "20190104": 0, "20190105": -7, "20190106": 102,
+           "20190107": 1}
+print(clean_data(rainfall))
+
+###
+
+#In the Pokemon video game series, every Pokemon has six
+#stats: HP, Attack, Defense, Special Attack, Special Defense,
+#and Speed.
+#
+#Write a function called total_stats that will take as input
+#a list of dictionaries. Each dictionary will have seven
+#key-value pairs:
+#
+# - name: a Pokemon's name
+# - hp, attack, defense, special attack, special defense,
+#   and speed: an integer representing that Pokemon's stat
+#   in that category
+#
+#Your function should return a single dictionary. The keys
+#of the dictionary should be the Pokemon names from the
+#original list, and the values should be the _total_ stats
+#for each Pokemon (add HP, Attack, Defense, Special Attack,
+#Special Defense, and Speed).
+#
+#For example, if this was one of the dictionaries in the
+#original list:
+#
+#{"name": "Bulbasaur", "hp": 45, "attack": 49, "defense": 49,
+#"special attack": 65, "special defense": 65, "speed": 45}
+#
+#Then one of the key-value pairs in the dictionary you
+#return would be: "Bulbasaur": 318 (45 + 49 + 49 + 65 + 65 +
+#45 = 318).
+
+
+#Add your function here!
+def total_stats(list_of_dictionaries):
+    new_dict = {}
+        
+    for dictionary in list_of_dictionaries:
+        pokemon = dictionary["name"]
+        sum = 0
+        for key, value in dictionary.items():
+            if type(value) == int:
+                sum += value
+            new_dict[pokemon] = sum     
+    return new_dict
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary):
+#{'Bulbasaur': 318, 'Charmander': 309, 'Squirtle': 314}
+starters = [{"name": "Bulbasaur", "hp": 45, "attack": 49, "defense": 49, "special attack": 65, "special defense": 65, "speed": 45},
+            {"name": "Charmander", "hp": 39, "attack": 52, "defense": 43, "special attack": 60, "special defense": 50, "speed": 65},
+            {"name": "Squirtle", "hp": 44, "attack": 48, "defense": 65, "special attack": 50, "special defense": 64, "speed": 43}]
+print(total_stats(starters))
+
+###
+
+#Write a function called population_density. The function
+#should take one parameter, which will be a list of
+#dictionaries. Each dictionary in the list will have three
+#key-value pairs:
+#
+# - name: the name of the country
+# - population: the population of that country
+# - area: the area of that country (in km^2)
+#
+#Your function should return the population density of all
+#the countries put together. You can calculate this by
+#summing all the populations, summing all the areas, and
+#dividing the total population by the total area.
+#
+#Note that the input to this function will look quite long;
+#don't let that scare you. That's just because dictionaries
+#take a lot of text to define.
+
+
+#Add your function here!
+def population_density(list_of_dictionaries):
+    pop_sum = 0
+    area_sum = 0
+    
+    for dictionary in list_of_dictionaries:
+        name_value = dictionary["name"]
+        population_value = dictionary["population"]
+        area_value = dictionary["area"]
+        
+        pop_sum += population_value
+        area_sum += area_value
+        
+    density = pop_sum / area_sum
+    return density
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 133.886 (or something around there)
+countries = [{"name": "China", "population": 1390700000, "area": 9640821},
+             {"name": "India", "population": 1348003000, "area": 3287240},
+             {"name": "United States", "population": 325300000, "area": 9826675},
+             {"name": "Indonesia", "population": 237556363, "area": 1904569}]
+print(population_density(countries))
+             
+###
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### PRACTICE PROBLEMS ###
 
 #Write a function called count_characters. count_characters
