@@ -772,6 +772,775 @@ print(myPerson1.name.firstname)
 print(myPerson2.name.firstname)
 
 
+### PROBLEM SET
+
+#Below is a class representing a person. You'll see the
+#Person class has three instance variables: name, age,
+#and GTID. The constructor currently sets these values
+#via a calls to the setters.
+#
+#Create a new function called same_person. same_person
+#should take two instances of Person as arguments, and
+#returns True if they are the same Person, False otherwise.
+#Two instances of Person are considered to be the same if
+#and only if they have the same GTID. It does not matter
+#if their names or ages differ as long as they have the
+#same GTID.
+#
+#You should not need to modify the Person class.
+
+class Person:
+    def __init__(self, name, age, GTID):
+        self.set_name(name)
+        self.set_age(age)
+        self.set_GTID(GTID)
+
+    def set_name(self, name):
+        self.name = name
+
+    def set_age(self, age):
+        self.age = age
+
+    def set_GTID(self, GTID):
+        self.GTID = GTID
+
+    def get_name(self):
+        return self.name
+
+    def get_age(self):
+       return self.age
+
+    def get_GTID(self):
+        return self.GTID
+
+#Add your code below!
+def same_person(person_1, person_2):
+    if person_1.GTID == person_2.GTID:
+        return True
+    return False
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: True, then False.
+person1 = Person("David Joyner", 30, 901234567)
+person2 = Person("D. Joyner", 29, 901234567)
+person3 = Person("David Joyner", 30, 903987654)
+print(same_person(person1, person2))
+print(same_person(person1, person3))
+
+###
+
+#Below we have given you the code for three classes: Owner,
+#Pet, and Name.
+#
+#An Owner is defined by two attributes: a Name and a list of
+#Pets. The list of pets is initially empty; it can be added
+#to later.
+#
+#A Pet is defined by two attributes: a Name and an Owner.
+#
+#A Name is defined by two attributes, both strings,
+#representing first and last name.
+#
+#Write a function called get_owner_string that will take as
+#input a single instance of Pet. The function should then print
+#out the Pet's Owner's name using the following format:
+#
+#Boggle Joyner's owner is David Joyner.
+#
+#You will need to access the Pet's first name, pet's last name,
+#pet's owner's first name, and pet's owner's last name to
+#accomplish this. You may NOT modify the Name, Pet, or Owner
+#classes (we will test your code with our own copies of these
+#classes, so any changes you make will not be part of our
+#grading code).
+#
+#HINT: To access a pet's name, you would use the_pet.name. So,
+#to access only the pet's first name, you would use
+#the_pet.name.first. To access a pet's owner's, you would use
+#the_pet.owner. So, how would you access the pet's owner's
+#first and last name?
+
+class Name:
+    def __init__(self, first, last):
+        self.first = first
+        self.last = last
+
+class Pet:
+    def __init__(self, name, owner):
+        self.name = name
+        self.owner = owner
+        
+class Owner:
+    def __init__(self, name):
+        self.name = name
+        self.pets = []
+
+#Add your get_owner_string function here!
+def get_owner_string(pet):
+    pet_first_name = pet.name.first
+    pet_last_name = pet.name.last
+    owner_first_name = pet.owner.name.first
+    owner_last_name = pet.owner.name.last    
+    
+    return(pet_first_name + " " + pet_last_name + "'s owner is " + owner_first_name + " " + owner_last_name + ".")
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#Boggle Joyner's owner is David Joyner.
+#Artemis Joyner's owner is David Joyner.
+#Pippin Hepburn's owner is Audrey Hepburn.
+owner_1 = Owner(Name("David", "Joyner"))
+owner_2 = Owner(Name("Audrey", "Hepburn"))
+
+pet_1 = Pet(Name("Boggle", "Joyner"), owner_1)
+pet_2 = Pet(Name("Artemis", "Joyner"), owner_1)
+pet_3 = Pet(Name("Pippin", "Hepburn"), owner_2)
+
+owner_1.pets.append(pet_1)
+owner_1.pets.append(pet_2)
+owner_2.pets.append(pet_3)
+
+print(get_owner_string(pet_1))
+print(get_owner_string(pet_2))
+print(get_owner_string(pet_3))
+
+###
+
+#This problem uses the same Pet, Owner, and Name classes from
+#the previous problem.
+#
+#In this one, instead of printing a string that lists a single
+#pet's owner, you will print a string that lists all of a
+#single owner's pets.
+#
+#Write a function called get_pets_string. get_pets_string should
+#have one parameter, an instance of Owner. get_pets_string
+#should return a list of that owner's pets according to the
+#following format:
+#
+#David Joyner's pets are: Boggle Joyner, Artemis Joyner
+
+class Name:
+    def __init__(self, first, last):
+        self.first = first
+        self.last = last
+
+class Pet:
+    def __init__(self, name, owner):
+        self.name = name
+        self.owner = owner
+        
+class Owner:
+    def __init__(self, name):
+        self.name = name
+        self.pets = []
+
+        
+#Add your get_pets_string function here!
+def get_pets_string(owner):
+    owner_first_name = owner.name.first
+    owner_last_name = owner.name.last
+    pets_list = owner.pets
+    
+    pets_string = ""
+    for pet in pets_list:
+        pets_string += pet.name.first + " " + pet.name.last
+        if pet != pets_list[-1]:
+            pets_string += ", "
+    
+    return owner_first_name + " " + owner_last_name + "'s pets are: " + pets_string
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#David Joyner's pets are: Boggle Joyner, Artemis Joyner
+#Audrey Hepburn's pets are: Pippin Hepburn
+owner_1 = Owner(Name("David", "Joyner"))
+owner_2 = Owner(Name("Audrey", "Hepburn"))
+
+pet_1 = Pet(Name("Boggle", "Joyner"), owner_1)
+pet_2 = Pet(Name("Artemis", "Joyner"), owner_1)
+pet_3 = Pet(Name("Pippin", "Hepburn"), owner_2)
+
+owner_1.pets.append(pet_1)
+owner_1.pets.append(pet_2)
+owner_2.pets.append(pet_3)
+
+print(get_pets_string(owner_1))
+print(get_pets_string(owner_2))
+
+###
+
+#This problem uses the same Pet, Owner, and Name classes from
+#the previous two problems. In this case, however, we want you
+#to modify one of the classes.
+#
+#Notice that in the previous two problems, we always had to
+#create owners and pets in the same order: first create the owner,
+#then create the pets, then add the pets to the owner's list
+#of pets. If we forgot that last step, then the pet would have
+#its owner, but the owner would not have its list of pets.
+#We cannot create a pet without an owner (because owner is a
+#positional parameter in the constructor __init__), but there
+#is nothing forcing us to add the pet to the owner's list of
+#pets once created.
+#
+#Modify the classes below so that when a new instance of Pet
+#is created, it is automatically added to its Owner's list of
+#pets.
+#
+#HINT: Remember that the self attribute refers to the instance
+#itself. For example, if you wanted your object to say, "add me
+#to this_list", you would write the_list.append(self).
+#
+#HINT 2: If you're stuck, look back at how we added pets to
+#owners in test code on the previous problems. 
+
+
+#Modify one or more of the classes below:
+class Name:
+    def __init__(self, first, last):
+        self.first = first
+        self.last = last
+
+class Pet:
+    def __init__(self, name, owner):
+        self.name = name
+        self.owner = owner
+        owner.pets.append(self) # Adds pet to owner's list
+        
+class Owner:
+    def __init__(self, name):
+        self.name = name
+        self.pets = []
+        
+#Below are some lines of code that will test your edits.
+#Specifically, they will print the number of pets in
+#each owner's list of pets. Note that you should note
+#add to the code below; the correct output should come
+#solely from your changes to the code above.
+#
+#If your code works correctly, this will originally print:
+#2
+#1
+owner_1 = Owner(Name("David", "Joyner"))
+owner_2 = Owner(Name("Audrey", "Hepburn"))
+
+pet_1 = Pet(Name("Boggle", "Joyner"), owner_1)
+pet_2 = Pet(Name("Artemis", "Joyner"), owner_1)
+pet_3 = Pet(Name("Pippin", "Hepburn"), owner_2)
+
+print(len(owner_1.pets))
+print(len(owner_2.pets))
+
+###
+
+#Write a class called Thing. The constructor for Thing should
+#have two required parameters: its mass and its volume, in
+#that order. These should be saved as the object's mass and
+#volume attributes, respectively.
+#
+#Additionally, the object should have two other attributes,
+#weight and density. weight should be calculated by multiplying
+#the mass by the gravity on earth, 9.8, and rounding to the
+#nearest tenth. density should be calculated by dividing mass
+#by volume and rounding to the nearest tenth.
+#
+#When the constructor has finished initalizing the object, it
+#should thus have four attributes: mass, volume, weight, and
+#density. mass and volume will have the same values given to
+#the constructor, and weight and density will be calculated
+#based on those values.
+
+
+#Add your class here!
+class Thing:
+    def __init__(self, mass, volume):
+        self.mass = mass
+        self.volume = volume
+        self.weight = round((self.mass * 9.8), 1)
+        self.density = round((self.mass / self.volume), 1)
+
+    
+#The following lines of code will test your object. If it
+#is written correctly, they will print:
+#10
+#5
+#98.0
+#2.0
+#14.0
+#75.0
+#137.2
+#0.2
+thing_1 = Thing(10.0, 5.0)
+thing_2 = Thing(14.0, 75.0)
+
+print(thing_1.mass)
+print(thing_1.volume)
+print(thing_1.weight)
+print(thing_1.density)
+print(thing_2.mass)
+print(thing_2.volume)
+print(thing_2.weight)
+print(thing_2.density)
+
+###
+
+#In many areas, different goods are taxed at different rates.
+#Areas may charge higher tax rates for items like alcohol,
+#gasoline, and soda, and lower tax rates for items like
+#grocery items, medicines, and clothes.
+#
+#Write a class called PurchasedGood. The constructor for
+#PurchasedGood should have one positional parameter called
+#price, which is the price of the good as a float. It should
+#then have two keyword parameters in this order:
+# - category, which is the category the good falls into.
+#   category should have a default value of "General".
+# - tax, which is the sales tax rate. tax should have a
+#   default value of 0.07.
+#
+#These three values should be stored in attributes called
+#'price', 'category', and 'tax'.
+#
+#Then, add a method called calculate_total. calculate_total
+#should calculate the price plus the price times the tax
+#rate, then round the result to 2 decimal places and return
+#the result. Remember, you can round to two decimal places
+#using round(total, 2).
+
+
+#Add your class here!
+class PurchasedGood:
+    def __init__(self, price, category = "General", tax = 0.07):
+        self.price = price
+        self.category = category
+        self.tax = tax
+        
+    def calculate_total(self):
+        total = round((self.price + self.price * self.tax), 2)
+        return total
+
+#Below are some lines of code that will test your object.
+#You can change these lines to test your code in different
+#ways.
+#
+#If your code works correctly, this will originally run
+#error-free and print ignoring rounding errors):
+#5.0
+#General
+#0.07
+#5.35
+#5.0
+#Grocery
+#0.03
+#5.15
+good_1 = PurchasedGood(5.00)
+print(good_1.price)
+print(good_1.category)
+print(good_1.tax)
+print(good_1.calculate_total())
+
+good_2 = PurchasedGood(5.00, category = "Grocery", tax = 0.03)
+print(good_2.price)
+print(good_2.category)
+print(good_2.tax)
+print(good_2.calculate_total())
+
+###
+
+#In Pokemon Go, a Pokemon is defined by several different
+#parameters. For simplicity in this problem, we'll say that
+#every Pokemon is defined by two parameters: its name, a
+#string, and its power level, an integer.
+#
+#Create a class called Pokemon. The Pokemon class's
+#constructor should have two parameters (in addition to self):
+#the Pokemon's name and the Pokemon's power. These should be
+#assigned to attributes called 'name' and 'power'.
+#
+#The Pokemon class should also have a method called
+#would_defeat. would_defeat will have one parameter: an
+#instance of a _different_ Pokemon. would_defeat should
+#return True if this Pokemon's power is greater than the
+#other Pokemon's power, or False if not.
+
+
+#Add your code here!
+class Pokemon():
+    def __init__(self, name, power):
+        self.name = name
+        self.power = power
+    
+    def would_defeat(self, other_pokemon):
+        return self.power > other_pokemon.power
+    
+
+
+#Below are some lines of code that will test your object.
+#You can change these lines to test your code in different
+#ways.
+#
+#If your code works correctly, this will originally run
+#error-free and print:
+#Pikachu
+#500
+#False
+#True
+new_pokemon_1 = Pokemon("Pikachu", 500)
+print(new_pokemon_1.name)
+print(new_pokemon_1.power)
+
+new_pokemon_2 = Pokemon("Charizard", 2412)
+new_pokemon_3 = Pokemon("Squirtle", 312)
+print(new_pokemon_1.would_defeat(new_pokemon_2))
+print(new_pokemon_1.would_defeat(new_pokemon_3))
+
+###
+
+#Recall in Coding Problem 4.4.4 (and before that, in Coding
+#Problem 4.3.9) you built a program for finding the net
+#force (magnitude and angle) on an object from several
+#individual forces.
+#
+#In the next two exercises, we're going to convert that
+#system into one that uses objects.
+#
+#To start, create a class called Force. The constructor for
+#Force should have two required arguments: magnitude and
+#angle. These should be saved to two attributes called
+#'magnitude' and 'angle'. You should assume angle is
+#initially in degrees, from -180 to 180.
+#
+#Then, add three methods to Force:
+#
+# - get_horizontal should return the horizontal component
+#   of the force, according to the formula:
+#   horizontal = magnitude * cos(angle).
+# - get_vertical should return the vertical component of
+#   the force, according to the formula:
+#   vertical = magnitude * sin(angle).
+# - get_angle should return the angle of the force, but
+#   should have a keyword parameter called use_degrees.
+#   use_degrees should default to True. If use_degrees
+#   is true, it should return the angle in degrees; if it
+#   is false, it should return the angle in radians.
+#
+#HINT: Don't overcomplicate this. All we want here is
+#a class called Force with four methods: __init__,
+#get_horizontal, get_vertical, and get_angle. Note that
+#these are not true "getters" even though they have "get"
+#in their names: all three will have some reasoning
+#beyond just returning a single value.
+#
+#HINT 2: angle will initially be passed into the
+#constructor in degrees. You may store it in either
+#degrees or radians. Each approach has different benefits,
+#but make sure to keep track of when it's in angles and
+#when it's in degrees.
+
+from math import sin, cos, atan2, radians, degrees, sqrt
+
+
+#Add your code here!
+class Force():
+    def __init__(self, magnitude, angle):
+        self.magnitude = magnitude
+        self.angle = angle
+    
+    def get_horizontal(self):
+        self.horizontal = self.magnitude * cos(radians(self.angle))
+        return self.horizontal
+        
+    def get_vertical(self):
+        self.vertical = self.magnitude * sin(radians(self.angle))
+        return self.vertical
+    
+    def get_angle(self, use_degrees = True):
+        if use_degrees == True:
+            return self.angle
+        if use_degrees == False:
+            return radians(self.angle)
+        
+
+
+#Below are some lines of code that will test your object.
+#You can change these lines to test your code in different
+#ways.
+#
+#If your code works correctly, this will originally run
+#error-free and print (with room for rounding errors):
+#Magnitude: 500
+#Horizontal: 250.0
+#Vertical: 433.0127018922193
+#Angle in Degrees: 60.0
+#Angle in Radians: 1.0471975511965976
+a_force = Force(500, 60)
+print("Magnitude:", a_force.magnitude)
+print("Horizontal:", a_force.get_horizontal())
+print("Vertical:", a_force.get_vertical())
+print("Angle in Degrees:", a_force.get_angle())
+print("Angle in Radians:", a_force.get_angle(use_degrees = False))
+
+###
+
+from math import atan2, degrees, radians, sin, cos
+
+#Last problem, you created a new class called Force. Copy that
+#class below:
+class Force():
+    def __init__(self, magnitude, angle):
+        self.magnitude = magnitude
+        self.angle = angle
+    
+    def get_horizontal(self):
+        self.horizontal = self.magnitude * cos(radians(self.angle))
+        return self.horizontal
+        
+    def get_vertical(self):
+        self.vertical = self.magnitude * sin(radians(self.angle))
+        return self.vertical
+    
+    def get_angle(self, use_degrees = True):
+        if use_degrees == True:
+            return self.angle
+        if use_degrees == False:
+            return radians(self.angle)
+
+#In this problem, you're going to use that class to calculate
+#the net force from a list of forces.
+#
+#Write a function called find_net_force. find_net_force should
+#have one parameter: a list of instances of Force. The
+#function should return new instance of Force with the total
+#net magnitude and net angle as the values for its magnitude
+#and angle attributes.
+#
+#As a reminder:
+#
+# - To find the magnitude of the net force, sum all the
+#   horizontal components and sum all the vertical components.
+#   The net force is the square root of the sum of the squares
+#   of the horizontal forces and the vertical foces (i.e.
+#   (total_horizontal ** 2 + total_vertical ** 2) ** 0.5)
+# - To find the angle of the net force, call atan2 with two
+#   arguments: the total vertical and total horizontal
+#   forces (in that order).
+# - Remember to round both the magnitude and direction to one
+#   decimal place. This can be done using round(magnitude, 1)
+#   and round(angle, 1).
+# - The Force class has three methods: get_horizontal returns
+#   a single force's horizontal component. get_vertical
+#   returns a single force's vertical component. get_angle
+#   returns a single force's angle in degrees (or in radians
+#   if you call get_angle(use_degrees = False).
+#
+#HINT: Don't overcomplicate this. The Force class does a lot
+#of your work for you. Use it! You should not need any trig
+#functions except atan2, degrees, and radians.
+
+
+#Add your function here!
+def find_net_force(list_of_instances):
+    sum_vertical = 0
+    sum_horizontal = 0
+    
+    for instance in list_of_instances:
+        sum_vertical += instance.get_vertical()
+        sum_horizontal += instance.get_horizontal()
+        
+        
+    total_net_magnitude = (sum_horizontal ** 2 + sum_vertical ** 2) ** 0.5
+    total_net_magnitude = round(total_net_magnitude, 1)
+    total_net_angle = degrees(atan2(sum_vertical, sum_horizontal))
+    total_net_angle = round(total_net_angle, 1)
+    
+    return Force(total_net_magnitude, total_net_angle)
+
+
+#Below are some lines of code that will test your object.
+#You can change these lines to test your code in different
+#ways.
+#
+#If your code works correctly, this will originally run
+#error-free and print:
+#103.1
+#-14.0
+
+force_1 = Force(50, 90)
+force_2 = Force(75, -90)
+force_3 = Force(100, 0)
+forces = [force_1, force_2, force_3]
+net_force = find_net_force(forces)
+print(net_force.magnitude)
+print(net_force.get_angle())
+
+###
+
+#Here's a long one -- you can do it!
+#
+#Rewrite the following class so that it uses getters and
+#setters for all three variables (title, description,
+#completed). The getters should be called: getTitle,
+#getDescription,  getCompleted. The setters should be
+#called: setTitle, setDescription, setCompleted.
+#
+#In addition, the setter should check to make sure that
+#the new value is the correct type: title and description
+#should always be of type str, and completed should always
+#be of type bool. If the value is not the right type, set
+#the value of the corresponding attribute to None (the
+#keyword, not the string "None").
+#
+#To summarize (and give a to-do list):
+# - Create getters and setters for each variable.
+# - Check the type of the new value inside the setters,
+#   and print an error if it's the wrong type.
+#
+#Hint: You can check to see if a variable is a string by
+#checking the logical expression type(var) == str, where
+#var is the variable you're checking. For integers, use
+#int instead of str. For floats, use float. For booleans,
+#use bool.
+#
+#Hint 2: Remember to put self before any instance variables
+#or methods you're trying to access. For example, to access
+#the variable title from within a method, you would need to
+#write self.title.
+
+
+class TodoItem:
+    def __init__(self, title, description, completed=False):
+        self.title = title
+        self.description = description
+        self.completed = completed
+        
+    def getTitle(self):
+        return self.title
+        
+    def setTitle(self, new_value):
+        if type(new_value) != str:
+            self.title = None
+        else:
+            self.title = new_value
+        
+    def getDescription(self):
+        return self.description
+    
+    def setDescription(self, new_value):
+        if type(new_value) != str:
+            self.description = None
+        else:
+            self.description = new_value
+    
+    def getCompleted(self):
+        return self.completed
+    
+    def setCompleted(self, new_value):
+        if type(new_value) != bool:
+            self.completed = None
+        else:
+            self.completed = new_value
+            
+            
+        
+#Below are some lines of code that will test your class.
+#You can change this code to test how your class behaves
+#with different variables and method calls.
+#
+#If your class works correctly, this will originally print:
+#Mow
+#Mow the lawn
+#False
+#True
+#None
+item = TodoItem("Mow", "Mow the lawn")
+print(item.getTitle())
+print(item.getDescription())
+print(item.getCompleted())
+item.setCompleted(True)
+print(item.getCompleted())
+item.setTitle(False)
+print(item.getTitle())
+
+###
+
+#The Fibonacci sequence is a number sequence where each
+#number is the sum of the previous two numbers. The first
+#two numbers are defined as 0 and 1, so the third number is
+#1 (0 + 1 = 1), the fourth number is 2 (1 + 1 = 2), the
+#fifth number is 3 (1 + 2 = 3), the sixth number is 5
+#(2 + 3 = 5), and so on.
+#
+#Below we've started a class called FibSeq. At any time,
+#FibSeq holds two values from the Fibonacci sequence:
+#back1 and back2.
+#
+#Create a new method inside FibSeq called next_number. The
+#next_number method should:
+#
+# - Calculate and return the next number in the sequence,
+#   based on the previous 2.
+# - Update back2 with the former value of back1, and update
+#   back1 with the new next item in the sequence.
+#
+#This means that consecutive calls to next_number should
+#yield each consecutive number from the Fibonacci sequence.
+#Calling next_number 5 times would print 1, 2, 3, 5, and 8.
+
+
+class FibSeq:
+    def __init__(self):
+        self.back1 = 1
+        self.back2 = 0
+        
+    def next_number(self):
+        self.next = self.back1 + self.back2
+        self.back2 = self.back1
+        self.back1 = self.next
+        return self.next
+        
+
+#The code below will test your method. It's not used for
+#grading, so feel free to change it. As written, it should
+#print 1, 2, 3, 5, and 8.
+newFib = FibSeq()
+print(newFib.next_number())
+print(newFib.next_number())
+print(newFib.next_number())
+print(newFib.next_number())
+print(newFib.next_number())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### ALGORITHMS ###
 
 #Let's implement the factorial function we saw in the
@@ -1267,6 +2036,664 @@ print("11/28/2015 is in datelist:", binary_search(datelist, date(2015, 11, 28)))
 #LoopingBinarySearchwithPrints.py.
 
 ###
+
+#We've started a recursive function below called
+#measure_string that should take in one string parameter,
+#myStr, and returns its length. However, you may not use
+#Python's built-in len function.
+#
+#Finish our code. We are missing the base case and the
+#recursive call.
+#
+#HINT: Often when we have recursion involving strings, we
+#want to break down the string to be in its simplest form.
+#Think about how you could splice a string little by little.
+#Then think about what your base case might be - what is
+#the most basic, minimal string you can have in python?
+#
+#Hint 2: How can you establish the base case has been
+#reached without the len() function?
+
+#You may not use the built-in 'len()' function.
+
+def measure_string(myStr):
+    if myStr == "":
+    	return 0
+    else:
+        return 1 + measure_string(myStr[1:])
+    
+    
+#The line below will test your function. As written, this
+#should print 13. You may modify this to test your code.
+print(measure_string("13 characters"))
+
+###
+
+#Remember that Fibonacci's sequence is a sequence of numbers
+#where every number is the sum of the previous two numbers.
+#
+#For this problem, implement Fibonacci recursively, with a
+#twist! Imagine that we want to create a new number sequence
+#called Fibonacci-3. In Fibonacci-3, each number in the
+#sequence is the sum of the previous three numbers. The
+#sequence will start with three 1s, so the fourth Fibonacci-3
+#number would be 3 (1+1+1), the fifth would be 5 (1+1+3),
+#the sixth would be 9 (1+3+5), the seventh would be 17
+#(3+5+9), etc.
+#
+#Name your function fib3, and make sure to use recursion.
+
+
+#Write your code here!
+def fib3(n):
+    if n == 1 or n == 2 or n == 3:
+        return 1
+    else:
+        return fib3(n-1) + fib3(n-2) + fib3(n-3)
+
+#The lines below will test your code. If your funciton is
+#correct, they will print 1, 3, 17, and 57.
+print(fib3(3))
+print(fib3(4))
+print(fib3(7))
+print(fib3(9))
+
+###
+
+#Recall in the lesson on sorts that we had you complete the
+#Bubble and Selection sort, and we showed you Merge sort.
+#We didn't show any of insertion sort, and I bet you can
+#guess why.
+#
+#Implement insertion sort below.
+#
+#Name your function 'insertion'. insertion should take as
+#input a list, and return as output a sorted list. Note that
+#even though technically a sorting method does not have to
+#return the sorted list, yours should.
+#
+#If you're stuck on where to start, or having trouble
+#visualizing or understanding how exactly insertion sort
+#works, check out this website - https://visualgo.net/sorting
+#It provides a visual representation of all of the sorting
+#algorithms as well as pseudocode you can base your own code
+#off of.
+
+
+#Write your code here!
+def insertion(my_list):
+    for i in range(len(my_list)):
+        current_element = my_list[i]
+        
+        # move elements to the right until position is found
+        position = i
+        while position > 0 and my_list[position - 1] > current_element:
+            my_list[position] = my_list[position - 1]
+            position -= 1
+        
+        my_list[position] = current_element
+
+    return my_list
+
+#The code below will test your function. If your function
+#works, it will print: [1, 2, 3, 4, 5].
+print(insertion([5, 1, 3, 2, 4]))
+
+###
+
+#Recall in 5.2.4 Worked Example 1, we gave you the code for
+#merge_sort. You may copy that code into this problem and
+#modify it. Change it such that instead of sorting from
+#lowest to highest, it sorts from highest to lowest.
+#
+#Name your function sort_with_merge(). For example, if you call
+#merge_sort([5, 3, 1, 2, 4]), you would get [5, 4, 3, 2, 1].
+#
+#Do not use Python's sort or reverse methods to complete
+#this.
+
+
+#Write your code below!
+def sort_with_merge(my_list):
+    if len(my_list) <= 1:
+        return my_list
+    else:
+        midpoint = len(my_list) // 2
+        left = sort_with_merge(my_list[:midpoint])
+        right = sort_with_merge(my_list[midpoint:])
+    
+    newlist = []
+    while left and right:
+        if left[0] >= right[0]:
+            newlist.append(left[0])
+            left = left[1:]
+            
+        else:
+            newlist.append(right[0])
+            right = right[1:]
+     
+    newlist.extend(left)
+    newlist.extend(right)
+    
+    return newlist
+        
+
+#The code below will test your function. If it works, this
+#will print [5, 3, 1, -1, -3, -5].
+print(sort_with_merge([1, 3, -1, -3, -5, 5]))
+
+###
+
+#Write a function called search_for_string() that takes two
+#parameters, a list of strings, and a string. This function
+#should return a list of all the indices at which the
+#string is found within the list.
+#
+#You may assume that you do not need to search inside the
+#items in the list; for examples:
+#
+#  search_for_string(["bob", "burgers", "tina", "bob"], "bob")
+#      -> [0,3]
+#  search_for_string(["bob", "burgers", "tina", "bob"], "bae")
+#      -> []
+#  search_for_string(["bob", "bobby", "bob"])
+#      -> [0, 2]
+#
+#Use a linear search algorithm to achieve this. Do not
+#use the list method index.
+#
+#Recall also that one benefit of Python's general leniency
+#with types is that algorithms written for integers easily
+#work for strings. In writing search_for_string(), make sure
+#it will work on integers as well -- we'll test it on
+#both.
+
+
+#Write your code here!
+def search_for_string(lst, search_word):
+    matches = []
+    index = 0
+    for word in lst:
+        if word == search_word:
+            matches.append(index)
+        index += 1
+    return matches
+        
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: [1, 4, 5]
+sample_list = ["artichoke", "turnip", "tomato", "potato", "turnip", "turnip", "artichoke"]
+print(search_for_string(sample_list, "turnip"))
+
+###
+
+
+
+
+
+
+
+### FINAL PROBLEM SET ###
+
+#To help streamline certain development activities, ISO
+#(the International Organization for Standardization) provides
+#a table of codes, short abbreviations, and long abbreviations
+#for every nation in the world. We have created a class called
+#Nation to structure this information. The Nation class
+#contains 6 attributes:
+#
+# - short_name: The short, common form of a country's name,
+#   such as "Albania".
+# - long_name: The long, official form of a country's name,
+#   such as "Republic of Albania".
+# - iso_code: The numeric code corresponding to the nation,
+#   such as 8.
+# - iso_short: The short abbreviation corresponding to the
+#   nation, such as AL.
+# - iso_long: The long abbreviation corresponding to the
+#   nation, such as ALB.
+# - capital: The capital city, such as Tirana.
+#
+#To let you debug, we've provided you the class here. Your
+#code will have access to this.
+class Nation:
+    def __init__(self, short_name, long_name, iso_code, iso_short, iso_long, capital):
+        self.short_name = short_name
+        self.long_name = long_name
+        self.iso_code = iso_code
+        self.iso_short = iso_short
+        self.iso_long = iso_long
+        self.capital = capital
+
+#Write a function called to_dictionaries that will take as
+#input a list of instances of this class. It should return a
+#dictionary of dictionaries. The keys for the dictionaries
+#should be the short names of the nations. The values should
+#be additional dictionaries, each with five keys: long_name,
+#iso_code, iso_short, iso_long, and capital.
+#
+#For example, if we created two instances of Nation like this:
+#new_nation_1 = Nation("Albania", "Republic of Albania", 8, "AL", "ALB", "Tirana")
+#new_nation_2 = Nation("Angola", "Republic of Angola", 24, "AO", "AGO", "Luanda")
+#
+#...then made them into a list like this:
+#nation_list = [new_nation_1, new_nation_2]
+#
+#...then called the function:
+#new_dict = to_dictionaries(nation_list)
+#
+#...then we would get this dictionary in return:
+#{"Albania": {"long_name": "Republic of Albania", "iso_code": 8, "iso_short": "AL", "iso_long": "ALB", "capital": "Tirana"},
+# "Angola": {"long_name": "Republic of Angola", "iso_code": 24, "iso_short": "AO", "iso_long": "AGO", "capital": "Luanda"}}
+#
+#HINT: This problem looks long, but don't overcomplicate
+#it. Each part is something you've done lots of times:
+#iterate through a list of instances, get the key, create
+#a new dictionary, add the other key-values one-by-one,
+#and return the overall dictionary.
+
+
+#Add your code here!
+def to_dictionaries(list_of_instances):
+    dictionary = {}
+    for instance in list_of_instances:
+        mini_dictionary = {}
+        mini_dictionary["long_name"] = instance.long_name
+        mini_dictionary["iso_code"] = instance.iso_code
+        mini_dictionary["iso_short"] = instance.iso_short
+        mini_dictionary["iso_long"] = instance.iso_long
+        mini_dictionary["capital"] = instance.capital
+        dictionary[instance.short_name] = mini_dictionary
+            
+    return dictionary
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print (although the order of the keys may vary) the
+#sample dictionaries shown in the directions.
+new_nation_1 = Nation("Albania", "Republic of Albania", 8, "AL", "ALB", "Tirana")
+new_nation_2 = Nation("Angola", "Republic of Angola", 24, "AO", "AGO", "Luanda")
+nation_list = [new_nation_1, new_nation_2]
+print(to_dictionaries(nation_list))
+
+###
+
+#In this problem, we're going to explore a little of how
+#game AI works. We'll do this with a simple problem: building
+#an agent to play the popular card game Blackjack.
+#
+#Blackjack is a card game played with a standard 52-card
+#deck. Suits do not matter in Blackjack, and so we'll just
+#use letters to indicate the different cards: A, 2, 3, 4, 5,
+#6, 7, 8, 9, 0 (for 10), J, Q, K. Note that the number 10 is
+#represented by the single character 0.
+#
+#The goal of Blackjack is to get as close to 21 points as
+#possible without going higher. Each of the thirteen cards
+#above has a point total attached: the numerals are worth
+#their given value (2 points for 2, 7 points for 7, etc.).
+#J, Q, and K are worth 10 points. A is worth either 1 or 11
+#points, whichever is better for the player.
+#
+#At any time, the player has some number of cards in their
+#hand. They must then make a decision of whether to Hit or
+#Stay. Hit means they request an additional card, Stay means
+#they stop with their current total. Players generally try
+#to Hit until it is likely that another card will push them
+#over 21. For example, if a player has a 5 and a 7, there is
+#a relatively low chance that another card would push them
+#over 21 (only J, Q, and K would do so, since 12 + 10 = 22).
+#On the other hand, if they have a 5, a 6, and a 7, they will
+#likely stay because any card above 3 will push them over 21
+#points.
+#
+#The specific goal in Blackjack is to get closer to 21 than
+#the dealer. Dealers must follow a set of prescribed rules
+#for when to Hit and Stay. These are the rules we'll use for
+#our Blackjack-playing AI.
+#
+#The rules are:
+#
+# - The dealer must Hit if their total is below 17.
+# - The dealer must Stay as soon as their total is 17 or
+#   higher.
+# - An Ace (A) should be counted as 11 if it puts the
+#   dealer between 17 and 21 points. If it puts them over
+#   21, though, it should be counted as 1.
+#
+#For example, imagine the dealer's first cards are A and 3.
+#Their point total is either 4 or 14, both below 17, so they
+#Hit. The next card is a 9. If we count the A as 11, then
+#their total is now 23 (11 + 3 + 9), and so we count the
+#A as 1. Their total is 13, and so they Hit again. The next
+#card is a 7, so their total is 20, so they Stay.
+#
+#Write a function called next_move. next_move should have
+#one parameter, a string. Each character of the string will
+#be a card in the dealer's current hand, such as "AK" or
+#"175". The function should return one of three strings:
+#
+# - "Hit" if the dealer should take another card.
+# - "Stay" if the dealer should not take another card.
+# - "Bust" if the sum is already over 21.
+#
+#Remember, your function is only responsible for playing
+#one move at a time. Take in a string representing the
+#current hand, return "Hit", "Stay", or "Bust".
+
+
+#Add your code here!
+def next_move(string):
+    sum = 0
+    for char in string:
+        if char in "123456789":
+            sum += int(char)
+        if char in "0JQK":
+            sum += 10
+        if char == "A":
+            if 6 <= sum <= 10:
+                sum += 10
+            else:
+                sum += 1
+    if "A" in string:
+        if sum == 11:
+            sum = 21
+    if sum < 17:
+        return "Hit"
+    if 21 >= sum >= 17:
+        return "Stay"
+    if sum > 17:
+        return "Bust"
+
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: Hit, Hit, Stay, and Bust.
+print(next_move("A55"))
+
+###
+
+#Earlier in the course, you implemented a function that could
+#find if someone had won a particular game of either tic-tac-
+#toe or mancala based on a 2D list or tuple representing the
+#current game board.
+#
+#In this problem, you'll do the same thing, but for the game
+#Connect 4. Write a function called check_winner which takes
+#as input a 2D list. It should return "X" if there are four
+#adjacent "X" values anywhere in the list (row, column,
+#diagonal); "O" if there are four adjacent "O" values
+#anywhere in the list; and None if there are neither.
+#
+#Here are the ways Connect-4 is different from tic-tac-toe:
+#
+# - Connect-4 is played with 6 rows and 7 columns, not 3
+#   rows and 3 columns.
+# - You must have 4 in a row (or column or diagonal) to win
+#   instead of 3.
+# - You may only place pieces in the bottom-most empty
+#   space in a column (e.g. you "drop" the pieces in the
+#   column and they fall to the first empty spot). Note,
+#   though, that this shouldn't affect your reasoning.
+#
+#To keep things simple, we'll still use "X" and "O" to
+#represent the players, and None to represent empty spots.
+#You may assume there will be only one winner per board,
+#no characters besides "X", "O", and None, and you don't
+#have to worry about whether the board is actually a
+#valid game of Connect 4.
+#
+#Hints:
+# - Don't forget both kinds of diagonals, top-left to
+#   bottom-right and bottom-left to top-right.
+# - This board is too large to check every possible place
+#   for a winner: there are 69 places a player could win.
+# - Remember, if you put a negative index in a list,
+#   Python "wraps around" and checks the last value. You
+#   may have to control for this.
+
+
+#Write your function here!
+def check_winner(board):
+    rows = 6
+    cols = 7
+
+    for row in range(rows):
+        for col in range(cols - 3):
+            if board[row][col] == board[row][col + 1] == board[row][col + 2] == board[row][col + 3] and board[row][col] is not None:
+                return board[row][col]
+
+    for col in range(cols):
+        for row in range(rows - 3):
+            if board[row][col] == board[row + 1][col] == board[row + 2][col] == board[row + 3][col] and board[row][col] is not None:
+                return board[row][col]
+
+    for row in range(3, rows):
+        for col in range(cols - 3):
+            if board[row][col] == board[row - 1][col + 1] == board[row - 2][col + 2] == board[row - 3][col + 3] and board[row][col] is not None:
+                return board[row][col]
+
+    for row in range(rows - 3):
+        for col in range(cols - 3):
+            if board[row][col] == board[row + 1][col + 1] == board[row + 2][col + 2] == board[row + 3][col + 3] and board[row][col] is not None:
+                return board[row][col]
+
+    return None
+    
+
+
+#The code below tests your function on three Connect-4
+#boards. Remember, the line breaks are not needed to create
+#a 2D tuple; they're used here just for readability.
+xwins = ((None, None, None, None, None, None, None),
+         (None, None, None, None, None, None, None),
+         (None, None, None, None, "X" , None, None),
+         (None, None, None, "X" , "O" , "O", None),
+         (None, "O" , "X" , "X" , "O" , "X", None),
+         ("O" , "X" , "O" , "O" , "O" , "X" , "X"))
+owins = ((None, None, None, None, None, None, None),
+         (None, None, None, None, None, None, None),
+         ("O" , "O" , "O" , "O" , None, None, None),
+         ("O" , "X" , "X" , "X" , None, None, None),
+         ("X" , "X" , "X" , "O" , "X" , None, None),
+         ("X" , "O" , "O" , "X" , "O" , None, None))
+nowins =(("X" , "X" , None, None, None, None, None),
+         ("O" , "O" , None, None, None, None, None),
+         ("O" , "X" , "O" , "O" , None, "O" , "O" ),
+         ("O" , "X" , "X" , "X" , None, "X" , "X" ),
+         ("X" , "X" , "X" , "O" , "X" , "X" , "O" ),
+         ("X" , "O" , "O" , "X" , "O" , "X" , "O" ))
+         
+print(check_winner(xwins))
+print(check_winner(owins))
+print(check_winner(nowins))
+
+
+###
+
+#A common problem in academic settings is plagiarism
+#detection. Fortunately, software can make this pretty easy!
+#
+#In this problem, you'll be given two files with text in
+#them. Write a function called check_plagiarism with two
+#parameters, each representing a filename. The function
+#should find if there are any instances of 5 or more
+#consecutive words appearing in both files. If there are,
+#return the longest such string of words (in terms of number
+#of words, not length of the string). If there are not,
+#return the boolean False.
+#
+#For simplicity, the files will be lower-case text and spaces
+#only: there will be no punctuation, upper-case text, or
+#line breaks.
+#
+#We've given you three files to experiment with. file_1.txt
+#and file_2.txt share a series of 5 words: we would expect
+#check_plagiarism("file_1.txt", "file_2.txt") to return the
+#string "if i go crazy then". file_1.txt and file_3.txt
+#share two series of 5 words, and one series of 11 words:
+#we would expect check_plagiarism("file_1.txt", "file_3.txt")
+#to return the string "i left my body lying somewhere in the
+#sands of time". file_2.txt and file_3.txt do not share any
+#text, so we would expect check_plagiarism("file_2.txt",
+#"file_3.txt") to return the boolean False.
+#
+#Be careful: there are a lot of ways to do this problem, but
+#some would be massively time- or memory-intensive. If you
+#get a MemoryError, it means that your solution requires
+#storing too much in memory for the code to ever run to
+#completion. If you get a message that says "KILLED", it
+#means your solution takes too long to run.
+
+
+#Add your code here!
+def check_plagiarism(file1, file2):
+    file1 = open(file1, "r")
+    file2 = open(file2, "r")
+    text1 = file1.read()
+    text2 = file2.read()
+    words1 = text1.split()
+    words2 = text2.split()
+
+    length = 0
+    max_length = 0
+    max_string = ""
+    
+    for char1 in range(len(words1) - 4):
+        for char2 in range(len(words2) - 4):
+            if words1[char1:char1 + 5] == words2[char2:char2 + 5]:
+                length = 5
+                while char1 + length < len(words1) and char2 + length < len(words2) and words1[char1 + length] == words2[char2 + length]:
+                    length += 1
+             
+            if length > max_length:
+                max_length = length
+                max_string = " ".join(words1[char1:char1 + length])
+        
+    if max_string == "":
+        return False
+    
+    else:
+        return max_string
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print:
+#if i go crazy then
+#i left my body lying somewhere in the sands of time
+#False
+print(check_plagiarism("file_1.txt", "file_2.txt"))
+print(check_plagiarism("file_1.txt", "file_3.txt"))
+print(check_plagiarism("file_2.txt", "file_3.txt"))
+
+###
+
+#Let's try out a sort of data analysis-style problem. In
+#this problem, you're going to have access to a data set
+#covering Georgia Tech's all-time football history. The data
+#will be a CSV file, meaning that each line will be a comma-
+#separated list of values. Each line will describe one game.
+#The columns, from left-to-right, are:
+#
+# - Date: the date of the game, in Year-Month-Day format.
+# - Opponent: the name of the opposing team
+# - Location: Home, Away, or Neutral
+# - Points For: Points scored by Georgia Tech
+# - Points Against: Points scored by the opponent
+#
+#If Points For is greater than Points Against, then Georgia
+#Tech won the game. If Points For is less than Points Against,
+#then Georgia Tech lost the game. If the two are equal, then
+#the game was a tie.
+#
+#You can see a subsection of this dataset in season2016.csv
+#in the top left, but the actual dataset you'll be accessing
+#here will have 1237 games.
+#
+#Write a function called all_time_record. all_time_record
+#should take as input a string representing an opposing team
+#name. It should return a string representing the all-time
+#record between Georgia Tech and that opponent, in the form
+#Wins-Losses-Ties. For example, Georgia Tech has beaten
+#Clemson 51 times, lost 28 times, and tied 2 times. So,
+#all_time_record("Clemson") would return the string "51-28-2".
+#
+#We have gone ahead and started the function and opened the
+#file for you. The first line of the file are headers:
+#Date,Opponent,Location,Points For,Points Against. After that,
+#every line is a game.
+
+
+def all_time_record(opponent):
+    record_file = open('../resource/lib/public/georgia_tech_football.csv', 'r')
+    
+    
+    #Add some code here! Don't forget to close the file when 
+    #you're done reading from it, before returning.
+    lines = record_file.readlines()
+    record_file.close()
+    
+    wins = 0
+    losses = 0
+    ties = 0
+    
+    for line in lines[1:]:
+        game_data = line.strip()
+        game_data = line.split(",")
+        game_opponent = game_data[1]
+        points_for = int(game_data[3])
+        points_against = int(game_data[4])
+        
+        if game_opponent == opponent:
+            if points_for > points_against:
+                wins += 1
+            elif points_for < points_against:
+                losses += 1
+            else:
+                ties += 1
+        
+    return str(wins) + "-" + str(losses) + "-" + str(ties)
+    
+
+#Below are some lines of code that will test your function.
+#You can change the value of the variable(s) to test your
+#function with different inputs.
+#
+#If your function works correctly, this will originally
+#print: 51-28-2, 51-33-1, and 29-21-3, each on a separate
+#line.
+print(all_time_record("Clemson"))
+print(all_time_record("Duke"))
+print(all_time_record("North Carolina"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
